@@ -6,23 +6,10 @@ module Yelp
       PATH = '/v2/search'
 
       def search(location, params = {}, locale = {})
-        path = build_request(location, params, locale)
-        response = JSON.parse(get(path))
-      end
+        params.merge(locale)
+        params.merge({location: location})
 
-      def build_request(location, params = {}, locale = {})
-        path = PATH.dup
-        path << '?'
-        path << "location=#{location}"
-
-        [params, locale].each do |hash|
-          hash.each do |key,value|
-            path << '&'
-            path << "#{key}=#{value}"
-          end
-        end
-
-        path
+        response = JSON.parse(get(PATH, params).body)
       end
     end
   end

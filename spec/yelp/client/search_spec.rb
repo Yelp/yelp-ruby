@@ -14,16 +14,8 @@ describe Yelp::Client::Search do
   end
 
   describe 'search' do
-    it 'should build the requests path correctly' do
-      path = @client.build_request(location, params)
-      path.should include "?location=#{location}"
-      path.should include "&term=#{params[:term]}"
-      path.should include "&category_filter=#{params[:category_filter]}"
-    end
-
-    it 'should not overwrite the constant' do
-      path = @client.build_request(location, params)
-      Yelp::Client::Search::PATH.should eql '/v2/search'
+    it 'should make a successful search against the api' do
+      @client.search(location)
     end
   end
 end

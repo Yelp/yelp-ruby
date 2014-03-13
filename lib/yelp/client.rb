@@ -31,8 +31,8 @@ module Yelp
       end
     end
 
-    def get(path)
-      @access_token.get(API_HOST + path.gsub(' ', '%20')).body
+    def get(path, params)
+      response = @connection.get path, params
     end
   end
 end
