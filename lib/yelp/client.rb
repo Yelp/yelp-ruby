@@ -20,5 +20,10 @@ module Yelp
       consumer      ||= OAuth::Consumer.new(@consumer_key, @consumer_secret, site: API_HOST)
       @access_token ||= OAuth::AccessToken.new(consumer, @token, @token_secret)
     end
+
+    def get(path)
+      authorize
+      @access_token.get(API_HOST + path.gsub(' ', '%20')).body
+    end
   end
 end

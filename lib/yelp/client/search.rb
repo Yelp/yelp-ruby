@@ -1,3 +1,5 @@
+require 'json'
+
 module Yelp
   class Client
     module Search
@@ -5,6 +7,7 @@ module Yelp
 
       def search(location, params = {}, locale = {})
         path = build_request(location, params, locale)
+        response = JSON.parse(get(path))
       end
 
       def build_request(location, params = {}, locale = {})
