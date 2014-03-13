@@ -1,7 +1,10 @@
 require 'oauth'
+require 'yelp/client/search'
 
 module Yelp
   class Client
+    include Yelp::Client::Search
+
     AUTH_KEYS = [:consumer_key, :consumer_secret, :token, :token_secret]
     API_HOST  = 'http://api.yelp.com'
 
