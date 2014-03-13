@@ -8,7 +8,7 @@ module Yelp
       end
 
       def build_request(location, params = {}, locale = {})
-        path = PATH
+        path = PATH.dup
         path << '?'
         path << "location=#{location}"
 

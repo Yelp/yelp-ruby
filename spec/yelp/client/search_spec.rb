@@ -27,5 +27,10 @@ describe Yelp::Client::Search do
       path.should include "&term=#{params[:term]}"
       path.should include "&category_filter=#{params[:category_filter]}"
     end
+
+    it 'should not overwrite the constant' do
+      path = @client.build_request(location, params)
+      Yelp::Client::Search::PATH.should eql '/v2/search'
+    end
   end
 end
