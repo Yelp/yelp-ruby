@@ -24,13 +24,6 @@ module Yelp
 
         path
       end
-
-      private
-      # This is for Rspec only, this makes it easy to make sure that
-      # the search module is getting the access token from Client
-      def search_connection
-        @connection
-      end
     end
   end
 end

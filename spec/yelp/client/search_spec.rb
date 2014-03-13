@@ -13,12 +13,6 @@ describe Yelp::Client::Search do
     @client = Yelp::Client.new(keys)
   end
 
-  describe 'inheritance' do
-    it 'should get @connection from search' do
-      @client.send(:search_connection).should eql @client.connection
-    end
-  end
-
   describe 'search' do
     it 'should build the requests path correctly' do
       path = @client.build_request(location, params)
