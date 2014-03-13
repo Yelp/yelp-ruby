@@ -30,9 +30,5 @@ module Yelp
         conn.adapter :net_http
       end
     end
-
-    def get(path, params)
-      response = @connection.get path, params
-    end
   end
 end
