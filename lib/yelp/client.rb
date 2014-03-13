@@ -1,4 +1,5 @@
-require 'oauth'
+require 'faraday'
+require 'faraday_middleware'
 require 'yelp/client/search'
 
 module Yelp
@@ -8,21 +9,28 @@ module Yelp
     AUTH_KEYS = [:consumer_key, :consumer_secret, :token, :token_secret]
     API_HOST  = 'http://api.yelp.com'
 
-    attr_reader *AUTH_KEYS, :access_token
+    attr_reader *AUTH_KEYS, :connection
 
     def initialize(options = {})
       AUTH_KEYS.each do |key|
         instance_variable_set("@#{key}", options[key])
       end
+
+      configure
     end
 
-    def authorize
-      consumer      ||= OAuth::Consumer.new(@consumer_key, @consumer_secret, site: API_HOST)
-      @access_token ||= OAuth::AccessToken.new(consumer, @token, @token_secret)
+    def configure
+      keys = { consumer_key: @consumer_key,
+               consumer_secret: @consumer_secret,
+               token: @token,
+               token_secret: @token_secret }
+
+      @connection ||= Faraday.new API_HOST do |conn|
+        conn.request :oauth, keys
+      end
     end
 
     def get(path)
-      authorize
       @access_token.get(API_HOST + path.gsub(' ', '%20')).body
     end
   end

@@ -2,4 +2,5 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'oauth'
+gem 'faraday'
+gem 'faraday_middleware'

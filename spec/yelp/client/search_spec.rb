@@ -11,12 +11,11 @@ describe Yelp::Client::Search do
 
   before do
     @client = Yelp::Client.new(keys)
-    @client.authorize
   end
 
   describe 'inheritance' do
-    it 'should get @access_token from search' do
-      @client.send(:search_access_token).should eql @client.access_token
+    it 'should get @connection from search' do
+      @client.send(:search_connection).should eql @client.connection
     end
   end
 
