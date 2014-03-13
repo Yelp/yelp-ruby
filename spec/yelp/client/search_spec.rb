@@ -1,10 +1,10 @@
 require 'yelp'
 
 describe Yelp::Client::Search do
-  let(:keys) { Hash[consumer_key: 'abc',
-                    consumer_secret: 'def',
-                    token: 'ghi',
-                    token_secret: 'jkl'] }
+  let(:keys) { Hash[consumer_key: ENV['YELP_CONSUMER_KEY'],
+                    consumer_secret: ENV['YELP_CONSUMER_SECRET'],
+                    token: ENV['YELP_TOKEN'],
+                    token_secret: ENV['YELP_TOKEN_SECRET']] }
   let(:location) { 'San Francisco' }
   let(:params) { Hash[term: 'restaurants',
                       category_filter: 'discgolf'] }
