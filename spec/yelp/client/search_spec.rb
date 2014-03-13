@@ -15,7 +15,7 @@ describe Yelp::Client::Search do
 
   describe 'search' do
     it 'should make a successful search against the api' do
-      @client.search(location)
+      @client.search(location, {}, {}, true).status.should eql 200
     end
   end
 end

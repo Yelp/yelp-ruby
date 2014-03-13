@@ -5,11 +5,15 @@ module Yelp
     module Search
       PATH = '/v2/search'
 
-      def search(location, params = {}, locale = {})
-        params.merge(locale)
-        params.merge({location: location})
+      def search(location, params = {}, locale = {}, full_response = false)
+        params.merge!(locale)
+        params.merge!({location: location})
 
-        response = JSON.parse(get(PATH, params).body)
+        unless full_response
+          return JSON.parse(get(PATH, params).body)
+        else
+          return get(PATH, params)
+        end
       end
     end
   end
