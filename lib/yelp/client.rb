@@ -25,8 +25,9 @@ module Yelp
                token: @token,
                token_secret: @token_secret }
 
-      @connection ||= Faraday.new API_HOST do |conn|
+      @connection = Faraday.new API_HOST do |conn|
         conn.request :oauth, keys
+        conn.adapter :net_http
       end
     end
 
