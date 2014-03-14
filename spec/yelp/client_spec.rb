@@ -1,5 +1,4 @@
 require 'yelp'
-require 'pry'
 
 describe Yelp::Client do
   let(:keys) { Hash[consumer_key: 'abc',
