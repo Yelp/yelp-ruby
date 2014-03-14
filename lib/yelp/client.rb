@@ -2,6 +2,7 @@ require 'faraday'
 require 'faraday_middleware'
 
 require 'yelp/deep_struct'
+require 'yelp/error'
 require 'yelp/client/business'
 require 'yelp/client/search'
 
@@ -38,6 +39,12 @@ module Yelp
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http
+      end
+    end
+
+    def check_api_keys
+      AUTH_KEYS.each do |key|
+        raise MissingAPIKeys, "You're missing an API key" if instance_variable_get("@#{key}").nil?
       end
     end
   end

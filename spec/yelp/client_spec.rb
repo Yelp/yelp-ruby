@@ -29,4 +29,15 @@ describe Yelp::Client do
       @client.token.should eql keys[:token]
     end
   end
+
+  describe 'errors' do
+    it 'should raise an error when missing a key' do
+      bad_keys = keys
+      bad_keys[:consumer_key] = nil
+      bad_client = Yelp::Client.new(bad_keys)
+      lambda {
+        bad_client.check_api_keys
+      }.should raise_error
+    end
+  end
 end
