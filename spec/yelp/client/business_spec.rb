@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'yelp'
 
 describe Yelp::Client::Business do
@@ -13,15 +14,21 @@ describe Yelp::Client::Business do
 
   describe 'business' do
     it 'should make a successful request to the api for the business' do
-      @client.business_request(business).status.should eql 200
+      VCR.use_cassette('business') do
+        @client.business_request(business).status.should eql 200
+      end
     end
 
     it 'should construct a deep struct of the response' do
-      @client.business(business).class.should eql DeepStruct
+      VCR.use_cassette('business') do
+        @client.business(business).class.should eql DeepStruct
+      end
     end
 
     it 'should get business information for the business' do
-      @client.business(business).name.should eql 'Yelp'
+      VCR.use_cassette('business') do
+        @client.business(business).name.should eql 'Yelp'
+      end
     end
   end
 end

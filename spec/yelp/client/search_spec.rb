@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'yelp'
 
 describe Yelp::Client::Search do
@@ -15,15 +16,21 @@ describe Yelp::Client::Search do
 
   describe 'search' do
     it 'should make a successful search against the api' do
-      @client.search_request({location: location}).status.should eql 200
+      VCR.use_cassette('search') do
+        @client.search_request({location: location}).status.should eql 200
+      end
     end
 
     it 'should construct a deep struct of the response' do
-      @client.search(location).class.should eql DeepStruct
+      VCR.use_cassette('search') do
+        @client.search(location).class.should eql DeepStruct
+      end
     end
 
     it 'should search the yelp api and get results' do
-      @client.search(location).businesses.size.should be > 0
+      VCR.use_cassette('search') do
+        @client.search(location).businesses.size.should be > 0
+      end
     end
   end
 end
