@@ -1,6 +1,9 @@
-# Yelprb
+# yelp.rb
 
-TODO: Write a gem description
+This is an API wrapper for the Yelp API. It'll make the process of consuming data from the Yelp API
+a little cleaner and more straight forward.
+
+At the moment this only wraps API v2.0.
 
 ## Installation
 
@@ -18,11 +21,113 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Basic usage
+
+The gem uses a client model to query against the API. You create and configure a client with your API keys and make requests through that.
+
+```
+require 'yelp'
+
+client = Yelp::Client.new({ consumer_key: YOUR_CONSUMER_KEY,
+                            consumer_secret: YOUR_CONSUMER_SECRET,
+                            token: YOUR_TOKEN,
+                            token_secret: YOUR_TOKEN_SECRET
+                          })
+
+```
+
+After creating the client you're able to make requests to either the Search API or Business API. Note: all four keys are required for making requests against the Yelp API. If you need any keys sign up and get access from [http://www.yelp.com/developers](http://www.yelp.com/developers).
+
+### [Search API](http://www.yelp.com/developers/documentation/v2/search_api)
+
+Once you have a client you can use ``#search`` to make a request to the Search API.
+
+```
+client.search('San Francisco')
+
+```
+
+You can also pass in general params and locale options to the method as hashes
+
+```
+params = { term: 'food',
+           limit: 3,
+           category_filter: 'discgolf'
+         }
+
+locale = { lang: 'fr' }
+
+client.search('San Francisco', params, locale)
+
+```
+
+Key names and options for params and locale match the documented names on the [Yelp Search API](http://www.yelp.com/developers/documentation/v2/search_api)
+
+Additionally there are two more search methods for searching by a [bounding box](http://www.yelp.com/developers/documentation/v2/search_api#searchGBB) or for [geographical coordinates](http://www.yelp.com/developers/documentation/v2/search_api#searchGC):
+
+```
+# bounding box
+bounding_box = { sw_latitude: 37.7577, sw_longitude: -122.4376, ne_latitude: 37.785381, ne_longitude: -122.391681 }
+client.search_by_bounding_box(bounding_box, params, locale)
+
+# coordinates
+coordinates = { latitude: 37.7577, longitude: -122.4376 }
+client.search_by_coordinates(coordinates, params, locale)
+
+```
+
+### [Business API](http://www.yelp.com/developers/documentation/v2/business)
+
+To use the Business API after you have a client you just need to call ``#business`` with a business id
+
+```
+client.business('yelp-san-francisco')
+
+```
+
+You can pass in locale information as well
+
+```
+locale = { lang: 'fr' }
+
+client.business('yelp-san-francisco', locale)
+
+```
+
+## Responses
+
+Responses from the API are all parsed and converted into Ruby objects. You're able to access information using dot-notation
+
+```
+## search
+response = client.search('San Francisco')
+
+response.businesses
+# [<Business 1>, <Business 2>, ...]
+
+response.businesses[0].name
+# "Kim Makoi, DC"
+
+response.businesses[0].rating
+# 5.0
+
+
+## business
+response = client.business('yelp-san-francisco')
+
+response.name
+# Yelp
+
+response.categories
+# [["Local Flavor", "localflavor"], ["Mass Media", "massmedia"]]
+
+```
+
+For specific response values check out the docs for the [search api](http://www.yelp.com/developers/documentation/v2/search_api#rValue) and the [business api](http://www.yelp.com/developers/documentation/v2/business#rValue)
 
 ## Contributing
 
-1. Fork it ( http://github.com/telmalem/yelp.rb/fork )
+1. Fork it ( http://github.com/yelp/yelp.rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
