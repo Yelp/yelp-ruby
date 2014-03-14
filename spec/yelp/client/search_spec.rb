@@ -32,5 +32,11 @@ describe Yelp::Client::Search do
         @client.search(location).businesses.size.should be > 0
       end
     end
+
+    it 'should search the yelp api using a bounding box and get results' do
+      VCR.use_cassette('search_bounding_box') do
+        @client.search_by_bounding_box(37.7577, -122.4376, 37.785381, -122.391681).businesses.size.should be > 0
+      end
+    end
   end
 end
