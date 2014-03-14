@@ -10,7 +10,22 @@ class DeepStruct < OpenStruct
 
     if hash
       hash.each do |k,v|
-        @table[k.to_sym] = (v.is_a?(Hash) ? self.class.new(v) : v)
+        if v.is_a?(Hash)
+          @table[k.to_sym] = self.class.new(v)
+        elsif v.is_a?(Array)
+          array = []
+          v.each do |v2|
+            if v2.is_a?(Hash)
+              array << self.class.new(v2)
+            else
+              array << v2
+            end
+          end
+          @table[k.to_sym] = array
+        else
+          @table[k.to_sym] = v
+        end
+
         @hash_table[k.to_sym] = v
 
         new_ostruct_member(k)
