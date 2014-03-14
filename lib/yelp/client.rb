@@ -1,7 +1,7 @@
-require 'yelp/deep_struct'
 require 'faraday'
 require 'faraday_middleware'
 
+require 'yelp/deep_struct'
 require 'yelp/client/business'
 require 'yelp/client/search'
 
@@ -15,6 +15,8 @@ module Yelp
 
     attr_reader *AUTH_KEYS, :connection
 
+    # Creates an instance of the Yelp client
+    # Takes a hash then creates instance variables for each key, value pair passed
     def initialize(options = {})
       AUTH_KEYS.each do |key|
         instance_variable_set("@#{key}", options[key])
@@ -23,6 +25,7 @@ module Yelp
       configure
     end
 
+    # Configure Faraday for the API connection
     def configure
       keys = { consumer_key: @consumer_key,
                consumer_secret: @consumer_secret,
@@ -30,7 +33,10 @@ module Yelp
                token_secret: @token_secret }
 
       @connection = Faraday.new API_HOST do |conn|
+        # Use the Faraday OAuth middleware for OAuth 1.0 requests
         conn.request :oauth, keys
+
+        # Using default http library, had to specify to get working
         conn.adapter :net_http
       end
     end
