@@ -32,6 +32,8 @@ module Yelp
       # option accuracy, altitude, and altitude_accuracy to search an area.
       # More info at: http://www.yelp.com/developers/documentation/v2/search_api#searchGC
       def search_by_coordinates(coordinates, params = {}, locale = {})
+        raise MissingLatLng, "Missing required latitude or longitude parameters" if coordinates[:latitude].nil? || coordinates[:longitude].nil?
+
         options = { ll: build_coordinates_string(coordinates) }
         options.merge!(params)
         options.merge!(locale)

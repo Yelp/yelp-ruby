@@ -57,4 +57,12 @@ describe Yelp::Client::Search do
       @client.build_coordinates_string(coordinates).should eql '1,2,,4,'
     end
   end
+
+  describe 'errors' do
+    it 'should throw an error if searching by coordinates and missing latitude or longitude' do
+      lambda {
+        @client.search_by_coordinates({}, params)
+      }.should raise_error
+    end
+  end
 end
