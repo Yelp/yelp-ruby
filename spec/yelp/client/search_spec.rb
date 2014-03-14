@@ -23,7 +23,7 @@ describe Yelp::Client::Search do
     end
 
     it 'should search the yelp api and get results' do
-      response.businesses.size.should be > 0
+      @client.search(location).businesses.size.should be > 0
     end
   end
 end
