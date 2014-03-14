@@ -1,10 +1,13 @@
 require 'yelp/deep_struct'
 require 'faraday'
 require 'faraday_middleware'
+
+require 'yelp/client/business'
 require 'yelp/client/search'
 
 module Yelp
   class Client
+    include Yelp::Client::Business
     include Yelp::Client::Search
 
     AUTH_KEYS = [:consumer_key, :consumer_secret, :token, :token_secret]
