@@ -9,7 +9,7 @@ module Yelp
         params.merge!(locale)
         params.merge!({location: location})
 
-        JSON.parse(search_request.body)
+        DeepStruct.new(JSON.parse(search_request(params).body))
       end
 
       def search_request(params)

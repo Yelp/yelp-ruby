@@ -1,3 +1,4 @@
+require 'yelp/deep_struct'
 require 'faraday'
 require 'faraday_middleware'
 require 'yelp/client/search'

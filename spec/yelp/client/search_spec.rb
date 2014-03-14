@@ -17,5 +17,13 @@ describe Yelp::Client::Search do
     it 'should make a successful search against the api' do
       @client.search_request({location: location}).status.should eql 200
     end
+
+    it 'should construct a deep struct of the response' do
+      @client.search(location).class.should eql DeepStruct
+    end
+
+    it 'should search the yelp api and get results' do
+      response.businesses.size.should be > 0
+    end
   end
 end
