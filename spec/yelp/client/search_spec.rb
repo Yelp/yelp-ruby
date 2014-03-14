@@ -73,4 +73,10 @@ describe Yelp::Client::Search do
       }.should raise_error
     end
   end
+
+  it 'should throw an error if searching by bounding box and missing any of the box params' do
+    lambda {
+      @client.search_by_bounding_box({}, params)
+    }.should raise_error
+  end
 end
