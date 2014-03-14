@@ -38,5 +38,23 @@ describe Yelp::Client::Search do
         @client.search_by_bounding_box(37.7577, -122.4376, 37.785381, -122.391681).businesses.size.should be > 0
       end
     end
+
+    it 'should search the yelp api using coordinates and get results' do
+      VCR.use_cassette('coordinates') do
+        @client.search_by_coordinates({latitude: 37.7577, longitude: -122.4376}).businesses.size.should be > 0
+      end
+    end
+  end
+
+  describe '#build_coordinates_string' do
+    it 'should correctly build a hash of coordinates' do
+      coordinates = { latitude: 1, longitude: 2, accuracy: 3, altitude: 4, altitude_accuracy: 5 }
+      @client.build_coordinates_string(coordinates).should eql '1,2,3,4,5'
+    end
+
+    it 'should create it correctly if given only a few options' do
+      coordinates = { latitude: 1, longitude: 2, altitude: 4, }
+      @client.build_coordinates_string(coordinates).should eql '1,2,,4,'
+    end
   end
 end
