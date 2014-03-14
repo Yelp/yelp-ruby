@@ -21,6 +21,13 @@ module Yelp
       # along with regular parameters to make a request to the search endpoint
       # More info at: http://www.yelp.com/developers/documentation/v2/search_api#searchGBB
       def search_by_bounding_box(bounding_box, params = {}, locale = {})
+        if bounding_box[:sw_latitude].nil?  ||
+           bounding_box[:sw_longitude].nil? ||
+           bounding_box[:ne_latitude].nil?  ||
+           bounding_box[:ne_longitude].nil?
+          raise BoundingBoxNotComplete, "Missing required values for bounding box"
+        end
+
         options = { bounds: build_bounding_box(bounding_box) }
         options.merge!(params)
         options.merge!(locale)
