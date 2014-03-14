@@ -35,7 +35,8 @@ describe Yelp::Client::Search do
 
     it 'should search the yelp api using a bounding box and get results' do
       VCR.use_cassette('search_bounding_box') do
-        @client.search_by_bounding_box(37.7577, -122.4376, 37.785381, -122.391681).businesses.size.should be > 0
+        bounding_box = {sw_latitude: 37.7577, sw_longitude: -122.4376, ne_latitude: 37.785381, ne_longitude: -122.391681}
+        @client.search_by_bounding_box(bounding_box).businesses.size.should be > 0
       end
     end
 
@@ -43,6 +44,13 @@ describe Yelp::Client::Search do
       VCR.use_cassette('coordinates') do
         @client.search_by_coordinates({latitude: 37.7577, longitude: -122.4376}).businesses.size.should be > 0
       end
+    end
+  end
+
+  describe '#build_bounding_box' do
+    it 'should building a bounding box' do
+      bounding_box = {sw_latitude: 1, sw_longitude: 2, ne_latitude: 3, ne_longitude: 4}
+      @client.build_bounding_box(bounding_box).should eql '1,2|3,4'
     end
   end
 

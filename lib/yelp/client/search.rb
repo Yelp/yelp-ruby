@@ -20,8 +20,8 @@ module Yelp
       # Search by a bounding box: specify a south west lat/long and a ne lat/long
       # along with regular parameters to make a request to the search endpoint
       # More info at: http://www.yelp.com/developers/documentation/v2/search_api#searchGBB
-      def search_by_bounding_box(sw_latitude, sw_longitude, ne_latitude, ne_longitude, params = {}, locale = {})
-        options = { bounds: "#{sw_latitude},#{sw_longitude}|#{ne_latitude},#{ne_longitude}" }
+      def search_by_bounding_box(bounding_box, params = {}, locale = {})
+        options = { bounds: build_bounding_box(bounding_box) }
         options.merge!(params)
         options.merge!(locale)
 
@@ -39,6 +39,12 @@ module Yelp
         options.merge!(locale)
 
         DeepStruct.new(JSON.parse(search_request(options).body))
+      end
+
+      # Build the bounding box for the API. Takes in a hash of the bounding box and
+      # combines the coordinates into the properly formatted string
+      def build_bounding_box(bounding_box)
+        "#{bounding_box[:sw_latitude]},#{bounding_box[:sw_longitude]}|#{bounding_box[:ne_latitude]},#{bounding_box[:ne_longitude]}"
       end
 
       # Build the coordinates string for the api. Takes the hash of coordinates, loops
