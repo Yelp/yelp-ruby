@@ -20,7 +20,7 @@ describe Yelp::Client do
 
   describe 'oauth authorization' do
     it 'should set the appropriate values for oauth' do
-      @client.configure
+      @client.configure_connection
 
       @client.consumer_key.should eql keys[:consumer_key]
       @client.consumer_secret.should eql keys[:consumer_secret]

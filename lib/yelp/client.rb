@@ -23,11 +23,11 @@ module Yelp
         instance_variable_set("@#{key}", options[key])
       end
 
-      configure
+      configure_connection
     end
 
     # Configure Faraday for the API connection
-    def configure
+    def configure_faraday
       keys = { consumer_key: @consumer_key,
                consumer_secret: @consumer_secret,
                token: @token,
@@ -41,6 +41,7 @@ module Yelp
         conn.adapter :net_http
       end
     end
+    alias_method :configure_connection, :configure_faraday
 
     def check_api_keys
       AUTH_KEYS.each do |key|
