@@ -24,4 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
+
+  spec.add_dependency 'faraday'
+  spec.add_dependency 'faraday_middleware'
+  spec.add_dependency 'simple_oauth'
 end
