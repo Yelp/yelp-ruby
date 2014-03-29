@@ -133,6 +133,8 @@ module Yelp
         DeepStruct.new(JSON.parse(search_request(options).body))
       end
 
+      private
+
       # Build the bounding box for the API. Takes in a hash of the bounding box and
       # combines the coordinates into the properly formatted string
       def build_bounding_box(bounding_box)

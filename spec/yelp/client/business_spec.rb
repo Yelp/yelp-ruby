@@ -13,12 +13,6 @@ describe Yelp::Client::Business do
   end
 
   describe 'business' do
-    it 'should make a successful request to the api for the business' do
-      VCR.use_cassette('business') do
-        @client.business_request(business).status.should eql 200
-      end
-    end
-
     it 'should construct a deep struct of the response' do
       VCR.use_cassette('business') do
         @client.business(business).class.should eql DeepStruct
