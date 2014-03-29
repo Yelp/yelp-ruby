@@ -7,21 +7,18 @@ describe Yelp::Client::Business do
                     token: ENV['YELP_TOKEN'],
                     token_secret: ENV['YELP_TOKEN_SECRET']] }
   let(:business) { 'yelp-san-francisco' }
-
-  before do
-    @client = Yelp::Client.new(keys)
-  end
+  let(:client) { Yelp::Client.new(keys) }
 
   describe 'business' do
     it 'should construct a deep struct of the response' do
       VCR.use_cassette('business') do
-        @client.business(business).class.should eql DeepStruct
+        client.business(business).class.should eql DeepStruct
       end
     end
 
     it 'should get business information for the business' do
       VCR.use_cassette('business') do
-        @client.business(business).name.should eql 'Yelp'
+        client.business(business).name.should eql 'Yelp'
       end
     end
   end
