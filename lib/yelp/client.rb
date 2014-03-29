@@ -17,7 +17,8 @@ module Yelp
     attr_reader *AUTH_KEYS, :connection
 
     # Creates an instance of the Yelp client
-    # Takes a hash then creates instance variables for each key, value pair passed
+    # @param options [Hash] a hash of the consumer key, consumer secret, token, and token secret
+    # @return [Client] a new client initialized with the keys
     def initialize(options = {})
       AUTH_KEYS.each do |key|
         instance_variable_set("@#{key}", options[key])
@@ -44,6 +45,7 @@ module Yelp
     end
     alias_method :configure_connection, :configure_faraday
 
+    # Checks that all the keys needed were given
     def check_api_keys
       AUTH_KEYS.each do |key|
         raise MissingAPIKeys, "You're missing an API key" if instance_variable_get("@#{key}").nil?
