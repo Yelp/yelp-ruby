@@ -9,7 +9,7 @@ At the moment this only wraps API v2.0.
 
 Add this line to your application's Gemfile:
 
-    gem 'yelp-rb'
+    gem 'yelp-rb', require: 'yelp'
 
 And then execute:
 
