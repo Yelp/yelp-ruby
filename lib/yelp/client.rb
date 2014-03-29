@@ -48,7 +48,7 @@ module Yelp
     # Checks that all the keys needed were given
     def check_api_keys
       AUTH_KEYS.each do |key|
-        raise MissingAPIKeys, "You're missing an API key" if instance_variable_get("@#{key}").nil?
+        raise MissingAPIKeys if instance_variable_get("@#{key}").nil?
       end
     end
   end
