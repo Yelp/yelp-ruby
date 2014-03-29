@@ -9,17 +9,14 @@ describe Yelp::Client::Business do
   let(:business) { 'yelp-san-francisco' }
   let(:client) { Yelp::Client.new(keys) }
 
-  describe 'business' do
-    it 'should construct a deep struct of the response' do
+  describe '#business' do
+    subject {
       VCR.use_cassette('business') do
-        client.business(business).class.should eql DeepStruct
+        client.business(business)
       end
-    end
+    }
 
-    it 'should get business information for the business' do
-      VCR.use_cassette('business') do
-        client.business(business).name.should eql 'Yelp'
-      end
-    end
+    it { should be_a(DeepStruct) }
+    its(:name) { should eql('Yelp') }
   end
 end
