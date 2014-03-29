@@ -23,6 +23,7 @@ module Yelp
         instance_variable_set("@#{key}", options[key])
       end
 
+      check_api_keys
       configure_connection
     end
 

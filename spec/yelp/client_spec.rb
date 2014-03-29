@@ -33,9 +33,9 @@ describe Yelp::Client do
     it 'should raise an error when missing a key' do
       bad_keys = keys
       bad_keys[:consumer_key] = nil
-      bad_client = Yelp::Client.new(bad_keys)
+
       lambda {
-        bad_client.check_api_keys
+        Yelp::Client.new(bad_keys)
       }.should raise_error
     end
   end
