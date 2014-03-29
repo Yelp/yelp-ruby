@@ -26,31 +26,29 @@ describe DeepStruct do
     }
   end
 
-  before(:each) do
-    @object = DeepStruct.new(hash)
+  subject(:deep_struct) { DeepStruct.new(hash) }
+
+  it 'turns top level into a struct' do
+    expect(deep_struct.foo).to eql 1
   end
 
-  it 'should turn top level into a struct' do
-    @object.foo.should eql 1
+  it 'recursively creates structs all the way down the hash' do
+    expect(deep_struct.bar.baz).to equal 2
+    expect(deep_struct.bar.bender.bending.rodriguez).to eql true
   end
 
-  it 'should recursively create structs all the way down the hash' do
-    @object.bar.baz.should eql 2
-    @object.bar.bender.bending.rodriguez.should eql true
+  it 'correctly creates arrays with hashes into new structs' do
+    expect(deep_struct.fry[0].past).to eql true
+    expect(deep_struct.fry[1].present).to eql true
+    expect(deep_struct.fry[2].future).to eql true
   end
 
-  it 'should correctly create arrays with hases into new structs' do
-    @object.fry[0].past.should eql true
-    @object.fry[1].present.should eql true
-    @object.fry[2].future.should eql true
-  end
-
-  it 'should turn string keys into structs' do
-    @object.hubert.should eql 'farnsworth'
+  it 'turns string keys into structs' do
+    expect(deep_struct.hubert).to eql 'farnsworth'
   end
 
   it 'should maintain arrays with non hashes' do
-    @object.zoidberg.size.should eql 3
-    @object.zoidberg[0].should eql 'doctor'
+    expect(deep_struct.zoidberg.size).to eql 3
+    expect(deep_struct.zoidberg[0]).to eql 'doctor'
   end
 end
