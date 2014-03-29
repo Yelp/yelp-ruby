@@ -18,6 +18,8 @@ module Yelp
         DeepStruct.new(JSON.parse(business_request(id).body))
       end
 
+      private
+
       # Make a request to the business endpoint of the API
       # The endpoint requires a format of /v2/business/{business-id}
       # so the primary request parameter is concatenated
