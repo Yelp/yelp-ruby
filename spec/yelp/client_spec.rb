@@ -15,17 +15,6 @@ describe Yelp::Client do
     end
   end
 
-  describe 'oauth authorization' do
-    it 'should set the appropriate values for oauth' do
-      client.configure_connection
-
-      client.consumer_key.should eql keys[:consumer_key]
-      client.consumer_secret.should eql keys[:consumer_secret]
-      client.token_secret.should eql keys[:token_secret]
-      client.token.should eql keys[:token]
-    end
-  end
-
   describe 'errors' do
     it 'should raise an error when missing a key' do
       bad_keys = keys
