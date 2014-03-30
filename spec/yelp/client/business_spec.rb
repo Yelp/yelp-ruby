@@ -16,7 +16,7 @@ describe Yelp::Client::Business do
       end
     }
 
-    it { should be_a(DeepStruct) }
+    it { should be_a(BurstStruct::Burst) }
     its(:name) { should eql('Yelp') }
   end
 end

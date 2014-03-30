@@ -8,14 +8,14 @@ module Yelp
       # Make a request to the business endpoint on the API
       #
       # @param id [String] the business id
-      # @return [DeepStruct] the parsed response object from the API
+      # @return [BurstStruct] the parsed response object from the API
       #
       # @example Get business
       #   business = client.business('yelp-san-francisco')
       #   business.name # => 'Yelp'
       #   buinesss.url  # => 'http://www.yelp.com/biz/yelp-san-francisco'
       def business(id)
-        DeepStruct.new(JSON.parse(business_request(id).body))
+        BurstStruct::Burst.new(JSON.parse(business_request(id).body))
       end
 
       private
