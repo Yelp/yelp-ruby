@@ -18,7 +18,7 @@ describe Yelp::Client::Search do
       end
     }
 
-    it { should be_a(DeepStruct) }
+    it { should be_a(BurstStruct::Burst) }
     it 'should get results' do
       expect(results.businesses.size).to be > 0
     end

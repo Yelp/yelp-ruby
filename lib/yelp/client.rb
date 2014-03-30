@@ -1,7 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 
-require 'yelp/deep_struct'
+require 'yelp/burst_struct'
 require 'yelp/error'
 require 'yelp/client/business'
 require 'yelp/client/search'
