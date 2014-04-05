@@ -1,4 +1,4 @@
-# yelp.rb
+# yelp
 
 This is an API wrapper for the Yelp API. It'll make the process of consuming data from the Yelp API
 a little cleaner and more straight forward.
@@ -9,7 +9,7 @@ At the moment this only wraps API v2.0.
 
 Add this line to your application's Gemfile:
 
-    gem 'yelp-rb', require: 'yelp'
+    gem 'yelp', require: 'yelp'
 
 And then execute:
 
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install yelp-rb
+    $ gem install yelp
 
 ## Usage
 
