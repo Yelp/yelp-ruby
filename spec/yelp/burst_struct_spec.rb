@@ -31,7 +31,8 @@ describe BurstStruct::Burst do
 
   context 'arrays' do
     let(:hash) { Hash[ businesses: [ { name: 'Yelp', location: 'San Francisco' },
-                                     { name: 'Ice Cream', flavor: 'Chocolate' } ] ] }
+                                     { name: 'Ice Cream', flavor: 'Chocolate' },
+                                     [ { name: 'Moe', occupation: 'Bartender' } ] ] ] }
 
     subject(:struct) { BurstStruct::Burst.new(hash) }
 
@@ -46,6 +47,12 @@ describe BurstStruct::Burst do
       it 'should return' do
         expect(struct.businesses[1].name).to eql 'Ice Cream'
         expect(struct.businesses[1].flavor).to eql 'Chocolate'
+      end
+    end
+
+    describe 'nested arrays' do
+      it 'should parse arrays all the way down' do
+        expect(struct.businesses[2][0].name).to eql 'Moe'
       end
     end
   end

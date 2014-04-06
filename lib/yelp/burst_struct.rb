@@ -1,11 +1,4 @@
 module BurstStruct
-  module BurstArrayMixin
-    def [](index)
-      self[index] = BurstStruct::Burst.new(self.at(index)) if self.at(index).is_a?(Hash)
-      super
-    end
-  end
-
   class Burst
     def initialize(hash = {})
       @hash = hash
@@ -22,18 +15,31 @@ module BurstStruct
     end
 
     def respond_to?(method_name, include_private = false)
-      @hash.keys.include? method_name || super
+      @hash.keys.include?(method_name) || super
     end
 
     def return_or_build_struct(method_name)
-      return Burst.new(@hash[method_name]) if @hash[method_name].is_a?(Hash)
-      @hash[method_name].extend(BurstArrayMixin) if @hash[method_name].is_a?(Array)
+      return Burst.new(@hash[method_name])           if @hash[method_name].is_a?(Hash)
+      return Burst.convert_array(@hash[method_name]) if @hash[method_name].is_a?(Array)
       @hash[method_name]
     end
 
     def find_key(method_name)
       return method_name.to_sym if @hash.keys.include? method_name.to_sym
       return method_name.to_s   if @hash.keys.include? method_name.to_s
+    end
+
+    def self.convert_array(array)
+      array.map do |item|
+        case item
+        when Hash
+          Burst.new(item)
+        when Array
+          Burst.convert_array(item)
+        else
+          item
+        end
+      end
     end
   end
 end
