@@ -18,17 +18,6 @@ module BurstStruct
       @hash.keys.include?(method_name) || super
     end
 
-    def return_or_build_struct(method_name)
-      return Burst.new(@hash[method_name])           if @hash[method_name].is_a?(Hash)
-      return Burst.convert_array(@hash[method_name]) if @hash[method_name].is_a?(Array)
-      @hash[method_name]
-    end
-
-    def find_key(method_name)
-      return method_name.to_sym if @hash.keys.include? method_name.to_sym
-      return method_name.to_s   if @hash.keys.include? method_name.to_s
-    end
-
     def self.convert_array(array)
       array.map do |item|
         case item
@@ -40,6 +29,19 @@ module BurstStruct
           item
         end
       end
+    end
+
+    private
+
+    def return_or_build_struct(method_name)
+      return Burst.new(@hash[method_name])           if @hash[method_name].is_a?(Hash)
+      return Burst.convert_array(@hash[method_name]) if @hash[method_name].is_a?(Array)
+      @hash[method_name]
+    end
+
+    def find_key(method_name)
+      return method_name.to_sym if @hash.keys.include? method_name.to_sym
+      return method_name.to_s   if @hash.keys.include? method_name.to_s
     end
   end
 end
