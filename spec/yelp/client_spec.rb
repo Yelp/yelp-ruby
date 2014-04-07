@@ -16,13 +16,13 @@ describe Yelp::Client do
   end
 
   describe 'errors' do
-    it 'should raise an error when missing a key' do
-      bad_keys = keys
-      bad_keys[:consumer_key] = nil
+    let(:bad_keys) { Hash[consumer_key: 'abc',
+                          consumer_secret: nil,
+                          token: 'ghi',
+                          token_secret: 'jkl'] }
 
-      lambda {
-        Yelp::Client.new(bad_keys)
-      }.should raise_error
+    it 'should raise an error when missing a key' do
+      expect{Yelp::Client.new(bad_keys)}.to raise_error
     end
   end
 end
