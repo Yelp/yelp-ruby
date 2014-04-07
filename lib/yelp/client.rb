@@ -28,6 +28,15 @@ module Yelp
       configure_connection
     end
 
+    # Checks that all the keys needed were given
+    def check_api_keys
+      AUTH_KEYS.each do |key|
+        raise MissingAPIKeys if instance_variable_get("@#{key}").nil?
+      end
+    end
+
+    private
+
     # Configure Faraday for the API connection
     def configure_faraday
       keys = { consumer_key: @consumer_key,
@@ -44,12 +53,5 @@ module Yelp
       end
     end
     alias_method :configure_connection, :configure_faraday
-
-    # Checks that all the keys needed were given
-    def check_api_keys
-      AUTH_KEYS.each do |key|
-        raise MissingAPIKeys if instance_variable_get("@#{key}").nil?
-      end
-    end
   end
 end
