@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'yelp/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "yelp-rb"
+  spec.name          = "yelp"
   spec.version       = Yelp::VERSION
   spec.authors       = ["Tomer Elmalem"]
   spec.email         = ["telmalem@gmail.com"]
