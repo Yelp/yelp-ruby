@@ -56,15 +56,9 @@ module Yelp
 
     def define_request_methods
       REQUEST_CLASSES.each do |request_class|
-        instance_methods = get_instance_methods(request_class)
-
         endpoint_instance = request_class.new(self)
         create_methods_from_instance(endpoint_instance)
       end
-    end
-
-    def get_instance_methods(request_class)
-      request_class.instance_methods(false)
     end
 
     def create_methods_from_instance(instance)
