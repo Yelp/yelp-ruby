@@ -1,9 +1,13 @@
 require 'json'
 
 module Yelp
-  class Client
-    module Business
+  module Endpoint
+    class Business
       PATH = '/v2/business/'
+
+      def initialize(client)
+        @client = client
+      end
 
       # Make a request to the business endpoint on the API
       #
@@ -27,7 +31,7 @@ module Yelp
       # @param id [String, Integer] the business id
       # @return [Faraday::Response] the raw response back from the connection
       def business_request(id)
-        @connection.get PATH + id
+        @client.connection.get PATH + id
       end
     end
   end
