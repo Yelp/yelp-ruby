@@ -3,16 +3,15 @@ require 'faraday_middleware'
 
 require 'yelp/burst_struct'
 require 'yelp/error'
-require 'yelp/client/business'
-require 'yelp/client/search'
+require 'yelp/endpoint/business'
+require 'yelp/endpoint/search'
 
 module Yelp
   class Client
-    include Yelp::Client::Business
-    include Yelp::Client::Search
-
     AUTH_KEYS = [:consumer_key, :consumer_secret, :token, :token_secret]
     API_HOST  = 'http://api.yelp.com'
+    REQUEST_CLASSES = [ Yelp::Endpoint::Search,
+                        Yelp::Endpoint::Business ]
 
     attr_reader *AUTH_KEYS, :connection
 
@@ -26,6 +25,7 @@ module Yelp
 
       check_api_keys
       configure_connection
+      define_request_methods
     end
 
     # Checks that all the keys needed were given
@@ -53,5 +53,30 @@ module Yelp
       end
     end
     alias_method :configure_connection, :configure_faraday
+
+    def define_request_methods
+      REQUEST_CLASSES.each do |request_class|
+        instance_methods = get_instance_methods(request_class)
+
+        endpoint_instance = request_class.new(self)
+        create_methods_from_instance(endpoint_instance)
+      end
+    end
+
+    def get_instance_methods(request_class)
+      request_class.instance_methods(false)
+    end
+
+    def create_methods_from_instance(instance)
+      instance.public_methods(false).each do |method_name|
+        add_method(instance, method_name)
+      end
+    end
+
+    def add_method(instance, method_name)
+      define_singleton_method(method_name) do |*args|
+        instance.public_send(method_name, *args)
+      end
+    end
   end
 end

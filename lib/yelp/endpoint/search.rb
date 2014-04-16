@@ -1,12 +1,16 @@
 require 'json'
 
 module Yelp
-  class Client
-    module Search
+  module Endpoint
+    class Search
       PATH = '/v2/search'
 
       BOUNDING_BOX = [:sw_latitude, :sw_longitude, :ne_latitude, :ne_longitude]
       COORDINATES  = [:latitude, :longitude, :accuracy, :altitude, :altitude_accuracy]
+
+      def initialize(client)
+        @client = client
+      end
 
       # Take a search_request and return the formatted/structured
       # response from the API
@@ -153,7 +157,7 @@ module Yelp
       # Make a request against the search endpoint from the API
       # and return the raw response
       def search_request(params)
-        @connection.get PATH, params
+        @client.connection.get PATH, params
       end
     end
   end
