@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tomer Elmalem"]
   spec.email         = ["telmalem@gmail.com"]
   spec.summary       = %q{Ruby client library for the Yelp API}
-  spec.description   = ""
-  spec.homepage      = ""
+  spec.description   = "Provides easy way to interact with the Yelp API in any kind of application"
+  spec.homepage      = "https://github.com/yelp/yelp.rb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -19,14 +19,14 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency 'rake', '~> 10.0', '>= 10.0.0'
   spec.add_development_dependency "rspec", "~> 2.6"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "vcr"
-  spec.add_development_dependency "webmock"
-  spec.add_development_dependency "yard"
+  spec.add_development_dependency 'pry', '~> 0.9', '>= 0.9.0'
+  spec.add_development_dependency 'vcr', '~> 2.8', '>= 2.8.0'
+  spec.add_development_dependency 'webmock', '~> 1.17', '>= 1.17.0'
+  spec.add_development_dependency 'yard', '~> 0.8'
 
-  spec.add_dependency 'faraday'
-  spec.add_dependency 'faraday_middleware'
-  spec.add_dependency 'simple_oauth'
+  spec.add_runtime_dependency 'faraday', '~> 0.8', '>= 0.8.0'
+  spec.add_runtime_dependency 'faraday_middleware', '~> 0.8', '>= 0.8.0'
+  spec.add_runtime_dependency 'simple_oauth', '~> 0.2', '>= 0.2.0'
 end
