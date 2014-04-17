@@ -33,7 +33,6 @@ client = Yelp::Client.new({ consumer_key: YOUR_CONSUMER_KEY,
                             token: YOUR_TOKEN,
                             token_secret: YOUR_TOKEN_SECRET
                           })
-
 ```
 
 After creating the client you're able to make requests to either the Search API or Business API. Note: all four keys are required for making requests against the Yelp API. If you need any keys sign up and get access from [http://www.yelp.com/developers](http://www.yelp.com/developers).
@@ -44,7 +43,6 @@ Once you have a client you can use ``#search`` to make a request to the Search A
 
 ```
 client.search('San Francisco')
-
 ```
 
 You can also pass in general params and locale options to the method as hashes
@@ -58,7 +56,6 @@ params = { term: 'food',
 locale = { lang: 'fr' }
 
 client.search('San Francisco', params, locale)
-
 ```
 
 Key names and options for params and locale match the documented names on the [Yelp Search API](http://www.yelp.com/developers/documentation/v2/search_api)
@@ -73,7 +70,6 @@ client.search_by_bounding_box(bounding_box, params, locale)
 # coordinates
 coordinates = { latitude: 37.7577, longitude: -122.4376 }
 client.search_by_coordinates(coordinates, params, locale)
-
 ```
 
 ### [Business API](http://www.yelp.com/developers/documentation/v2/business)
@@ -82,7 +78,6 @@ To use the Business API after you have a client you just need to call ``#busines
 
 ```
 client.business('yelp-san-francisco')
-
 ```
 
 You can pass in locale information as well
@@ -91,7 +86,6 @@ You can pass in locale information as well
 locale = { lang: 'fr' }
 
 client.business('yelp-san-francisco', locale)
-
 ```
 
 ## Responses
