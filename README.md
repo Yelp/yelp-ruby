@@ -1,4 +1,4 @@
-# yelp
+# yelp-ruby
 
 This is an API wrapper for the Yelp API. It'll make the process of consuming data from the Yelp API
 a little cleaner and more straight forward.
@@ -120,14 +120,13 @@ response.name
 
 response.categories
 # [["Local Flavor", "localflavor"], ["Mass Media", "massmedia"]]
-
 ```
 
 For specific response values check out the docs for the [search api](http://www.yelp.com/developers/documentation/v2/search_api#rValue) and the [business api](http://www.yelp.com/developers/documentation/v2/business#rValue)
 
 ## Contributing
 
-1. Fork it ( http://github.com/yelp/yelp.rb/fork )
+1. Fork it ( http://github.com/yelp/yelp-ruby/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
