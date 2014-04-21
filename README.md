@@ -1,9 +1,6 @@
 # yelp-ruby
 
-This is an API wrapper for the Yelp API. It'll make the process of consuming data from the Yelp API
-a little cleaner and more straight forward.
-
-At the moment this only wraps API v2.0.
+This is a Ruby Gem for the Yelp API. It'll simplifies the process of consuming data from the Yelp API for developers using Ruby. The library encompasses both Search and Business API functions.
 
 ## Installation
 
