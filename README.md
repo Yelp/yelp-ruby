@@ -122,3 +122,15 @@ For specific response values check out the docs for the [search api](http://www.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+### Git Workflow
+
+We are using the [git flow](http://nvie.com/posts/a-successful-git-branching-model/)
+workflow. Atlassian has a [solid overview](https://www.atlassian.com/git/workflows#!workflow-gitflow).
+Essentially, new development is merged into the develop branch from feature
+branches, then merged from develop to a release branch, then to master from
+the release branch.
+
+
+
+
