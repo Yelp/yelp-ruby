@@ -129,8 +129,5 @@ We are using the [git flow](http://nvie.com/posts/a-successful-git-branching-mod
 workflow. Atlassian has a [solid overview](https://www.atlassian.com/git/workflows#!workflow-gitflow).
 Essentially, new development is merged into the develop branch from feature
 branches, then merged from develop to a release branch, then to master from
-the release branch.
-
-
-
-
+the release branch. Master should always contain the most recently released
+version of the gem.
