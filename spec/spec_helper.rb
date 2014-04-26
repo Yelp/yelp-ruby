@@ -1,3 +1,5 @@
+require 'yelp'
+require 'support/shared_configuration'
 require 'vcr'
 
 VCR.configure do |c|

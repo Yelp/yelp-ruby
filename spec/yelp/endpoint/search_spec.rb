@@ -2,14 +2,13 @@ require 'spec_helper'
 require 'yelp'
 
 describe Yelp::Endpoint::Search do
-  let(:keys) { Hash[consumer_key: ENV['YELP_CONSUMER_KEY'],
-                    consumer_secret: ENV['YELP_CONSUMER_SECRET'],
-                    token: ENV['YELP_TOKEN'],
-                    token_secret: ENV['YELP_TOKEN_SECRET']] }
+  include_context 'shared configuration'
+
+  let(:api_keys) { real_api_keys }
   let(:location) { 'San Francisco' }
   let(:params) { Hash[term: 'restaurants',
                       category_filter: 'discgolf'] }
-  let(:client) { Yelp::Client.new(keys) }
+  let(:client) { Yelp::Client.new(configuration) }
 
   describe '#search' do
     subject(:results) {
