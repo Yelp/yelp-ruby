@@ -109,4 +109,16 @@ describe BurstStruct::Burst do
       expect(struct.zoidberg[0]).to eql 'doctor'
     end
   end
+
+  context 'deserialize' do
+    let(:hash) do
+      { name: 'Bender', company: 'Yelp', title: 'Bending Engineer' }
+    end
+
+    subject(:struct) { BurstStruct::Burst.new(hash) }
+
+    it 'should deserialize to the same json' do
+      expect(struct.to_json).to eql hash.to_json
+    end
+  end
 end
