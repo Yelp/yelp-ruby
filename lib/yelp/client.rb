@@ -2,57 +2,69 @@ require 'faraday'
 require 'faraday_middleware'
 
 require 'yelp/burst_struct'
+require 'yelp/configuration'
 require 'yelp/error'
 require 'yelp/endpoint/business'
 require 'yelp/endpoint/search'
 
 module Yelp
   class Client
-    AUTH_KEYS = [:consumer_key, :consumer_secret, :token, :token_secret]
     API_HOST  = 'http://api.yelp.com'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business ]
 
-    attr_reader *AUTH_KEYS, :connection
+    attr_accessor :configuration
 
     # Creates an instance of the Yelp client
-    # @param options [Hash] a hash of the consumer key, consumer secret, token, and token secret
+    # @param options [Configuration] a valid configuration object
     # @return [Client] a new client initialized with the keys
-    def initialize(options = {})
-      AUTH_KEYS.each do |key|
-        instance_variable_set("@#{key}", options[key])
-      end
-
-      check_api_keys
-      configure_connection
+    def initialize(configuration = nil)
       define_request_methods
+
+      unless configuration.nil?
+        self.configuration = configuration
+        check_api_keys
+      end
+    end
+
+    # Configure the API client
+    # @yield [Configuration] a configuration object
+    # @raise [MissingAPIKeys] if the configuration is invalid
+    # @example Simple configuration
+    #   Yelp.client.configure do |config|
+    #     config.consumer_key = 'abc'
+    #     config.consumer_secret = 'def'
+    #     config.token = 'ghi'
+    #     config.token_secret = 'jkl'
+    #   end
+    def configure
+      yield(self.configuration ||= Configuration.new)
+      check_api_keys
     end
 
     # Checks that all the keys needed were given
     def check_api_keys
-      AUTH_KEYS.each do |key|
-        raise MissingAPIKeys if instance_variable_get("@#{key}").nil?
+      if configuration.nil? || !configuration.valid?
+        self.configuration = nil
+        raise MissingAPIKeys
       end
     end
 
-    private
+    # API connection
+    def connection
+      return @connection if instance_variable_defined?(:@connection)
 
-    # Configure Faraday for the API connection
-    def configure_faraday
-      keys = { consumer_key: @consumer_key,
-               consumer_secret: @consumer_secret,
-               token: @token,
-               token_secret: @token_secret }
-
-      @connection = Faraday.new API_HOST do |conn|
+      check_api_keys
+      @connection = Faraday.new(API_HOST) do |conn|
         # Use the Faraday OAuth middleware for OAuth 1.0 requests
-        conn.request :oauth, keys
+        conn.request :oauth, configuration.auth_keys
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http
       end
     end
-    alias_method :configure_connection, :configure_faraday
+
+    private
 
     # This goes through each endpoint class and creates singletone methods
     # on the client that query those classes. We do this to avoid possible
