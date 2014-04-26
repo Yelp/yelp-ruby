@@ -4,6 +4,7 @@ describe Yelp::Configuration do
   include_context 'shared configuration'
 
   let(:api_keys) { valid_api_keys }
+  let(:configuration) { Yelp::Configuration.new(api_keys) }
 
   describe '#auth_keys' do
     subject { configuration.auth_keys }

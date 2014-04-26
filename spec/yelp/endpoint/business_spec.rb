@@ -1,12 +1,11 @@
 require 'spec_helper'
-require 'yelp'
 
 describe Yelp::Endpoint::Business do
   include_context 'shared configuration'
 
   let(:api_keys) { real_api_keys }
   let(:business) { 'yelp-san-francisco' }
-  let(:client) { Yelp::Client.new(configuration) }
+  let(:client) { Yelp::Client.new(api_keys) }
 
   describe '#business' do
     subject {

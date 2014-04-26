@@ -13,16 +13,18 @@ module Yelp
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business ]
 
-    attr_accessor :configuration
+    attr_reader :configuration
 
     # Creates an instance of the Yelp client
-    # @param options [Configuration] a valid configuration object
+    # @param options [Hash, nil] a hash of the consumer key, consumer
+    #   secret, token, and token secret
     # @return [Client] a new client initialized with the keys
-    def initialize(configuration = nil)
+    def initialize(options = nil)
+      @configuration = nil
       define_request_methods
 
-      unless configuration.nil?
-        self.configuration = configuration
+      unless options.nil?
+        @configuration = Configuration.new(options)
         check_api_keys
       end
     end
@@ -38,15 +40,23 @@ module Yelp
     #     config.token_secret = 'jkl'
     #   end
     def configure
-      yield(self.configuration ||= Configuration.new)
+      raise AlreadyConfigured unless @configuration.nil?
+
+      @configuration = Configuration.new
+      yield(@configuration)
       check_api_keys
     end
 
     # Checks that all the keys needed were given
     def check_api_keys
       if configuration.nil? || !configuration.valid?
-        self.configuration = nil
+        @configuration = nil
         raise MissingAPIKeys
+      else
+        # Freeze the configuration so it cannot be modified once the gem is
+        # configured.  This prevents the configuration changing while the gem
+        # is operating, which would necessitate invalidating various caches.
+        @configuration.freeze
       end
     end
 
@@ -57,7 +67,7 @@ module Yelp
       check_api_keys
       @connection = Faraday.new(API_HOST) do |conn|
         # Use the Faraday OAuth middleware for OAuth 1.0 requests
-        conn.request :oauth, configuration.auth_keys
+        conn.request :oauth, @configuration.auth_keys
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http
