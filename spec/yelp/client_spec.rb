@@ -30,7 +30,7 @@ describe Yelp::Client do
       let(:api_keys) { invalid_api_keys }
 
       it 'should raise an error when configuration is invalid' do
-        expect{ client }.to raise_error
+        expect { client }.to raise_error
       end
     end
   end
