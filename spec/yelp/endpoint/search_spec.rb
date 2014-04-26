@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'yelp'
 
 describe Yelp::Endpoint::Search do
   include_context 'shared configuration'
@@ -8,7 +7,7 @@ describe Yelp::Endpoint::Search do
   let(:location) { 'San Francisco' }
   let(:params) { Hash[term: 'restaurants',
                       category_filter: 'discgolf'] }
-  let(:client) { Yelp::Client.new(configuration) }
+  let(:client) { Yelp::Client.new(api_keys) }
 
   describe '#search' do
     subject(:results) {
