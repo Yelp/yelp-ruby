@@ -154,10 +154,16 @@ module Yelp
         end.join(',')
       end
 
-      # Make a request against the search endpoint from the API
-      # and return the raw response
+      # Make a request against the search endpoint from the API and return the
+      # raw response. After getting the response back it's checked to see if
+      # there are any API errors and raises the relevent one if there is.
+      #
+      # @param params [Hash] a hash of parameters for the search request
+      # @return [Faraday::Response] the raw response back from the connection
       def search_request(params)
-        @client.connection.get PATH, params
+        result = @client.connection.get PATH, params
+        Error.from_request(result)
+        result
       end
     end
   end
