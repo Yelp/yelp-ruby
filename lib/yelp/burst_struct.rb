@@ -31,6 +31,10 @@ module BurstStruct
       end
     end
 
+    def to_json(options = {})
+      JSON.generate(@hash)
+    end
+
     private
 
     def return_or_build_struct(method_name)
