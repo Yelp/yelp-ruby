@@ -17,4 +17,16 @@ describe Yelp::Endpoint::Business do
     it { should be_a(BurstStruct::Burst) }
     its(:name) { should eql('Yelp') }
   end
+
+  describe 'errors' do
+    context 'API' do
+      let(:response_body) { "{\"error\": {\"text\": \"error message\", \"id\": \"INTERNAL_ERROR\"}}" }
+      let(:bad_response)  { double('response', status: 400, body: response_body) }
+
+      it 'should raise an error' do
+        client.stub_chain(:connection, :get).and_return(bad_response)
+        expect { client.business(business) }.to raise_error
+      end
+    end
+  end
 end

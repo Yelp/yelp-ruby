@@ -55,12 +55,24 @@ describe Yelp::Endpoint::Search do
   end
 
   describe 'errors' do
-    it 'raises when #search_by_coordinates params are empty' do
-      expect { client.search_by_coordinates({}, params) }.to raise_error(Yelp::MissingLatLng)
+    context 'search' do
+      it 'raises when #search_by_coordinates params are empty' do
+        expect { client.search_by_coordinates({}, params) }.to raise_error(Yelp::MissingLatLng)
+      end
+
+      it 'raises when #search_by_bounding_box params are empty' do
+        expect { client.search_by_bounding_box({}, params) }.to raise_error(Yelp::BoundingBoxNotComplete)
+      end
     end
 
-    it 'raises when #search_by_bounding_box params are empty' do
-      expect { client.search_by_bounding_box({}, params) }.to raise_error(Yelp::BoundingBoxNotComplete)
+    context 'API' do
+      let(:response_body) { "{\"error\": {\"text\": \"error message\", \"id\": \"INTERNAL_ERROR\"}}" }
+      let(:bad_response)  { double('response', status: 400, body: response_body) }
+
+      it 'should raise an error' do
+        client.stub_chain(:connection, :get).and_return(bad_response)
+        expect { client.search(location) }.to raise_error
+      end
     end
   end
 end
