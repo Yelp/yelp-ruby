@@ -6,6 +6,14 @@ describe Yelp::Configuration do
   let(:api_keys) { valid_api_keys }
   let(:configuration) { Yelp::Configuration.new(api_keys) }
 
+  describe '#initialize' do
+    subject { configuration }
+
+    Yelp::Configuration::AUTH_KEYS.each do |auth_key|
+      its(auth_key) { should eql(api_keys[auth_key]) }
+    end
+  end
+
   describe '#auth_keys' do
     subject { configuration.auth_keys }
     it { should eql(api_keys) }

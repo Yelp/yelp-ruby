@@ -32,6 +32,23 @@ client = Yelp::Client.new({ consumer_key: YOUR_CONSUMER_KEY,
                           })
 ```
 
+Alternatively, you can also globally configure the client using a configure
+block, and access a client singleton using `Yelp.client`.  If you intend to
+use the gem with Rails, the client should be configured in an initializer.
+
+```
+require 'yelp'
+
+Yelp.client.configure do |config|
+  config.consumer_key = YOUR_CONSUMER_KEY
+  config.consumer_secret = YOUR_CONSUMER_SECRET
+  config.token = YOUR_TOKEN
+  config.token_secret = YOUR_TOKEN_SECRET
+end
+
+Yelp.client.search('San Francisco', { term: 'food' })
+```
+
 After creating the client you're able to make requests to either the Search API or Business API. Note: all four keys are required for making requests against the Yelp API. If you need any keys sign up and get access from [http://www.yelp.com/developers](http://www.yelp.com/developers).
 
 ### [Search API](http://www.yelp.com/developers/documentation/v2/search_api)
