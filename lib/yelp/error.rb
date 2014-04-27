@@ -1,6 +1,6 @@
 module Yelp
   class Error < StandardError
-    def self.from_request(data)
+    def self.check_for_error(data)
       return if data.status == 200
 
       body = JSON.parse(data.body)
@@ -48,75 +48,16 @@ module Yelp
     end
   end
 
-  class InternalError < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class ExceededRequests < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class MissingParameter< Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class InvalidParameter < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class InvalidSignature < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class InvalidOAuthCredentials < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class InvalidOAuthUser < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class AccountUnconfirmed < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class UnavailableForLocation < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class AreaTooLarge < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class MultipleLocations < Error
-    def initialize(msg)
-      super
-    end
-  end
-
-  class BusinessUnavailable < Error
-    def initialize(msg)
-      super
-    end
-  end
+  class InternalError           < Error; end
+  class ExceededRequests        < Error; end
+  class MissingParameter        < Error; end
+  class InvalidParameter        < Error; end
+  class InvalidSignature        < Error; end
+  class InvalidOAuthCredentials < Error; end
+  class InvalidOAuthUser        < Error; end
+  class AccountUnconfirmed      < Error; end
+  class UnavailableForLocation  < Error; end
+  class AreaTooLarge            < Error; end
+  class MultipleLocations       < Error; end
+  class BusinessUnavailable     < Error; end
 end

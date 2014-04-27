@@ -9,13 +9,13 @@ describe Yelp::Error do
 
     it 'should not raise an error' do
       expect {
-        Yelp::Error.from_request(good_response)
+        Yelp::Error.check_for_error(good_response)
       }.to_not raise_error
     end
 
     it 'should raise an internal error' do
       expect {
-        Yelp::Error.from_request(bad_response)
+        Yelp::Error.check_for_error(bad_response)
       }.to raise_error(Yelp::InternalError, 'error message')
     end
   end
