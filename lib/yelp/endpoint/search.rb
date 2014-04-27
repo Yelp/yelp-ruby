@@ -156,7 +156,7 @@ module Yelp
 
       # Make a request against the search endpoint from the API and return the
       # raw response. After getting the response back it's checked to see if
-      # there are any API errors and raises the relevent one if there is.
+      # there are any API errors and raises the relevant one if there is.
       #
       # @param params [Hash] a hash of parameters for the search request
       # @return [Faraday::Response] the raw response back from the connection

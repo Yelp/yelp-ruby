@@ -28,7 +28,7 @@ module Yelp
       # The endpoint requires a format of /v2/business/{business-id}
       # so the primary request parameter is concatenated. After getting
       # the response back it's checked to see if there are any API errors
-      # and raises the relevent one if there is.
+      # and raises the relevant one if there is.
       #
       # @param id [String, Integer] the business id
       # @return [Faraday::Response] the raw response back from the connection
