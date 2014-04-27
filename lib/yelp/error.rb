@@ -1,6 +1,13 @@
 module Yelp
   class Error < StandardError; end
 
+  class AlreadyConfigured < Error
+    def initialize(msg = 'Gem cannot be reconfigured.  Initialize a new ' +
+        'instance of Yelp::Client.')
+      super
+    end
+  end
+
   class MissingAPIKeys < Error
     def initialize(msg = "You're missing an API key")
       super
