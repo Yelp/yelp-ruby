@@ -34,7 +34,7 @@ module Yelp
       # @return [Faraday::Response] the raw response back from the connection
       def business_request(id)
         result = @client.connection.get PATH + id
-        Error.from_request(result)
+        Error.check_for_error(result)
         result
       end
     end

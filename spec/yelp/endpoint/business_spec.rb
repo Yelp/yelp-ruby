@@ -25,7 +25,7 @@ describe Yelp::Endpoint::Business do
 
       it 'should raise an error' do
         client.stub_chain(:connection, :get).and_return(bad_response)
-        expect { client.business(business) }.to raise_error
+        expect { client.business(business) }.to raise_error(Yelp::InternalError)
       end
     end
   end

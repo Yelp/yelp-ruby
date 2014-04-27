@@ -162,7 +162,7 @@ module Yelp
       # @return [Faraday::Response] the raw response back from the connection
       def search_request(params)
         result = @client.connection.get PATH, params
-        Error.from_request(result)
+        Error.check_for_error(result)
         result
       end
     end
