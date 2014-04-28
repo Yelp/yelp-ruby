@@ -1,6 +1,6 @@
 require 'yelp'
+require 'support/request_error'
 require 'support/shared_configuration'
-require 'yelp/error/request_error_spec'
 require 'vcr'
 
 VCR.configure do |c|
