@@ -5,9 +5,9 @@ module Yelp
       return if (200..399).include?(data.status)
 
       body = JSON.parse(data.body)
-      error_classes = Hash.new do |hash, key|
+      @error_classes ||= Hash.new do |hash, key|
         class_name = key.split('_').map(&:capitalize).join('').gsub('Oauth', 'OAuth')
-        hash[key] = Yelp.get_error_class(class_name)
+        hash[key] = Yelp.const_get(class_name)
       end
 
       klass = error_classes[body['error']['id']]

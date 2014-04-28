@@ -18,8 +18,4 @@ module Yelp
   def self.client
     @client ||= Yelp::Client.new
   end
-
-  def self.get_error_class(class_name)
-    eval "Yelp::#{class_name}"
-  end
 end
