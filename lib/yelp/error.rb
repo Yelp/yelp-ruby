@@ -5,21 +5,12 @@ module Yelp
       return if (200..399).include?(data.status)
 
       body = JSON.parse(data.body)
-      klass = case body['error']['id']
-              when 'INTERNAL_ERROR'             then Yelp::InternalError
-              when 'EXCEEDED_REQS'              then Yelp::ExceededRequests
-              when 'MISSING_PARAMETER'          then Yelp::MissingParameter
-              when 'INVALID_PARAMETER'          then Yelp::InvalidParameter
-              when 'INVALID_SIGNATURE'          then Yelp::InvalidSignature
-              when 'INVALID_OAUTH_CREDENTIALS'  then Yelp::InvalidOAuthCredentials
-              when 'INVALID_OAUTH_USER'         then Yelp::InvalidOAuthUser
-              when 'ACCOUNT_UNCONFIRMED'        then Yelp::AccountUnconfirmed
-              when 'UNAVAILABLE_FOR_LOCATION'   then Yelp::UnavailableForLocation
-              when 'AREA_TOO_LARGE'             then Yelp::AreaTooLarge
-              when 'MULTIPLE_LOCATIONS'         then Yelp::MultipleLocations
-              when 'BUSINESS_UNAVAILABLE'       then Yelp::BusinessUnavailable
-              end
+      error_classes = Hash.new do |hash, key|
+        class_name = key.split('_').map(&:capitalize).join('').gsub('Oauth', 'OAuth')
+        hash[key] = Yelp.get_error_class(class_name)
+      end
 
+      klass = error_classes[body['error']['id']]
       raise klass.new(body['error']['text'])
     end
   end
