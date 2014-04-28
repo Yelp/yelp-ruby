@@ -1,7 +1,8 @@
 module Yelp
   class Error < StandardError
     def self.check_for_error(data)
-      return if data.status == 200
+      # Check if the status is in the range of non-error status codes
+      return if (200..399).include?(data.status)
 
       body = JSON.parse(data.body)
       klass = case body['error']['id']
