@@ -1,0 +1,359 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.yelp.com/v2/search?bounds=37.7577,-122.4376%7C37.785381,-122.391681
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="258ebf12703a284a4166f5b9f5613d89",
+        oauth_signature="cRAo2HAiiMrM0J%2FpnaUHiu8xcp0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1398701826", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Apr 2014 16:16:48 GMT
+      Server:
+      - Apache
+      X-Node:
+      - web64-r1-sfo1, api_com
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - bse=ee4cb878baf9d80f082fdc62aff28878; Domain=.yelp.com; Path=/; HttpOnly
+      Content-Length:
+      - '28964'
+      Vary:
+      - User-Agent
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Mode:
+      - rw
+      X-Proxied:
+      - lb2
+    body:
+      encoding: UTF-8
+      string: '{"region": {"span": {"latitude_delta": 0.027681000000001177, "longitude_delta":
+        0.045918999999997823}, "center": {"latitude": 37.7715405, "longitude": -122.4146405}},
+        "total": 11446, "businesses": [{"is_claimed": true, "rating": 5.0, "mobile_url":
+        "http://m.yelp.com/biz/clean-air-smog-check-star-test-only-center-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 362, "name": "Clean Air Smog Check STAR Test Only Center",
+        "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/8nvLfA_vkwe50xY_F9_itA/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/clean-air-smog-check-star-test-only-center-san-francisco",
+        "phone": "4156212983", "snippet_text": "The glowing reviews are true...Clean
+        Air''s service truly is quick and friendly. And, yes...as soon as you mention
+        Yelp they knock a big chunk off your...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/KAPXX_Qei1xTa8WtQ22ehw/ms.jpg",
+        "categories": [["Smog Check Stations", "smog_check_stations"]], "display_phone":
+        "+1-415-621-2983", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "clean-air-smog-check-star-test-only-center-san-francisco", "is_closed":
+        false, "location": {"cross_streets": "Folsom St \u0026 Harrison St", "city":
+        "San Francisco", "display_address": ["368 11th St", "(b/t Folsom St \u0026
+        Harrison St)", "SoMa", "San Francisco, CA 94103"], "neighborhoods": ["SoMa"],
+        "postal_code": "94103", "country_code": "US", "address": ["368 11th St"],
+        "state_code": "CA"}}, {"is_claimed": false, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/chris-discount-muffler-and-brake-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 92, "name": "Chris'' Discount Muffler \u0026 Brake", "snippet_image_url":
+        "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/cc4afe21892e/default_avatars/user_medium_square.png",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/chris-discount-muffler-and-brake-san-francisco",
+        "phone": "4158634110", "snippet_text": "I first heard of ''Chris'' Discount
+        Muffler \u0026 Brake'' shop years ago when it was on Fell St SF, which was
+        started by Chris father, numerous friends used his...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/d_o4NfsYVf3IscW96suLEw/ms.jpg",
+        "categories": [["Auto Repair", "autorepair"], ["Smog Check Stations", "smog_check_stations"]],
+        "display_phone": "+1-415-863-4110", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "chris-discount-muffler-and-brake-san-francisco", "is_closed": false,
+        "location": {"cross_streets": "Folsom St \u0026 Burns Pl", "city": "San Francisco",
+        "display_address": ["276 11th St", "(b/t Folsom St \u0026 Burns Pl)", "SoMa",
+        "San Francisco, CA 94103"], "neighborhoods": ["SoMa"], "postal_code": "94103",
+        "country_code": "US", "address": ["276 11th St"], "state_code": "CA"}}, {"is_claimed":
+        true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/luscious-garage-san-francisco-2",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 154, "name": "Luscious Garage", "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/UUldqUxLgjvAI1m-c2O7Nw/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/luscious-garage-san-francisco-2", "phone":
+        "4158759030", "snippet_text": "This is what a garage should be! Easy to book
+        appointments, follow status and pay your bill online.\n\nHad to replace a
+        wheel bearing and knuckle on my Prius...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/ZMQo1sRiTApQDklCV5s2sg/ms.jpg",
+        "categories": [["Auto Repair", "autorepair"]], "display_phone": "+1-415-875-9030",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "luscious-garage-san-francisco-2", "is_closed": false, "location": {"cross_streets":
+        "Mclea Ct \u0026 Bryant St", "city": "San Francisco", "display_address": ["475
+        9th St", "(b/t Mclea Ct \u0026 Bryant St)", "SoMa", "San Francisco, CA 94103"],
+        "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code": "US", "address":
+        ["475 9th St"], "state_code": "CA"}}, {"is_claimed": true, "rating": 5.0,
+        "mobile_url": "http://m.yelp.com/biz/metric-motors-of-san-francisco-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 117, "name": "Metric Motors of San Francisco", "snippet_image_url":
+        "http://s3-media4.ak.yelpcdn.com/photo/Y9nL9WeM2RcgApcTmH-UwA/ms.jpg", "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/metric-motors-of-san-francisco-san-francisco",
+        "phone": "4156266234", "snippet_text": "I first contacted 2 Porsche dealerships
+        for a quote on a major service and brake job.  One gave me a price of $$$
+        and the other never called me back.  I had...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/Sr8MX7ymC6Mai3KxVr5Z1w/ms.jpg",
+        "categories": [["Auto Repair", "autorepair"]], "display_phone": "+1-415-626-6234",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "metric-motors-of-san-francisco-san-francisco", "is_closed": false,
+        "location": {"city": "San Francisco", "display_address": ["1480 Howard St",
+        "SoMa", "San Francisco, CA 94106"], "neighborhoods": ["SoMa"], "postal_code":
+        "94106", "country_code": "US", "address": ["1480 Howard St"], "state_code":
+        "CA"}}, {"is_claimed": true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/avital-tours-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 142, "name": "Avital Tours", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/1E3sE7RTYeDwQrruCpWICw/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/avital-tours-san-francisco", "phone": "4153554044",
+        "snippet_text": "Absolutely worthwhile Tours!\nWhat a great way to see some
+        of the city and bars around Union Square in a short space of time that you
+        possibly wouldn''t...", "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/Rct_BNGsGuApr03dNU-3_A/ms.jpg",
+        "categories": [["Food", "food"], ["Tours", "tours"]], "display_phone": "+1-415-355-4044",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "avital-tours-san-francisco", "is_closed": false, "location": {"city":
+        "San Francisco", "display_address": ["SoMa", "San Francisco, CA"], "neighborhoods":
+        ["SoMa"], "country_code": "US", "address": [], "state_code": "CA"}}, {"is_claimed":
+        true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/kamand-locksmith-services-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 334, "name": "Kamand Locksmith Services", "snippet_image_url":
+        "http://s3-media3.ak.yelpcdn.com/photo/UJrYSDunwiMBSgTSzVrd7Q/ms.jpg", "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/kamand-locksmith-services-san-francisco",
+        "phone": "4158618895", "snippet_text": "Getting locked out of your apartment
+        sucks. The only good thing about getting locked out is having Kamand Locksmith
+        save your day.\n\nI locked myself out of...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/0XHO9Af7O0GQ6ynGmJmjJw/ms.jpg",
+        "categories": [["Keys \u0026 Locksmiths", "locksmiths"]], "display_phone":
+        "+1-415-861-8895", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "kamand-locksmith-services-san-francisco", "is_closed": false, "location":
+        {"cross_streets": "Mccoppin St", "city": "San Francisco", "display_address":
+        ["135 Valencia St", "(b/t Mccoppin St)", "SoMa", "San Francisco, CA 94103"],
+        "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code": "US", "address":
+        ["135 Valencia St"], "state_code": "CA"}}, {"is_claimed": true, "rating":
+        5.0, "mobile_url": "http://m.yelp.com/biz/circle-community-acupuncture-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 102, "name": "Circle Community Acupuncture", "snippet_image_url":
+        "http://s3-media2.ak.yelpcdn.com/photo/Rh5C_MGKdw999iEOeXF7ug/ms.jpg", "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/circle-community-acupuncture-san-francisco",
+        "phone": "4158641070", "snippet_text": "Very kind staff, affordable, convenient
+        location, and effective treatments!\nI had heard about this clinic many years
+        ago, and I always wanted to try it for...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/gnTBJ_E3W3cK_94U7Ia-Bw/ms.jpg",
+        "categories": [["Acupuncture", "acupuncture"], ["Massage", "massage"]], "display_phone":
+        "+1-415-864-1070", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "circle-community-acupuncture-san-francisco", "is_closed": false, "location":
+        {"cross_streets": "Dore St \u0026 10th St", "city": "San Francisco", "display_address":
+        ["1351 Harrison St", "(b/t Dore St \u0026 10th St)", "SoMa", "San Francisco,
+        CA 94103"], "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code":
+        "US", "address": ["1351 Harrison St"], "state_code": "CA"}}, {"is_claimed":
+        true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/call-car-collision-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 139, "name": "Call Car Collision", "snippet_image_url": "http://s3-media2.ak.yelpcdn.com/photo/fJuXZ24yMDABvkUQSBW6mA/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/call-car-collision-san-francisco", "phone":
+        "4158618440", "snippet_text": "These guys know there stuff. \n\nI took my
+        1973 vw beetle here after being rear ended, and not being covered by insurance.  I
+        told them what I exactly wanted...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/PJmvqYniOdwnv_qTF1D6yw/ms.jpg",
+        "categories": [["Auto Repair", "autorepair"], ["Body Shops", "bodyshops"]],
+        "display_phone": "+1-415-861-8440", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "call-car-collision-san-francisco", "is_closed": false, "location":
+        {"cross_streets": "Erie St \u0026 14th St", "city": "San Francisco", "display_address":
+        ["1774 Mission St", "(b/t Erie St \u0026 14th St)", "Mission", "San Francisco,
+        CA 94103"], "neighborhoods": ["Mission"], "postal_code": "94103", "country_code":
+        "US", "address": ["1774 Mission St"], "state_code": "CA"}}, {"is_claimed":
+        true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/glass-plus-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 152, "name": "Glass Plus", "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/cc4afe21892e/default_avatars/user_medium_square.png",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/glass-plus-san-francisco", "phone": "4152558400",
+        "snippet_text": "About as honest and easy as it gets -- was quoted $650 for
+        glass replacement at the Audi dealership (a block away) and Glass Plus did
+        it for less than half...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/AAURzsADmRqBda-v3sNtfw/ms.jpg",
+        "categories": [["Auto Glass Services", "autoglass"], ["Windows Installation",
+        "windowsinstallation"]], "display_phone": "+1-415-255-8400", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "glass-plus-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "12th St \u0026 Mission St", "city": "San Francisco", "display_address": ["145
+        S Van Ness Ave", "(b/t 12th St \u0026 Mission St)", "SoMa", "San Francisco,
+        CA 94103"], "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code":
+        "US", "address": ["145 S Van Ness Ave"], "state_code": "CA"}}, {"is_claimed":
+        true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/smog-queen-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 165, "name": "Smog Queen", "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/photo/0zRf7MIIWs_sD5xieeozqQ/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/smog-queen-san-francisco", "phone": "4152520733",
+        "snippet_text": "The car was smogged without any hassle.  Did have to wait
+        for a couple of cars in front of us, but were done in minutes once inside.  What
+        really made it a...", "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/-fHxUFJHXTt1peoJNZtU4w/ms.jpg",
+        "categories": [["Gas \u0026 Service Stations", "servicestations"], ["Smog
+        Check Stations", "smog_check_stations"]], "display_phone": "+1-415-252-0733",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "smog-queen-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["160
+        10th St", "(b/t Natoma St \u0026 Minna St)", "SoMa", "San Francisco, CA 94103"],
+        "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code": "US", "address":
+        ["160 10th St"], "state_code": "CA"}}, {"is_claimed": false, "rating": 5.0,
+        "mobile_url": "http://m.yelp.com/biz/kim-makoi-dc-san-francisco", "rating_img_url":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 78, "name": "Kim Makoi, DC", "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/97rUSak6NXtD5KoHr3Wkag/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/kim-makoi-dc-san-francisco", "phone": "4158642975",
+        "snippet_text": "What I like about Dr. Kim is that he''s holistically oriented.
+        He does a really thorough assessment (with lovely knowledgeable assistants!)
+        that helps you...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/qEgsajjAXy26uLJvVpCRuA/ms.jpg",
+        "categories": [["Chiropractors", "chiropractors"]], "display_phone": "+1-415-864-2975",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "kim-makoi-dc-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Lily St \u0026 Page St", "city": "San Francisco", "display_address": ["110
+        Gough St", "Ste 201A", "(b/t Lily St \u0026 Page St)", "Hayes Valley", "San
+        Francisco, CA 94102"], "neighborhoods": ["Hayes Valley"], "postal_code": "94102",
+        "country_code": "US", "address": ["110 Gough St", "Ste 201A"], "state_code":
+        "CA"}}, {"is_claimed": true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/dainese-d-store-san-francisco-2",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 115, "name": "Dainese D-Store", "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/photo/kVPzZ6_tjoeU_N68fNLyyA/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/dainese-d-store-san-francisco-2", "phone":
+        "4156265478", "snippet_text": "My boyfriend quickly turned into a little boy
+        in a candy store when he walked through the doors. Everyone here was very
+        friendly and knowledgeable about all...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/1OQsXVjxdKxxk4QP_re02g/ms.jpg",
+        "categories": [["Sports Wear", "sportswear"], ["Leather Goods", "leather"]],
+        "display_phone": "+1-415-626-5478", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "dainese-d-store-san-francisco-2", "is_closed": false, "location": {"cross_streets":
+        "12th St \u0026 Otis St", "city": "San Francisco", "display_address": ["131
+        S Van Ness Ave", "(b/t 12th St \u0026 Otis St)", "SoMa", "San Francisco, CA
+        94103"], "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code":
+        "US", "address": ["131 S Van Ness Ave"], "state_code": "CA"}}, {"is_claimed":
+        false, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/seventh-son-tattoo-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 180, "name": "Seventh Son Tattoo", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/hoeQVIbWj6xoDAyCK2Qkqw/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/seventh-son-tattoo-san-francisco", "phone":
+        "4155517766", "snippet_text": "Gordon is the man. Amazing line work. My new
+        tattoo is better than I could have imagined, and he even cleaned up an older
+        tattoo on my wrist.\n\nCan''t...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/zL-yyod_bGhebbu3h3msOQ/ms.jpg",
+        "categories": [["Tattoo", "tattoo"]], "display_phone": "+1-415-551-7766",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "seventh-son-tattoo-san-francisco", "is_closed": false, "location":
+        {"cross_streets": "Howard St \u0026 Folsom St", "city": "San Francisco", "display_address":
+        ["65 Langton St", "(b/t Howard St \u0026 Folsom St)", "SoMa", "San Francisco,
+        CA 94103"], "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code":
+        "US", "address": ["65 Langton St"], "state_code": "CA"}}, {"is_claimed": true,
+        "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/2-spirit-tattoo-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 155, "name": "2 Spirit Tattoo", "snippet_image_url": "http://s3-media2.ak.yelpcdn.com/photo/7ti3Knd192uIuLIcmRytiA/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/2-spirit-tattoo-san-francisco", "phone": "4157018288",
+        "snippet_text": "I''ve been talking about getting a tattoo for years. I finally
+        decided to put up or shut up. I surveyed a bunch of places and asked anyone
+        with cool designs...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/G0h0yiuGDbax2r7ztWDP-w/ms.jpg",
+        "categories": [["Tattoo", "tattoo"], ["Art Galleries", "galleries"]], "display_phone":
+        "+1-415-701-8288", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "2-spirit-tattoo-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Pink Aly \u0026 Market St", "city": "San Francisco", "display_address": ["11
+        Pearl St", "(b/t Pink Aly \u0026 Market St)", "Mission", "San Francisco, CA
+        94103"], "neighborhoods": ["Mission"], "postal_code": "94103", "country_code":
+        "US", "address": ["11 Pearl St"], "state_code": "CA"}}, {"is_claimed": true,
+        "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/avenue-body-shop-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 82, "name": "Avenue Body Shop", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/3QvEwNIVeSkvLf96dPydyg/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/avenue-body-shop-san-francisco", "phone":
+        "4158644417", "snippet_text": "I''m breaking a two-year radio silence on Yelp
+        to give Avenue Body Shop a very well-deserved 5-star review.  If you''re looking
+        for a place to have body...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/dBb0sF55Kshi7azZFZBRwg/ms.jpg",
+        "categories": [["Body Shops", "bodyshops"]], "display_phone": "+1-415-864-4417",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "avenue-body-shop-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "14th St \u0026 15th St", "city": "San Francisco", "display_address": ["333
+        S Van Ness Ave", "(b/t 14th St \u0026 15th St)", "Mission", "San Francisco,
+        CA 94103"], "neighborhoods": ["Mission"], "postal_code": "94103", "country_code":
+        "US", "address": ["333 S Van Ness Ave"], "state_code": "CA"}}, {"is_claimed":
+        true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/soma-iphone-repair-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 80, "name": "Soma iPhone Repair", "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/E-jYArfrcAy4yeKiLvL3Ew/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/soma-iphone-repair-san-francisco", "phone":
+        "4157047227", "snippet_text": "THIS PLACE IS THE BEST!  I was worried because
+        before I had my ipad repaired at a place in the mall, and they messed up my
+        ipad and would not take...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/IxYmge5Ypup5oGRDS6-qsQ/ms.jpg",
+        "categories": [["Electronics Repair", "electronicsrepair"], ["Mobile Phones",
+        "mobilephones"], ["Mobile Phone Repair", "mobilephonerepair"]], "display_phone":
+        "+1-415-704-7227", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "soma-iphone-repair-san-francisco", "is_closed": false, "location":
+        {"cross_streets": "Dore St \u0026 9th St", "city": "San Francisco", "display_address":
+        ["1000 Brannan St", "Ste 205", "(b/t Dore St \u0026 9th St)", "SoMa", "San
+        Francisco, CA 94103"], "neighborhoods": ["SoMa"], "postal_code": "94103",
+        "country_code": "US", "address": ["1000 Brannan St", "Ste 205"], "state_code":
+        "CA"}}, {"is_claimed": false, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/muttville-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 49, "name": "Muttville", "snippet_image_url": "http://s3-media2.ak.yelpcdn.com/photo/AWFAVsqTF5QhYDseWqrQOQ/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/muttville-san-francisco", "phone": "4152724172",
+        "snippet_text": "Looking to add a furry friend to your life? Choose Muttville!
+        Their focus is on senior dogs. Just because a pup is older than seven years
+        old doesn''t mean...", "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/EkvWT7-A1GbwPCrqCK32FA/ms.jpg",
+        "categories": [["Animal Shelters", "animalshelters"]], "display_phone": "+1-415-272-4172",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "muttville-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "16th St \u0026 15th St", "city": "San Francisco", "display_address": ["255
+        Alabama St", "(b/t 16th St \u0026 15th St)", "Mission", "San Francisco, CA
+        94103"], "neighborhoods": ["Mission"], "postal_code": "94103", "country_code":
+        "US", "address": ["255 Alabama St"], "state_code": "CA"}}, {"is_claimed":
+        true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/market-street-cycles-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 67, "name": "Market Street Cycles", "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/photo/IrHpj2sD6V8B7Wwh1MfbSA/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/market-street-cycles-san-francisco", "phone":
+        "4152552453", "snippet_text": "Excellent staff/service. I really just popped
+        in because it was convenient to my flat tire \u0026 was glad I did. They''re
+        the nearest shop to my house (unless I...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/aXqaZ-TssZ11K46ZKKmevA/ms.jpg",
+        "categories": [["Bikes", "bikes"]], "display_phone": "+1-415-255-2453", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "market-street-cycles-san-francisco", "is_closed": false, "location":
+        {"cross_streets": "Van Ness Ave \u0026 United States Highway 101", "city":
+        "San Francisco", "display_address": ["1592 Market St", "(b/t Van Ness Ave
+        \u0026 United States Highway 101)", "Hayes Valley", "San Francisco, CA 94102"],
+        "neighborhoods": ["Hayes Valley", "Civic Center"], "postal_code": "94102",
+        "country_code": "US", "address": ["1592 Market St"], "state_code": "CA"}},
+        {"is_claimed": true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/diakadi-body-san-francisco-4",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 76, "name": "DIAKADI Body", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/qQ_nLk6e0pmqhFjnCCHQiQ/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/diakadi-body-san-francisco-4", "phone": "4158634922",
+        "snippet_text": "I have been training with Ross Steiner at DIAKADI Body.   Please
+        see my review of Ross Steiner on Yelp.  If you want to go to this gym at Division
+        Street...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/Ih4yngd2BPp88z1PxnVbKA/ms.jpg",
+        "categories": [["Gyms", "gyms"], ["Trainers", "healthtrainers"]], "display_phone":
+        "+1-415-863-4922", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "diakadi-body-san-francisco-4", "is_closed": false, "location": {"cross_streets":
+        "Potrero Ave \u0026 10th St", "city": "San Francisco", "display_address":
+        ["290 Division St", "Ste 200", "(b/t Potrero Ave \u0026 10th St)", "SoMa",
+        "San Francisco, CA 94103"], "neighborhoods": ["SoMa"], "postal_code": "94103",
+        "country_code": "US", "address": ["290 Division St", "Ste 200"], "state_code":
+        "CA"}}, {"is_claimed": true, "rating": 5.0, "mobile_url": "http://m.yelp.com/biz/motojava-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 161, "name": "MotoJava", "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/tRn6om6yZWlqh2vjj8N-Kw/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "url": "http://www.yelp.com/biz/motojava-san-francisco", "phone": "4152559527",
+        "snippet_text": "I should probably try their java portion of their store one
+        day, but this review is for the moto side.\n\nBest of the best. Those are
+        my words about this...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/jk6HBU7I8KVvzuUWKBuE1A/ms.jpg",
+        "categories": [["Motorcycle Dealers", "motorcycledealers"], ["Motorcycle Repair",
+        "motorcyclerepair"]], "display_phone": "+1-415-255-9527", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "motojava-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Mclea Ct \u0026 Bryant St", "city": "San Francisco", "display_address": ["498
+        9th St", "(b/t Mclea Ct \u0026 Bryant St)", "SoMa", "San Francisco, CA 94103"],
+        "neighborhoods": ["SoMa"], "postal_code": "94103", "country_code": "US", "address":
+        ["498 9th St"], "state_code": "CA"}}]}'
+    http_version: 
+  recorded_at: Mon, 28 Apr 2014 16:17:06 GMT
+recorded_with: VCR 2.8.0

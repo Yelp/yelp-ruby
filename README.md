@@ -2,6 +2,8 @@
 
 This is a Ruby Gem for the Yelp API. It'll simplifies the process of consuming data from the Yelp API for developers using Ruby. The library encompasses both Search and Business API functions.
 
+Please remember to read and follow the [Terms of Use](http://www.yelp.com/developers/getting_started/api_terms) and [display requirements](http://www.yelp.com/developers/getting_started/display_requirements) before creating your applications.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -30,6 +32,23 @@ client = Yelp::Client.new({ consumer_key: YOUR_CONSUMER_KEY,
                             token: YOUR_TOKEN,
                             token_secret: YOUR_TOKEN_SECRET
                           })
+```
+
+Alternatively, you can also globally configure the client using a configure
+block, and access a client singleton using `Yelp.client`.  If you intend to
+use the gem with Rails, the client should be configured in an initializer.
+
+```
+require 'yelp'
+
+Yelp.client.configure do |config|
+  config.consumer_key = YOUR_CONSUMER_KEY
+  config.consumer_secret = YOUR_CONSUMER_SECRET
+  config.token = YOUR_TOKEN
+  config.token_secret = YOUR_TOKEN_SECRET
+end
+
+Yelp.client.search('San Francisco', { term: 'food' })
 ```
 
 After creating the client you're able to make requests to either the Search API or Business API. Note: all four keys are required for making requests against the Yelp API. If you need any keys sign up and get access from [http://www.yelp.com/developers](http://www.yelp.com/developers).
@@ -122,3 +141,12 @@ For specific response values check out the docs for the [search api](http://www.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+### Git Workflow
+
+We are using the [git flow](http://nvie.com/posts/a-successful-git-branching-model/)
+workflow. Atlassian has a [solid overview](https://www.atlassian.com/git/workflows#!workflow-gitflow).
+Essentially, new development is merged into the develop branch from feature
+branches, then merged from develop to a release branch, then to master from
+the release branch. Master should always contain the most recently released
+version of the gem.
