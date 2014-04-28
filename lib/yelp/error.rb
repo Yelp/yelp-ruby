@@ -10,7 +10,7 @@ module Yelp
         hash[key] = Yelp.const_get(class_name)
       end
 
-      klass = error_classes[body['error']['id']]
+      klass = @error_classes[body['error']['id']]
       raise klass.new(body['error']['text'])
     end
   end
