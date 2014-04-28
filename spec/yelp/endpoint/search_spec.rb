@@ -65,14 +65,8 @@ describe Yelp::Endpoint::Search do
       end
     end
 
-    context 'API' do
-      let(:response_body) { "{\"error\": {\"text\": \"error message\", \"id\": \"INTERNAL_ERROR\"}}" }
-      let(:bad_response)  { double('response', status: 400, body: response_body) }
-
-      it 'should raise an error' do
-        client.stub_chain(:connection, :get).and_return(bad_response)
-        expect { client.search(location) }.to raise_error
-      end
+    it_behaves_like 'a request error' do
+      let(:request) { client.search(location) }
     end
   end
 end
