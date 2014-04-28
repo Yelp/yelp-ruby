@@ -1,0 +1,387 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.yelp.com/v2/search?ll=37.7577,-122.4376,,,
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="69dd320bac1c00180d0b82a912f84bdc",
+        oauth_signature="YXcdwqQBcr%2BkecM7kxE2iB0drnA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1398701826", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Apr 2014 16:16:48 GMT
+      Server:
+      - Apache
+      X-Node:
+      - web33, api_com
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - bse=f3182ae858ad850294326870ce61453c; Domain=.yelp.com; Path=/; HttpOnly
+      Content-Length:
+      - '31262'
+      Vary:
+      - User-Agent
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Mode:
+      - rw
+      X-Proxied:
+      - lb2
+    body:
+      encoding: UTF-8
+      string: '{"region": {"span": {"latitude_delta": 0.014457849999999439, "longitude_delta":
+        0.014482270000002018}, "center": {"latitude": 37.758191750000002, "longitude":
+        -122.43873005}}, "total": 3504, "businesses": [{"is_claimed": false, "distance":
+        322.2774924805243, "mobile_url": "http://m.yelp.com/biz/level-6-shredding-san-francisco-2",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 133, "name": "Level 6 Shredding", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/PAis6aohiiaxDajJV5QQMQ/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/level-6-shredding-san-francisco-2",
+        "location": {"cross_streets": "18th St \u0026 19th St", "city": "San Francisco",
+        "display_address": ["139 Collingwood St", "Ste A", "(b/t 18th St \u0026 19th
+        St)", "Castro", "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code":
+        "94114", "country_code": "US", "address": ["139 Collingwood St", "Ste A"],
+        "state_code": "CA"}, "phone": "4153411003", "snippet_text": "Summary of my
+        experience with Level 6 Shredding: Easy to contact and arrange appointment,
+        courteous and pleasant to work with, convenient and professional...", "image_url":
+        "http://s3-media1.ak.yelpcdn.com/bphoto/Bajq1NnYj4queV8aoEglzw/ms.jpg", "categories":
+        [["Local Services", "localservices"]], "display_phone": "+1-415-341-1003",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "level-6-shredding-san-francisco-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 322.19072544051335, "mobile_url": "http://m.yelp.com/biz/p-o-plus-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 111, "name": "P.O. Plus", "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/photo/3JOY7yA2l-a9edz0NtpMuQ/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/p-o-plus-san-francisco", "location":
+        {"cross_streets": "18th St \u0026 19th St", "city": "San Francisco", "display_address":
+        ["584 Castro St", "(b/t 18th St \u0026 19th St)", "Castro", "San Francisco,
+        CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114", "country_code":
+        "US", "address": ["584 Castro St"], "state_code": "CA"}, "phone": "4158645888",
+        "snippet_text": "I always knew I''d get around to creating a yelp account
+        eventually. Didn''t realise it would be to sing the praises of a notary public
+        and shipping...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/m0mypyrxxt8J9XLTwfQrhw/ms.jpg",
+        "categories": [["Notaries", "notaries"], ["Shipping Centers", "shipping_centers"]],
+        "display_phone": "+1-415-864-5888", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "p-o-plus-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": false, "distance": 490.86608556886506, "mobile_url": "http://m.yelp.com/biz/hey-cookie-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 77, "name": "Hey, Cookie!", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/q2zIvcaG3iVbYYlqE72ZCQ/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/hey-cookie-san-francisco",
+        "location": {"city": "San Francisco", "display_address": ["Castro", "San Francisco,
+        CA"], "neighborhoods": ["Castro"], "country_code": "US", "address": [], "state_code":
+        "CA"}, "phone": "4159990205", "snippet_text": "5 stars for effort!  Oh, and
+        the cookies are pretty good too.  ; )\n\nWe were picnic''ing in Delores park
+        \u0026 out of the corner of my eye I see this girl in a...", "image_url":
+        "http://s3-media3.ak.yelpcdn.com/bphoto/TPATiROP8a61nrgq9DOBPA/ms.jpg", "categories":
+        [["Desserts", "desserts"], ["Food Delivery Services", "fooddeliveryservices"]],
+        "display_phone": "+1-415-999-0205", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "hey-cookie-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 216.84231073416774, "mobile_url": "http://m.yelp.com/biz/herst-wellness-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 51, "name": "Herst Wellness", "snippet_image_url": "http://s3-media2.ak.yelpcdn.com/photo/qKX3XmMV-k2jkKUu8gxrHQ/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/herst-wellness-san-francisco",
+        "location": {"cross_streets": "Dixie Aly \u0026 Hoffman Ave", "city": "San
+        Francisco", "display_address": ["913 Alvarado St", "(b/t Dixie Aly \u0026
+        Hoffman Ave)", "Castro", "San Francisco, CA 94114"], "neighborhoods": ["Castro"],
+        "postal_code": "94114", "country_code": "US", "address": ["913 Alvarado St"],
+        "state_code": "CA"}, "phone": "4156864411", "snippet_text": "I''ve been working
+        with Chad for over three months and have seen much progress in that time.  I
+        started going to him after two close friends, discerning...", "image_url":
+        "http://s3-media4.ak.yelpcdn.com/bphoto/8Gz8lHNg5R39D-Wt1Wp8Cg/ms.jpg", "categories":
+        [["Counseling \u0026 Mental Health", "c_and_mh"], ["Acupuncture", "acupuncture"],
+        ["Life Coach", "lifecoach"]], "display_phone": "+1-415-686-4411", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "herst-wellness-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 316.96492929649634, "mobile_url": "http://m.yelp.com/biz/eye-gotcha-optometric-san-francisco",
+        "rating_img_url": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 179, "name": "Eye Gotcha Optometric", "snippet_image_url":
+        "http://s3-media2.ak.yelpcdn.com/photo/qbcGMF51m4jg5FuN91_Fyg/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/eye-gotcha-optometric-san-francisco",
+        "location": {"cross_streets": "18th St \u0026 19th St", "city": "San Francisco",
+        "display_address": ["586 Castro St", "(b/t 18th St \u0026 19th St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["586 Castro St"], "state_code": "CA"}, "phone":
+        "4154312988", "snippet_text": "Seriously, I would go out of my way to buy
+        pizza, pet food or bike parts from these folks, if that''s the one shop they
+        ran.\n\nDr. Higuchi is a \"real\" doctor...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/ftuJXjYDkr0EnO74KSJkFQ/ms.jpg",
+        "categories": [["Optometrists", "optometrists"], ["Eyewear \u0026 Opticians",
+        "opticians"]], "display_phone": "+1-415-431-2988", "rating_img_url_large":
+        "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "eye-gotcha-optometric-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 348.28307926372719, "mobile_url": "http://m.yelp.com/biz/bryan-roberts-salon-and-color-bar-san-francisco-3",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 193, "name": "Bryan Roberts Salon \u0026 Color Bar", "snippet_image_url":
+        "http://s3-media3.ak.yelpcdn.com/photo/5TQ2DlZxdu8PuRM_66J-dA/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/bryan-roberts-salon-and-color-bar-san-francisco-3",
+        "location": {"cross_streets": "19th St \u0026 18th St", "city": "San Francisco",
+        "display_address": ["561 Castro St", "(b/t 19th St \u0026 18th St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["561 Castro St"], "state_code": "CA"}, "deals":
+        [{"is_popular": true, "time_start": 1355164500, "title": "$25 for $50 Towards
+        Spa Services", "url": "http://www.yelp.com/deals/bryan-roberts-salon-and-color-bar-san-francisco-3-10",
+        "additional_restrictions": "Promotion lasts for 1 year from date of purchase.
+        After that period, your voucher is redeemable for the amount you paid. Only
+        1 Voucher can be purchased and redeemed per person. Up to 3 Vouchers may be
+        purchased as gifts for others. Must be used in a single visit. Gratuity not
+        included, please tip on full value. 24-hour cancellation notice required or
+        your Voucher is forfeited. Voucher can only be used for services, not for
+        retail products. Not to be combined with other vouchers, coupons or discounts.
+        Subject to the \u003ca target=\"_blank\" href=\"http://www.yelp.com/tos/general_b2c_us_20120911\"\u003eGeneral
+        Terms\u003c/a\u003e.", "options": [{"original_price": 5000, "title": "$25
+        for $50 Towards Spa Services", "price": 2500, "purchase_url": "https://www.yelp.com/checkout/deal/99UXPkRVKhYkyG-FXm7dXw",
+        "formatted_original_price": "$50", "formatted_price": "$25", "is_quantity_limited":
+        false}], "important_restrictions": "Valid towards facials, body waxing, tinting
+        or makeup services only\nNew customers only\nBy appointment only", "image_url":
+        "http://s3-media4.ak.yelpcdn.com/dphoto/IxGAVvwMrwKpfW1PHj9jWg/m.jpg", "id":
+        "Fls0PVprGTrFlqLK29Bp-g", "currency_code": "USD"}], "phone": "4156267700",
+        "snippet_text": "My review is for Jenny: \n\nI had an absolutely wonderful
+        experience at the Bryan Roberts Salon. I was a bit nervous and also prepared
+        for multiple visits. I...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/8BO2c6NZuhvdiXqLeTjigQ/ms.jpg",
+        "categories": [["Hair Salons", "hair"], ["Skin Care", "skincare"], ["Makeup
+        Artists", "makeupartists"]], "display_phone": "+1-415-626-7700", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "bryan-roberts-salon-and-color-bar-san-francisco-3", "is_closed": false,
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 547.38286013065306, "mobile_url": "http://m.yelp.com/biz/san-francisco-real-estate-solutions-san-francisco-3",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 44, "name": "San Francisco Real Estate Solutions", "snippet_image_url":
+        "http://s3-media2.ak.yelpcdn.com/photo/8J5Lj8pDCIL9k0j0eo-htQ/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/san-francisco-real-estate-solutions-san-francisco-3",
+        "location": {"cross_streets": "Douglass St \u0026 Corbett Ave", "city": "San
+        Francisco", "display_address": ["4200 17th St", "(b/t Douglass St \u0026 Corbett
+        Ave)", "Corona Heights", "San Francisco, CA 94114"], "neighborhoods": ["Corona
+        Heights"], "postal_code": "94114", "country_code": "US", "address": ["4200
+        17th St"], "state_code": "CA"}, "phone": "4159671067", "snippet_text": "My
+        wife and I had a great experience researching and ultimately buying our home
+        with Karen, Chris and Cherie.\n\nSometimes I discuss realtors with friends
+        and...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/lDRetlb7T1bXVlxP_G2_yQ/ms.jpg",
+        "categories": [["Real Estate Agents", "realestateagents"]], "display_phone":
+        "+1-415-967-1067", "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "san-francisco-real-estate-solutions-san-francisco-3", "is_closed":
+        false, "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": false, "distance": 543.2976232026391, "mobile_url": "http://m.yelp.com/biz/castro-theatre-san-francisco",
+        "rating_img_url": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 649, "name": "Castro Theatre", "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/photo/CxU1HjwtsNK-9jBlUlvdSA/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/castro-theatre-san-francisco",
+        "location": {"cross_streets": "18th St \u0026 17th St", "city": "San Francisco",
+        "display_address": ["429 Castro St", "(b/t 18th St \u0026 17th St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["429 Castro St"], "state_code": "CA"}, "phone":
+        "4156216120", "snippet_text": "Sing-a-long for Beauty and the Beast??  I don''t
+        know why it took me so long to get to this old charm theater, complete with
+        the box office out front and the...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/g6qmCUxAc0_SNC0ZCgq2Lw/ms.jpg",
+        "categories": [["Cinema", "movietheaters"]], "display_phone": "+1-415-621-6120",
+        "rating_img_url_large": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "castro-theatre-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 920.14175148689446, "mobile_url": "http://m.yelp.com/biz/michael-bruno-luggage-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 122, "name": "Michael Bruno Luggage", "snippet_image_url":
+        "http://s3-media2.ak.yelpcdn.com/photo/rIC8gDCFyTAQOrd95Q-0RA/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/michael-bruno-luggage-san-francisco",
+        "location": {"cross_streets": "Sanchez St \u0026 16th St", "city": "San Francisco",
+        "display_address": ["2267 Market St", "(b/t Sanchez St \u0026 16th St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["2267 Market St"], "state_code": "CA"},
+        "phone": "4155523970", "snippet_text": "Lou is the best. He helped me find
+        the right travel luggage. He''s friendly and knowledgable. It''s great to
+        see establishments like his that still offer...", "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/lUmeFo-scf8sT82bEmD14Q/ms.jpg",
+        "categories": [["Luggage", "luggage"]], "display_phone": "+1-415-552-3970",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "michael-bruno-luggage-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 852.27539500703074, "mobile_url": "http://m.yelp.com/biz/spartan-moving-company-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 224, "name": "Spartan Moving Company", "snippet_image_url":
+        "http://s3-media1.ak.yelpcdn.com/photo/oEU59FE5NdwLix2HCBbqrw/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/spartan-moving-company-san-francisco",
+        "location": {"cross_streets": "Vista Ln \u0026 Burnett Ave", "city": "San
+        Francisco", "display_address": ["125 Gardenside Dr", "Ste 123", "(b/t Vista
+        Ln \u0026 Burnett Ave)", "Twin Peaks", "San Francisco, CA 94131"], "neighborhoods":
+        ["Twin Peaks"], "postal_code": "94131", "country_code": "US", "address": ["125
+        Gardenside Dr", "Ste 123"], "state_code": "CA"}, "phone": "4157382350", "snippet_text":
+        "I recently hired a three man crew to help me move from a two bedroom/2.5
+        bath to another two bdr/2 bath apartment.  The crew was amazing -- they were
+        super...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/8xJJWe6xKvdICVHvyABsWA/ms.jpg",
+        "categories": [["Movers", "movers"], ["Couriers \u0026 Delivery Services",
+        "couriers"]], "display_phone": "+1-415-738-2350", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "spartan-moving-company-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 364.56417770463861, "mobile_url": "http://m.yelp.com/biz/brian-rizzo-d-c-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 32, "name": "Brian Rizzo D.C.", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/yVPHbn83LVcfnfTVnUAmiQ/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/brian-rizzo-d-c-san-francisco",
+        "location": {"city": "San Francisco", "display_address": ["Rizzo Chiropractic
+        Corp.", "540 Castro St", "Castro", "San Francisco, CA 94114"], "neighborhoods":
+        ["Castro"], "postal_code": "94114", "country_code": "US", "address": ["Rizzo
+        Chiropractic Corp.", "540 Castro St"], "state_code": "CA"}, "phone": "4156215772",
+        "snippet_text": "5 stars for:\n\n1) Prompt return of my phone call.\n2) Flexible
+        schedule. He made the next morning work to help me with an acute pain situation.\n3)
+        Complete...", "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/lYkR3gUSeOx8FokYLYWXSg/ms.jpg",
+        "categories": [["Chiropractors", "chiropractors"]], "display_phone": "+1-415-621-5772",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "brian-rizzo-d-c-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 222.74870742191933, "mobile_url": "http://m.yelp.com/biz/spunk-salon-san-francisco",
+        "rating_img_url": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 99, "name": "Spunk Salon", "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/-OGKE73ZO5OgMWVfT3tQDg/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/spunk-salon-san-francisco",
+        "location": {"cross_streets": "Castro St \u0026 Collingwood St", "city": "San
+        Francisco", "display_address": ["4147 19th St", "(b/t Castro St \u0026 Collingwood
+        St)", "Castro", "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code":
+        "94114", "country_code": "US", "address": ["4147 19th St"], "state_code":
+        "CA"}, "phone": "4157017865", "snippet_text": "One Name: BEN!!\n\nI came to
+        Ben about a month ago and had the experience of a life time. He was ULTRA
+        accommodating and really listened to my needs. Without...", "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/_kWdk5wpfaQkf0uDHcX4eA/ms.jpg",
+        "categories": [["Hair Salons", "hair"]], "display_phone": "+1-415-701-7865",
+        "rating_img_url_large": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "spunk-salon-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 139.65212180776084, "mobile_url": "http://m.yelp.com/biz/franks-all-city-plumbing-san-bruno-2",
+        "rating_img_url": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 77, "name": "Frank''s All City Plumbing", "snippet_image_url":
+        "http://s3-media1.ak.yelpcdn.com/photo/fqOEKt4re_xBRWbcsEfzCA/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/franks-all-city-plumbing-san-bruno-2",
+        "location": {"city": "San Bruno", "display_address": ["2560 Turnberry Dr",
+        "Castro", "San Bruno, CA 94066"], "neighborhoods": ["Castro"], "postal_code":
+        "94066", "country_code": "US", "address": ["2560 Turnberry Dr"], "state_code":
+        "CA"}, "phone": "4154072140", "snippet_text": "* This review is for outstanding
+        morale fiber. They did not end up needing to actually do any plumbing. *\n\nWe
+        live in a condo complex and our sinks were...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/NnLIgCTiEAVYJVgbP4lLZA/ms.jpg",
+        "categories": [["Plumbing", "plumbing"]], "display_phone": "+1-415-407-2140",
+        "rating_img_url_large": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "franks-all-city-plumbing-san-bruno-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 799.66957067877763, "mobile_url": "http://m.yelp.com/biz/laura-kaufman-mba-zephyr-real-estate-san-francisco-3",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 60, "name": "Laura Kaufman, MBA - Zephyr Real Estate", "snippet_image_url":
+        "http://s3-media3.ak.yelpcdn.com/photo/lx1WXoQpVxps74ZIjvKxIw/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/laura-kaufman-mba-zephyr-real-estate-san-francisco-3",
+        "location": {"cross_streets": "Noe St \u0026 Castro St", "city": "San Francisco",
+        "display_address": ["4040 24th St", "(b/t Noe St \u0026 Castro St)", "Noe
+        Valley", "San Francisco, CA 94114"], "neighborhoods": ["Noe Valley"], "postal_code":
+        "94114", "country_code": "US", "address": ["4040 24th St"], "state_code":
+        "CA"}, "phone": "4153101256", "snippet_text": "Laura was our listing agent,
+        selling our condo in San Francisco. We started the process with her over a
+        year earlier.  One of the biggest factors of us...", "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/y5Ih4Emwrr7r7HKf2qcMPw/ms.jpg",
+        "categories": [["Real Estate Agents", "realestateagents"], ["Real Estate Services",
+        "realestatesvcs"]], "display_phone": "+1-415-310-1256", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "laura-kaufman-mba-zephyr-real-estate-san-francisco-3", "is_closed":
+        false, "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 340.30444800786751, "mobile_url": "http://m.yelp.com/biz/traci-hollander-state-farm-insurance-agent-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 43, "name": "Traci Hollander - State Farm Insurance Agent",
+        "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/photo/BTuxETKDEIbrczxfXI6EPw/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/traci-hollander-state-farm-insurance-agent-san-francisco",
+        "location": {"cross_streets": "19th St \u0026 18th St", "city": "San Francisco",
+        "display_address": ["556 Castro Street", "(b/t 19th St \u0026 18th St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["556 Castro Street"], "state_code": "CA"},
+        "phone": "4155753775", "snippet_text": "I have been with Traci''s office for
+        years. Her staff is always friendly, fast and extremely knowledgeable-- Eva,Tiffany,
+        Diana- all amazing! I have...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/mlqtnOYUKs1wavO4aaZqKQ/ms.jpg",
+        "categories": [["Insurance", "insurance"]], "display_phone": "+1-415-575-3775",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "traci-hollander-state-farm-insurance-agent-san-francisco", "is_closed":
+        false, "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 799.67186361230461, "mobile_url": "http://m.yelp.com/biz/michael-blacksburg-san-francisco-2",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 89, "name": "Michael Blacksburg", "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/Pvr6-Gx5bH8wslbv3HZnGg/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/michael-blacksburg-san-francisco-2",
+        "location": {"cross_streets": "17th St \u0026 16th St", "city": "San Francisco",
+        "display_address": ["315 Noe St", "(b/t 17th St \u0026 16th St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["315 Noe St"], "state_code": "CA"}, "phone":
+        "4158619900", "snippet_text": "It doesn''t get any better than Blackie. When
+        our son was born last month, we knew we had to get our Big, Important Paperwork
+        in order. When we called...", "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/rgyHoqhszq9p9rEqmTXOOQ/ms.jpg",
+        "categories": [["General Litigation", "general_litigation"], ["Estate Planning
+        Law", "estateplanning"]], "display_phone": "+1-415-861-9900", "rating_img_url_large":
+        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "michael-blacksburg-san-francisco-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 40.48638987053647, "mobile_url": "http://m.yelp.com/biz/bikram-yoga-castro-san-francisco",
+        "rating_img_url": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 67, "name": "Bikram Yoga Castro", "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/bLBzZkprHxAxUkPY6vvqcg/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/bikram-yoga-castro-san-francisco",
+        "location": {"cross_streets": "20th St \u0026 21st St", "city": "San Francisco",
+        "display_address": ["301 Eureka St", "(b/t 20th St \u0026 21st St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["301 Eureka St"], "state_code": "CA"}, "phone":
+        "4158219642", "snippet_text": "I''m new to the city, and have spent the past
+        month searching for a Bikram yoga studio. Due to an autoimmune disease, I''ve
+        become much more health conscious...", "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/3GK1YUXfrQ5gxTF77NLR_g/ms.jpg",
+        "categories": [["Yoga", "yoga"]], "display_phone": "+1-415-821-9642", "rating_img_url_large":
+        "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "bikram-yoga-castro-san-francisco", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 582.15131483162838, "mobile_url": "http://m.yelp.com/biz/fitwell-chiropractic-sports-medicine-san-francisco",
+        "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 38, "name": "Fitwell Chiropractic Sports Medicine", "snippet_image_url":
+        "http://s3-media4.ak.yelpcdn.com/photo/8Hn-mvUQFg7-Yh1cA9FzTw/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/fitwell-chiropractic-sports-medicine-san-francisco",
+        "location": {"cross_streets": "22nd St \u0026 Alvarado St", "city": "San Francisco",
+        "display_address": ["900 Noe St", "(b/t 22nd St \u0026 Alvarado St)", "Noe
+        Valley", "San Francisco, CA 94114"], "neighborhoods": ["Noe Valley"], "postal_code":
+        "94114", "country_code": "US", "address": ["900 Noe St"], "state_code": "CA"},
+        "phone": "4159209766", "snippet_text": "A friend recommended Dr Heather at
+        FitWell after I moaned and groaned about yet another rotator cuff issue.  I''d
+        never been to chiropractor office and was...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/TSUL_16OG3fuByrgZfMadA/ms.jpg",
+        "categories": [["Chiropractors", "chiropractors"], ["Sports Medicine", "sportsmed"],
+        ["Massage Therapy", "massage_therapy"]], "display_phone": "+1-415-920-9766",
+        "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "fitwell-chiropractic-sports-medicine-san-francisco", "is_closed": false,
+        "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": false, "distance": 130.97898314623532, "mobile_url": "http://m.yelp.com/biz/seward-street-slides-san-francisco",
+        "rating_img_url": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 457, "name": "Seward Street Slides", "snippet_image_url":
+        "http://s3-media3.ak.yelpcdn.com/photo/GJA6mA6dEYdQ7dG2rS3eqQ/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/seward-street-slides-san-francisco",
+        "snippet_text": "The past couple of reviews mentioned yellow barricade gates
+        preventing you from sliding, but there was no such problem when we went this
+        afternoon.  I''m...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/rNshJjq2d_6A0WgHFTE0KA/ms.jpg",
+        "categories": [["Parks", "parks"]], "rating_img_url_small": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "rating_img_url_large": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "seward-street-slides-san-francisco", "is_closed": false, "location":
+        {"city": "San Francisco", "display_address": ["Seward St \u0026 Douglass St",
+        "Castro", "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code":
+        "94114", "country_code": "US", "address": ["Seward St \u0026 Douglass St"],
+        "state_code": "CA"}}, {"is_claimed": true, "distance": 525.91444757797774,
+        "mobile_url": "http://m.yelp.com/biz/philz-coffee-san-francisco-2", "rating_img_url":
+        "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 793, "name": "Philz Coffee", "snippet_image_url": "http://s3-media2.ak.yelpcdn.com/photo/fiD81untOYF0P-vipWzzVg/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/philz-coffee-san-francisco-2",
+        "location": {"cross_streets": "Noe St \u0026 Hartford St", "city": "San Francisco",
+        "display_address": ["4023 18th St", "(b/t Noe St \u0026 Hartford St)", "Castro",
+        "San Francisco, CA 94114"], "neighborhoods": ["Castro"], "postal_code": "94114",
+        "country_code": "US", "address": ["4023 18th St"], "state_code": "CA"}, "menu_date_updated":
+        1387623935, "phone": "4158759656", "snippet_text": "THE STAFF THERE IS POLITE,
+        FRIENDLY AND DEALING WITH THEM IS A WONDERFUL WAY TO START YOUR DAY!\n\nHaving
+        been a die-hard Starbucks latte man for years, I...", "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/n314efn-LXM8D34Uj8jwFg/ms.jpg",
+        "categories": [["Coffee \u0026 Tea", "coffee"]], "display_phone": "+1-415-875-9656",
+        "rating_img_url_large": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "single_platform", "id": "philz-coffee-san-francisco-2",
+        "is_closed": false, "rating_img_url_small": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"}]}'
+    http_version: 
+  recorded_at: Mon, 28 Apr 2014 16:17:06 GMT
+recorded_with: VCR 2.8.0
