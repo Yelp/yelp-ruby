@@ -17,4 +17,10 @@ describe Yelp::Endpoint::Business do
     it { should be_a(BurstStruct::Burst) }
     its(:name) { should eql('Yelp') }
   end
+
+  describe 'errors' do
+    it_behaves_like 'a request error' do
+      let(:request) { client.business(business) }
+    end
+  end
 end

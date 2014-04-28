@@ -55,12 +55,18 @@ describe Yelp::Endpoint::Search do
   end
 
   describe 'errors' do
-    it 'raises when #search_by_coordinates params are empty' do
-      expect { client.search_by_coordinates({}, params) }.to raise_error(Yelp::MissingLatLng)
+    context 'search' do
+      it 'raises when #search_by_coordinates params are empty' do
+        expect { client.search_by_coordinates({}, params) }.to raise_error(Yelp::MissingLatLng)
+      end
+
+      it 'raises when #search_by_bounding_box params are empty' do
+        expect { client.search_by_bounding_box({}, params) }.to raise_error(Yelp::BoundingBoxNotComplete)
+      end
     end
 
-    it 'raises when #search_by_bounding_box params are empty' do
-      expect { client.search_by_bounding_box({}, params) }.to raise_error(Yelp::BoundingBoxNotComplete)
+    it_behaves_like 'a request error' do
+      let(:request) { client.search(location) }
     end
   end
 end
