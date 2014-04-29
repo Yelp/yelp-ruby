@@ -40,7 +40,7 @@ module Yelp
     #     config.token_secret = 'jkl'
     #   end
     def configure
-      raise AlreadyConfigured unless @configuration.nil?
+      raise Error::AlreadyConfigured unless @configuration.nil?
 
       @configuration = Configuration.new
       yield(@configuration)
@@ -51,7 +51,7 @@ module Yelp
     def check_api_keys
       if configuration.nil? || !configuration.valid?
         @configuration = nil
-        raise MissingAPIKeys
+        raise Error::MissingAPIKeys
       else
         # Freeze the configuration so it cannot be modified once the gem is
         # configured.  This prevents the configuration changing while the gem
