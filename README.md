@@ -1,4 +1,6 @@
-# yelp-ruby [![Code Climate](https://codeclimate.com/github/Yelp/yelp-ruby.png)](https://codeclimate.com/github/Yelp/yelp-ruby) [![Build Status](https://travis-ci.org/Yelp/yelp-ruby.svg?branch=feature/code-climate-badge)](https://travis-ci.org/Yelp/yelp-ruby)
+# yelp-ruby
+
+[![Code Climate](https://codeclimate.com/github/Yelp/yelp-ruby.png)](https://codeclimate.com/github/Yelp/yelp-ruby)
 
 This is a Ruby Gem for the Yelp API. It'll simplifies the process of consuming data from the Yelp API for developers using Ruby. The library encompasses both Search and Business API functions.
 
