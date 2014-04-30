@@ -1,55 +1,57 @@
 module Yelp
-  class Error < StandardError
-    def self.check_for_error(data)
+  module Error
+    def self.check_for_error(request)
       # Check if the status is in the range of non-error status codes
-      return if (200..399).include?(data.status)
+      return if (200..399).include?(request.status)
 
-      body = JSON.parse(data.body)
+      body = JSON.parse(request.body)
       @error_classes ||= Hash.new do |hash, key|
         class_name = key.split('_').map(&:capitalize).join('').gsub('Oauth', 'OAuth')
-        hash[key] = Yelp.const_get(class_name)
+        hash[key] = Yelp::Error.const_get(class_name)
       end
 
       klass = @error_classes[body['error']['id']]
       raise klass.new(body['error']['text'])
     end
-  end
 
-  class AlreadyConfigured < Error
-    def initialize(msg = 'Gem cannot be reconfigured.  Initialize a new ' +
-        'instance of Yelp::Client.')
-      super
+    class Base < StandardError; end
+
+    class AlreadyConfigured < Base
+      def initialize(msg = 'Gem cannot be reconfigured.  Initialize a new ' +
+          'instance of Yelp::Client.')
+        super
+      end
     end
-  end
 
-  class MissingAPIKeys < Error
-    def initialize(msg = "You're missing an API key")
-      super
+    class MissingAPIKeys < Base
+      def initialize(msg = "You're missing an API key")
+        super
+      end
     end
-  end
 
-  class MissingLatLng < Error
-    def initialize(msg = 'Missing required latitude or longitude parameters')
-      super
+    class MissingLatLng < Base
+      def initialize(msg = 'Missing required latitude or longitude parameters')
+        super
+      end
     end
-  end
 
-  class BoundingBoxNotComplete < Error
-    def initialize(msg = 'Missing required values for bounding box')
-      super
+    class BoundingBoxNotComplete < Base
+      def initialize(msg = 'Missing required values for bounding box')
+        super
+      end
     end
-  end
 
-  class InternalError           < Error; end
-  class ExceededRequests        < Error; end
-  class MissingParameter        < Error; end
-  class InvalidParameter        < Error; end
-  class InvalidSignature        < Error; end
-  class InvalidOAuthCredentials < Error; end
-  class InvalidOAuthUser        < Error; end
-  class AccountUnconfirmed      < Error; end
-  class UnavailableForLocation  < Error; end
-  class AreaTooLarge            < Error; end
-  class MultipleLocations       < Error; end
-  class BusinessUnavailable     < Error; end
+    class InternalError           < Base; end
+    class ExceededRequests        < Base; end
+    class MissingParameter        < Base; end
+    class InvalidParameter        < Base; end
+    class InvalidSignature        < Base; end
+    class InvalidOAuthCredentials < Base; end
+    class InvalidOAuthUser        < Base; end
+    class AccountUnconfirmed      < Base; end
+    class UnavailableForLocation  < Base; end
+    class AreaTooLarge            < Base; end
+    class MultipleLocations       < Base; end
+    class BusinessUnavailable     < Base; end
+  end
 end
