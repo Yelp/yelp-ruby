@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/Yelp/yelp-ruby.png)](https://codeclimate.com/github/Yelp/yelp-ruby)
 
-This is a Ruby Gem for the Yelp API. It'll simplifies the process of consuming data from the Yelp API for developers using Ruby. The library encompasses both Search and Business API functions.
+This is a Ruby Gem for the Yelp API. It'll simplify the process of consuming data from the Yelp API for developers using Ruby. The library encompasses both Search and Business API functions.
 
 Please remember to read and follow the [Terms of Use](http://www.yelp.com/developers/getting_started/api_terms) and [display requirements](http://www.yelp.com/developers/getting_started/display_requirements) before creating your applications.
 

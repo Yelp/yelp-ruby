@@ -6,17 +6,19 @@ require 'yelp/version'
 Gem::Specification.new do |spec|
   spec.name          = 'yelp'
   spec.version       = Yelp::VERSION
-  spec.authors       = ['Tomer Elmalem', 'Yelp']
+  spec.authors       = ['Tomer Elmalem', 'Justin Cunningham', 'Yelp']
   spec.email         = ['telmalem@gmail.com', 'partnerships@yelp.com']
   spec.summary       = %q{Ruby client library for the Yelp API}
   spec.description   = 'Provides easy way to interact with the Yelp API in any kind of application'
-  spec.homepage      = 'https://github.com/yelp/yelp.rb'
+  spec.homepage      = 'https://github.com/Yelp/yelp-ruby'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
+
+  spec.required_ruby_version = '>= 1.9.2'
 
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 10.0', '>= 10.0.0'
