@@ -1,17 +1,48 @@
 module Yelp
   module Error
-    def self.check_for_error(request)
-      # Check if the status is in the range of non-error status codes
-      return if (200..399).include?(request.status)
+    # Validates Yelp API responses.  This class shouldn't be used directly, but
+    # should be accessed through the Yelp::Error.check_for_error interface.
+    # @see check_for_error
+    class ResponseValidator
 
-      body = JSON.parse(request.body)
-      @error_classes ||= Hash.new do |hash, key|
-        class_name = key.split('_').map(&:capitalize).join('').gsub('Oauth', 'OAuth')
-        hash[key] = Yelp::Error.const_get(class_name)
+      # If the request is not successful, raise an appropriate Yelp::Error
+      # exception with the error text from the request response.
+      # @param response from the Yelp API
+      def validate(response)
+        return if successful_response?(response)
+        raise error_from_response(response)
       end
 
-      klass = @error_classes[body['error']['id']]
-      raise klass.new(body['error']['text'])
+      private
+
+      def successful_response?(response)
+        # Check if the status is in the range of non-error status codes
+        (200..399).include?(response.status)
+      end
+
+      # Create an initialized exception from the response
+      # @return [Yelp::Error::Base] exception corresponding to API error
+      def error_from_response(response)
+        body = JSON.parse(response.body)
+        klass = error_classes[body['error']['id']]
+        klass.new(body['error']['text'])
+      end
+
+      # Maps from API Error id's to Yelp::Error exception classes.
+      def error_classes
+        @@error_classes ||= Hash.new do |hash, key|
+          class_name = key.split('_').map(&:capitalize).join('').gsub('Oauth', 'OAuth')
+          hash[key] = Yelp::Error.const_get(class_name)
+        end
+      end
+    end
+
+    # Check the response for errors, raising an appropriate exception if
+    # necessary
+    # @param (see ResponseValidator#validate)
+    def self.check_for_error(response)
+      @response_validator ||= ResponseValidator.new
+      @response_validator.validate(response)
     end
 
     class Base < StandardError; end
