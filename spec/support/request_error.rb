@@ -5,7 +5,7 @@ shared_examples 'a request error' do
 
     it 'should raise an error' do
       client.stub_chain(:connection, :get).and_return(bad_response)
-      expect { request }.to raise_error(Yelp::InternalError)
+      expect { request }.to raise_error(Yelp::Error::InternalError)
     end
   end
 end
