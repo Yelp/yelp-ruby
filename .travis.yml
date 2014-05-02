@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.0.0
+  - 1.9.3
+  - 1.9.2
+env:
+  - YELP_CONSUMER_KEY='abcdefg' YELP_CONSUMER_SECRET='hijklmn' YELP_TOKEN='12345' YELP_TOKEN_SECRET='67890'

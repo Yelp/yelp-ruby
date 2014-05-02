@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'yelp'
 
 describe Yelp::Error do
   context '#from_request' do
@@ -16,7 +15,7 @@ describe Yelp::Error do
     it 'should raise an internal error' do
       expect {
         Yelp::Error.check_for_error(bad_response)
-      }.to raise_error(Yelp::InternalError, 'error message')
+      }.to raise_error(Yelp::Error::InternalError, 'error message')
     end
   end
 end

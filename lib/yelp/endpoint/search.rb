@@ -83,7 +83,8 @@ module Yelp
       #
       #   response = client.search(bounding_box, params)
       def search_by_bounding_box(bounding_box, params = {}, locale = {})
-        raise BoundingBoxNotComplete if BOUNDING_BOX.any? { |corner| bounding_box[corner].nil? }
+        raise Error::BoundingBoxNotComplete if BOUNDING_BOX.any? { |corner|
+          bounding_box[corner].nil? }
 
         options = { bounds: build_bounding_box(bounding_box) }
         options.merge!(params)
@@ -128,7 +129,8 @@ module Yelp
       #
       #   response = client.search(coordinates, params)
       def search_by_coordinates(coordinates, params = {}, locale = {})
-        raise MissingLatLng if coordinates[:latitude].nil? || coordinates[:longitude].nil?
+        raise Error::MissingLatLng if coordinates[:latitude].nil? ||
+            coordinates[:longitude].nil?
 
         options = { ll: build_coordinates_string(coordinates) }
         options.merge!(params)
