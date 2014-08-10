@@ -8,12 +8,20 @@ describe BurstStruct::Burst do
       it 'should return' do
         expect(struct.foo).to eql 'bar'
       end
+
+      it { should have_key(:foo) }
+      it { should have_key('foo') }
+
+      it { should respond_to(:foo) }
     end
 
     context 'when a key does not exist' do
       it 'should not respond to it' do
         expect(struct.respond_to? :super_foo).to eql false
       end
+
+      it { should_not have_key(:super_foo) }
+      it { should_not have_key('super_foo') }
     end
   end
 
@@ -119,6 +127,21 @@ describe BurstStruct::Burst do
 
     it 'should deserialize to the same json' do
       expect(struct.to_json).to eql hash.to_json
+    end
+  end
+
+  context 'struct with string keys' do
+    subject(:struct) { BurstStruct::Burst.new('foo' => 'bar') }
+
+    context 'when a key exists' do
+      it 'should return' do
+        expect(struct.foo).to eql 'bar'
+      end
+
+      it { should have_key(:foo) }
+      it { should have_key('foo') }
+
+      it { should respond_to(:foo) }
     end
   end
 end
