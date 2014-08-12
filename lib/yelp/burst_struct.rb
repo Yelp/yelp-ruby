@@ -15,7 +15,7 @@ module BurstStruct
     end
 
     def respond_to?(method_name, include_private = false)
-      @hash.keys.include?(method_name) || super
+      has_key?(method_name) || super
     end
 
     def self.convert_array(array)
@@ -33,6 +33,10 @@ module BurstStruct
 
     def to_json(options = {})
       JSON.generate(@hash)
+    end
+
+    def has_key?(method_name)
+      !find_key(method_name).nil?
     end
 
     private
