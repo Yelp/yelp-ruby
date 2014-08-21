@@ -1,6 +1,14 @@
 require 'yelp/burst_struct'
 
 describe BurstStruct::Burst do
+  describe '#keys' do
+    subject(:struct) { BurstStruct::Burst.new(foo: 'bar', baz: 'qux') }
+
+    it 'should return' do
+      expect(struct.keys).to eql [:foo, :baz]
+    end
+  end
+
   describe '#foo' do
     subject(:struct) { BurstStruct::Burst.new(foo: 'bar') }
 

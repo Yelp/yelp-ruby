@@ -4,6 +4,10 @@ module BurstStruct
       @hash = hash
     end
 
+    def keys
+      @hash.keys
+    end
+
     def method_missing(method_name, *arguments, &block)
       key = find_key(method_name)
 
