@@ -23,22 +23,22 @@ describe Yelp::Configuration do
     subject { configuration.valid? }
 
     context "when keys are valid" do
-      it { should be_true }
+      it { should be true }
     end
 
     context "when keys are not set" do
       let(:api_keys) { Hash.new }
-      it { should be_false }
+      it { should be false }
     end
 
     context "when a key is an empty string" do
       let(:api_keys) { valid_api_keys.merge(consumer_key: '') }
-      it { should be_false }
+      it { should be false }
     end
 
     context "when a key is nil" do
       let(:api_keys) { valid_api_keys.merge(token: nil) }
-      it { should be_false }
+      it { should be false }
     end
   end
 end
