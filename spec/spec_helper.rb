@@ -1,4 +1,5 @@
 require 'yelp'
+require 'rspec/its'
 require 'support/request_error'
 require 'support/shared_configuration'
 require 'vcr'
