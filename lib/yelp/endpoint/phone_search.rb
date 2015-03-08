@@ -27,7 +27,7 @@ module Yelp
       def phone_search(phone, options={})
         params = {phone: phone}
         params.merge!(options)
-        BurstStruct::Burst.new(JSON.parse(phone_search_request(phone, params).body))
+        BurstStruct::Burst.new(JSON.parse(phone_search_request(params).body))
       end
 
       private
@@ -38,10 +38,9 @@ module Yelp
       # the response back it's checked to see if there are any API errors
       # and raises the relevant one if there is.
       #
-      # @param phone [String, Integer] the phone number
       # @param params [Hash] a hash of options for phone search
       # @return [Faraday::Response] the raw response back from the connection
-      def phone_search_request(phone, params)
+      def phone_search_request(params)
         result = @client.connection.get PATH, params
         Error.check_for_error(result)
         result
