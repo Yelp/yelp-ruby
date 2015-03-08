@@ -106,6 +106,22 @@ locale = { lang: 'fr' }
 client.business('yelp-san-francisco', locale)
 ```
 
+### [Phone Search API](http://www.yelp.com/developers/documentation/v2/phone_search)
+
+To use the Phone Search API after you have a client you just need to call ``#phone_search`` with a phone number
+
+```
+client.phone_search('+15555555555')
+```
+
+You can pass in country code information as well
+
+```
+options = { cc: 'US', category: 'fashion' }
+
+client.phone_search('5555555555', options)
+```
+
 ## Responses
 
 Responses from the API are all parsed and converted into Ruby objects. You're able to access information using dot-notation
