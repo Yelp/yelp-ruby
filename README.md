@@ -144,6 +144,17 @@ For specific response values check out the docs for the [search api](http://www.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+Our rspec test suite expects environment variables to be populated with your Yelp API Access Tokens. If you use RVM, you could create a `.ruby-env` file in the repo root with contents like:
+
+```
+YELP_CONSUMER_KEY=<YOUR_YELP_CONSUMER_KEY>
+YELP_CONSUMER_SECRET=<YOUR_YELP_CONSUMER_SECRET>
+YELP_TOKEN=<YOUR_YELP_TOKEN>
+YELP_TOKEN_SECRET=<YOUR_YELP_TOKEN_SECRET>
+```
+
+You can generate and find your Access Tokens at [https://www.yelp.com/developers/manage_api_keys](https://www.yelp.com/developers/manage_api_keys).
+
 ### Git Workflow
 
 We are using the [git flow](http://nvie.com/posts/a-successful-git-branching-model/)
