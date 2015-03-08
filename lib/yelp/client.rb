@@ -5,13 +5,15 @@ require 'yelp/burst_struct'
 require 'yelp/configuration'
 require 'yelp/error'
 require 'yelp/endpoint/business'
+require 'yelp/endpoint/phone_search'
 require 'yelp/endpoint/search'
 
 module Yelp
   class Client
     API_HOST  = 'http://api.yelp.com'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
-                        Yelp::Endpoint::Business ]
+                        Yelp::Endpoint::Business,
+                        Yelp::Endpoint::PhoneSearch]
 
     attr_reader :configuration
 
