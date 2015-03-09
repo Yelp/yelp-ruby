@@ -171,6 +171,8 @@ YELP_TOKEN_SECRET=<YOUR_YELP_TOKEN_SECRET>
 
 You can generate and find your Access Tokens at [https://www.yelp.com/developers/manage_api_keys](https://www.yelp.com/developers/manage_api_keys).
 
+(We've included `.ruby-env.example` to get you started. Be careful to remove the `.example`.)
+
 ### Git Workflow
 
 We are using the [git flow](http://nvie.com/posts/a-successful-git-branching-model/)
