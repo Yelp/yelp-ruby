@@ -17,5 +17,3 @@ test/tmp
 test/version_tmp
 tmp
 .ruby-env
-.ruby-gemset
-.ruby-version
