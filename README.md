@@ -1,6 +1,6 @@
 # yelp-ruby
 
-[![Gem Version](https://badge.fury.io/rb/yelp.svg)](http://badge.fury.io/rb/yelp) [![Build Status](https://travis-ci.org/Yelp/yelp-ruby.svg)](https://travis-ci.org/Yelp/yelp-ruby) [![Code Climate](https://codeclimate.com/github/Yelp/yelp-ruby.png)](https://codeclimate.com/github/Yelp/yelp-ruby)
+[![Gem Version](https://badge.fury.io/rb/yelp.svg)](http://badge.fury.io/rb/yelp) [![Build Status](https://travis-ci.org/Yelp/yelp-ruby.svg)](https://travis-ci.org/Yelp/yelp-ruby) [![Code Climate](https://codeclimate.com/github/Yelp/yelp-ruby.svg)](https://codeclimate.com/github/Yelp/yelp-ruby)
 
 This is a Ruby Gem for the Yelp API. It'll simplify the process of consuming data from the Yelp API for developers using Ruby. The library encompasses both Search and Business API functions.
 
@@ -106,6 +106,22 @@ locale = { lang: 'fr' }
 client.business('yelp-san-francisco', locale)
 ```
 
+### [Phone Search API](http://www.yelp.com/developers/documentation/v2/phone_search)
+
+To use the Phone Search API after you have a client you just need to call ``#phone_search`` with a phone number
+
+```
+client.phone_search('+15555555555')
+```
+
+You can pass in country code information as well
+
+```
+options = { cc: 'US', category: 'fashion' }
+
+client.phone_search('5555555555', options)
+```
+
 ## Responses
 
 Responses from the API are all parsed and converted into Ruby objects. You're able to access information using dot-notation
@@ -143,6 +159,19 @@ For specific response values check out the docs for the [search api](http://www.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+Our rspec test suite expects environment variables to be populated with your Yelp API Access Tokens. If you use RVM, you could create a `.ruby-env` file in the repo root with contents like:
+
+```
+YELP_CONSUMER_KEY=<YOUR_YELP_CONSUMER_KEY>
+YELP_CONSUMER_SECRET=<YOUR_YELP_CONSUMER_SECRET>
+YELP_TOKEN=<YOUR_YELP_TOKEN>
+YELP_TOKEN_SECRET=<YOUR_YELP_TOKEN_SECRET>
+```
+
+You can generate and find your Access Tokens at [https://www.yelp.com/developers/manage_api_keys](https://www.yelp.com/developers/manage_api_keys).
+
+(We've included `.ruby-env.example` to get you started. Be careful to remove the `.example`.)
 
 ### Git Workflow
 
