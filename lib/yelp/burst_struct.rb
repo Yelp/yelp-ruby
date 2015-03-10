@@ -43,6 +43,10 @@ module BurstStruct
       !find_key(method_name).nil?
     end
 
+    def raw_data
+      @hash
+    end
+
     private
 
     def return_or_build_struct(method_name)
