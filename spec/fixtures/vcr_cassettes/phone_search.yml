@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.yelp.com/v2/phone_search/?category=localflavor&code=US&phone=%2B14159083801
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="ea69a813193ba6e5948fe4d6f7b96042",
+        oauth_signature="ukchha88%2Bsm6WWpiEAV8VbgIpYQ%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1425778113", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 08 Mar 2015 01:28:33 GMT
+      Server:
+      - Apache
+      X-Node:
+      - web102-r10-sfo2, api_com
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - bse=3b7f48757900b68e51e2bb458656fc4b; Domain=.yelp.com; Path=/; HttpOnly
+      - yuv=Qj3YntiY6H9KR_Is0c63LJkIKjm9hzLLtk-_wgcaU2tHsmQutDrD7AVd-znxMnXQZjKafm3v7f6eQjklhSsif2P4XCLNSJHR;
+        Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Sat, 03-Mar-2035 01:28:33
+        GMT
+      Content-Length:
+      - '1566'
+      Vary:
+      - User-Agent
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Mode:
+      - ro
+      X-Proxied:
+      - extlb1-r4-sfo2
+    body:
+      encoding: UTF-8
+      string: '{"region": null, "total": 1, "businesses": [{"is_claimed": true, "rating":
+        2.5, "mobile_url": "http://m.yelp.com/biz/yelp-san-francisco", "rating_img_url":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+        "review_count": 6827, "name": "Yelp", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/IAgMHI6d24hklODg294Ejw/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+        "url": "http://www.yelp.com/biz/yelp-san-francisco", "phone": "+14159083801",
+        "snippet_text": "I have been called a dumb bitch through business messaging...
+        I have been harassed, cussed a blue streak and stalked for telling the truth
+        and calling...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/EHCfkEpZraIfPl8gvCo1tg/ms.jpg",
+        "categories": [["Local Flavor", "localflavor"], ["Mass Media", "massmedia"]],
+        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
+        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
+        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
+        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
+        {"latitude": 37.786770336292903, "longitude": -122.39995837211499}, "state_code":
+        "CA"}}]}'
+    http_version: 
+  recorded_at: Sun, 08 Mar 2015 01:28:33 GMT
+recorded_with: VCR 2.9.3
