@@ -45,40 +45,42 @@ module Yelp
       @response_validator.validate(response)
     end
 
-    class Base < StandardError; end
+    class Base < StandardError
+      def initialize(msg,error=nil)
+      end
+    end
 
     class AlreadyConfigured < Base
       def initialize(msg = 'Gem cannot be reconfigured.  Initialize a new ' +
-          'instance of Yelp::Client.', error)
+          'instance of Yelp::Client.', error=nil)
         super
       end
     end
 
     class MissingAPIKeys < Base
-      def initialize(msg = "You're missing an API key", error)
+      def initialize(msg = "You're missing an API key", error=nil)
         super
       end
     end
 
     class MissingLatLng < Base
-      def initialize(msg = 'Missing required latitude or longitude parameters', error)
+      def initialize(msg = 'Missing required latitude or longitude parameters', error=nil)
         super
       end
     end
 
     class BoundingBoxNotComplete < Base
-      def initialize(msg = 'Missing required values for bounding box', error)
+      def initialize(msg = 'Missing required values for bounding box', error=nil)
         super
       end
     end
 
     class InvalidParameter < Base
-      def initialize(msg, error)
-        msg = msg + ': ' + error['field']
+      def initialize(msg='One or more parameters were invalid', error=nil)
+        msg = msg + ': ' + error['field'] unless error.nil?
         super
       end
     end
-
 
     class InternalError           < Base; end
     class ExceededRequests        < Base; end
