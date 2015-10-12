@@ -25,7 +25,7 @@ module Yelp
       def error_from_response(response)
         body = JSON.parse(response.body)
         klass = error_classes[body['error']['id']]
-        klass.new(body['error']['text'])
+        klass.new(body['error']['text'], body['error'])
       end
 
       # Maps from API Error id's to Yelp::Error exception classes.
@@ -45,29 +45,39 @@ module Yelp
       @response_validator.validate(response)
     end
 
-    class Base < StandardError; end
+    class Base < StandardError
+      def initialize(msg,error=nil)
+      end
+    end
 
     class AlreadyConfigured < Base
       def initialize(msg = 'Gem cannot be reconfigured.  Initialize a new ' +
-          'instance of Yelp::Client.')
+          'instance of Yelp::Client.', error=nil)
         super
       end
     end
 
     class MissingAPIKeys < Base
-      def initialize(msg = "You're missing an API key")
+      def initialize(msg = "You're missing an API key", error=nil)
         super
       end
     end
 
     class MissingLatLng < Base
-      def initialize(msg = 'Missing required latitude or longitude parameters')
+      def initialize(msg = 'Missing required latitude or longitude parameters', error=nil)
         super
       end
     end
 
     class BoundingBoxNotComplete < Base
-      def initialize(msg = 'Missing required values for bounding box')
+      def initialize(msg = 'Missing required values for bounding box', error=nil)
+        super
+      end
+    end
+
+    class InvalidParameter < Base
+      def initialize(msg='One or more parameters were invalid', error=nil)
+        msg = msg + ': ' + error['field'] unless error.nil?
         super
       end
     end
@@ -75,7 +85,6 @@ module Yelp
     class InternalError           < Base; end
     class ExceededRequests        < Base; end
     class MissingParameter        < Base; end
-    class InvalidParameter        < Base; end
     class InvalidSignature        < Base; end
     class InvalidOAuthCredentials < Base; end
     class InvalidOAuthUser        < Base; end
