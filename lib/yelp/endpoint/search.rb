@@ -1,6 +1,6 @@
 require 'json'
 
-require 'yelp/models/business'
+require 'yelp/responses/search'
 
 module Yelp
   module Endpoint
