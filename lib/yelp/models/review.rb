@@ -4,5 +4,11 @@ require 'yelp/models/rating'
 module Model
   class Review < Base
     attr_accessor :excerpt, :id, :rating, :time_created, :user
+
+    def initialize(json)
+      super(json)
+
+      @rating = parse(@rating, Rating)
+    end
   end
 end
