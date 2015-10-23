@@ -4,7 +4,7 @@ module Yelp
   module Response
     module Model
       class Coordinate < Response::Base
-        attr_accessor :latitude, :longitude
+        attr_reader :latitude, :longitude
       end
     end
   end

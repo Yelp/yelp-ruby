@@ -5,7 +5,7 @@ require 'yelp/responses/models/region'
 module Yelp
   module Response
     class PhoneSearch < Base
-      attr_accessor :businesses, :region, :total
+      attr_reader :businesses, :region, :total
 
       def initialize(json)
         super(json)

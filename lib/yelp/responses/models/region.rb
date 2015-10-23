@@ -6,7 +6,7 @@ module Yelp
   module Response
     module Model
       class Region < Response::Base
-        attr_accessor :center, :span
+        attr_reader :center, :span
 
         def initialize(json)
           super(json)

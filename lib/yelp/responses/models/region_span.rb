@@ -4,7 +4,7 @@ module Yelp
   module Response
     module Model
       class RegionSpan < Response::Base
-        attr_accessor :latitude_delta, :longitude_delta
+        attr_reader :latitude_delta, :longitude_delta
       end
     end
   end

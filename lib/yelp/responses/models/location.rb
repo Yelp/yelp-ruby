@@ -5,8 +5,8 @@ module Yelp
   module Response
     module Model
       class Location < Response::Base
-        attr_accessor :address, :city, :coordinate, :country_code, :cross_streets, :display_address, :geo_accuracy,
-                      :neighborhoods, :postal_code, :state_code
+        attr_reader :address, :city, :coordinate, :country_code, :cross_streets, :display_address, :geo_accuracy,
+                    :neighborhoods, :postal_code, :state_code
 
         def initialize(json)
           super(json)
