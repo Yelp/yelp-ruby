@@ -14,8 +14,8 @@ describe Yelp::Endpoint::Business do
       end
     }
 
-    it { should be_a(BurstStruct::Burst) }
-    its(:name) { should eql('Yelp') }
+    it { should be_a(Yelp::Response::Business) }
+    its("business.name") { should eql('Yelp') }
   end
 
   describe 'errors' do
