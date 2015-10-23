@@ -143,14 +143,14 @@ response.businesses[0].rating
 ## business
 response = client.business('yelp-san-francisco')
 
-response.name
+response.business.name
 # Yelp
 
-response.categories
+response.business.categories
 # [["Local Flavor", "localflavor"], ["Mass Media", "massmedia"]]
 ```
 
-For specific response values check out the docs for the [search api](http://www.yelp.com/developers/documentation/v2/search_api#rValue) and the [business api](http://www.yelp.com/developers/documentation/v2/business#rValue)
+For specific response values check out the docs for the [Search API](http://www.yelp.com/developers/documentation/v2/search_api#rValue) and the [Business API](http://www.yelp.com/developers/documentation/v2/business#rValue). You can also look at the responses and models inside of `lib/yelp/responses` and `lib/yelp/responses/models` to see the methods available.
 
 ## Contributing
 
