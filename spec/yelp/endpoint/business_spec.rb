@@ -15,7 +15,7 @@ describe Yelp::Endpoint::Business do
     }
 
     it { should be_a(Yelp::Response::Business) }
-    its("business.name") { should eql('Yelp') }
+    its('business.name') { should eql('Yelp') }
   end
 
   describe 'errors' do
