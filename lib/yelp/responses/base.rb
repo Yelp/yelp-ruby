@@ -12,7 +12,7 @@ module Yelp
       private
 
       def parse(json, klass)
-        return json.collect { |j| klass.new(j) } if json.class == Array
+        return json.collect { |j| klass.new(j) } if json.is_a?(Array)
         return klass.new(json) if json
         nil
       end
