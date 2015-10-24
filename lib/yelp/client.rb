@@ -9,7 +9,7 @@ require 'yelp/endpoint/search'
 
 module Yelp
   class Client
-    API_HOST  = 'http://api.yelp.com'
+    API_HOST  = 'https://api.yelp.com'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business,
                         Yelp::Endpoint::PhoneSearch]

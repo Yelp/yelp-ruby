@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.yelp.com/v2/business/yelp-san-francisco
+    uri: https://api.yelp.com/v2/business/yelp-san-francisco
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.8.9
+      - Faraday v0.9.2
       Authorization:
-      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="91b6047f08faeace33713a65b42cb034",
-        oauth_signature="yNqoLJVrdE0Ok5SwveA2lA%2BZa4U%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1398701819", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="bf04bd00e56b2a626a911991aac75201",
+        oauth_signature="a48uevnfXQaPvPlZMqCJHAxO3uI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1445634930", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -22,52 +22,63 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Date:
-      - Mon, 28 Apr 2014 16:16:40 GMT
       Server:
-      - Apache
-      X-Node:
-      - web65-r1-sfo1, api_com
-      Cache-Control:
-      - private
-      Set-Cookie:
-      - bse=2a9f068ebb71f02e3c38f8235756f6ea; Domain=.yelp.com; Path=/; HttpOnly
-      Content-Length:
-      - '2217'
-      Vary:
-      - User-Agent
+      - nginx
+      Date:
+      - Fri, 23 Oct 2015 21:15:31 GMT
       Content-Type:
       - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Node:
+      - 10-64-75-62-uswest1aprod
+      - api_com
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      Expires:
+      - Fri, 23 Oct 2015 21:15:30 GMT
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - bse=a4d16c41d4edd2d4d07d7e74cbc80651; Domain=.yelp.com; Path=/; HttpOnly
+      - yuv=vsukueZSeZE-fIOZGHia4PxFRYNgLhbppBfZiB3gOVcA61zINwm64_hWk6xt5mC6d99F16jmQKaI3F5AbI6Bs9sWyHQF2h31;
+        Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Thu, 18-Oct-2035 21:15:30
+        GMT
+      Vary:
+      - Accept-Encoding,User-Agent
       X-Mode:
-      - rw
+      - ro
       X-Proxied:
-      - lb1
+      - 10-64-0-167-uswest1aprod
     body:
       encoding: UTF-8
       string: '{"is_claimed": true, "rating": 2.5, "mobile_url": "http://m.yelp.com/biz/yelp-san-francisco",
-        "rating_img_url": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
-        "review_count": 5915, "name": "Yelp", "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/gNcEV7izLO97H4GS4a-UXA/ms.jpg",
-        "rating_img_url_small": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
-        "url": "http://www.yelp.com/biz/yelp-san-francisco", "reviews": [{"rating":
-        1, "excerpt": "YELP has highly questionable business practices...\n\nYELP
-        \"goes public\" to go from swindling small business to swindling the public...\n\nYelp
-        has over 2...", "time_created": 1398531118, "rating_image_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/f64056afac01/ico/stars/v1/stars_1.png",
-        "rating_image_small_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/74cb12ae7253/ico/stars/v1/stars_small_1.png",
-        "user": {"image_url": "http://s3-media2.ak.yelpcdn.com/photo/Lpmg6W5sqQM89qAAqocyLQ/ms.jpg",
-        "id": "5QWzmoRk9yXRw7712sjQTQ", "name": "Kerri G."}, "rating_image_large_url":
-        "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/cc5d90a21966/ico/stars/v1/stars_large_1.png",
-        "id": "iYSiqKNIAeMi8OIJKfc8pg"}], "phone": "4159083801", "snippet_text": "Yelp
-        has dramatically changed the way I do business locally and while traveling
-        for work or pleasure. Before making plans to eat ANYWHERE, I will scout out...",
-        "image_url": "http://s3-media3.ak.yelpcdn.com/bphoto/4LSTYqXkQ-YrI1CQmr2dQA/ms.jpg",
-        "categories": [["Local Flavor", "localflavor"], ["Mass Media", "massmedia"]],
-        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+        "review_count": 7534, "name": "Yelp", "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+        "url": "http://www.yelp.com/biz/yelp-san-francisco", "categories": [["Local
+        Flavor", "localflavor"], ["Mass Media", "massmedia"]], "reviews": [{"rating":
+        5, "excerpt": "My 200th review! For this milestone I have decided to review
+        Yelp. I wrote my first Yelp review back in 2013, I never thought that one
+        review would turn...", "time_created": 1445434241, "rating_image_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "rating_image_small_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "user": {"image_url": "http://s3-media1.fl.yelpcdn.com/photo/RCmPU2uqGkm0A_NEcRJm0g/ms.jpg",
+        "id": "E8RgeQeEF3xD6CcopTNjhA", "name": "Britt Z."}, "rating_image_large_url":
+        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "AIL0eKK3vFNsR_n9BaJI5Q"}], "phone": "4159083801", "snippet_text": "My
+        200th review! For this milestone I have decided to review Yelp. I wrote my
+        first Yelp review back in 2013, I never thought that one review would turn...",
+        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
+        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/RCmPU2uqGkm0A_NEcRJm0g/ms.jpg",
+        "display_phone": "+1-415-908-3801", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
         "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
         "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
-        New Montgomery St", "(b/t Natoma St \u0026 Minna St)", "Financial District",
-        "San Francisco, CA 94105"], "neighborhoods": ["Financial District", "SoMa"],
-        "postal_code": "94105", "country_code": "US", "address": ["140 New Montgomery
-        St"], "state_code": "CA"}}'
+        New Montgomery St", "Financial District", "San Francisco, CA 94105"], "geo_accuracy":
+        9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code": "94105",
+        "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
+        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
+        "CA"}}'
     http_version: 
-  recorded_at: Mon, 28 Apr 2014 16:17:05 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Fri, 23 Oct 2015 21:15:31 GMT
+recorded_with: VCR 2.9.3
