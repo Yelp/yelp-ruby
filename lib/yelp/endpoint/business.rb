@@ -1,5 +1,7 @@
 require 'json'
 
+require 'yelp/responses/business'
+
 module Yelp
   module Endpoint
     class Business
@@ -19,7 +21,7 @@ module Yelp
       #   business.name # => 'Yelp'
       #   buinesss.url  # => 'http://www.yelp.com/biz/yelp-san-francisco'
       def business(id)
-        BurstStruct::Burst.new(JSON.parse(business_request(id).body))
+        Response::Business.new(JSON.parse(business_request(id).body))
       end
 
       private

@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Tomer Elmalem', 'Justin Cunningham', 'Yelp']
   spec.email         = ['telmalem@gmail.com', 'partnerships@yelp.com']
   spec.summary       = %q{Ruby client library for the Yelp API}
-  spec.description   = 'Provides easy way to interact with the Yelp API in any kind of application'
+  spec.description   = 'Provides an easy way to interact with the Yelp API in any kind of application'
   spec.homepage      = 'https://github.com/Yelp/yelp-ruby'
   spec.license       = 'MIT'
 

@@ -1,7 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
 
-require 'yelp/burst_struct'
 require 'yelp/configuration'
 require 'yelp/error'
 require 'yelp/endpoint/business'
