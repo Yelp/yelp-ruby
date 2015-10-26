@@ -1,5 +1,7 @@
 require 'json'
 
+require 'yelp/responses/search'
+
 module Yelp
   module Endpoint
     class Search
@@ -44,7 +46,7 @@ module Yelp
         params.merge!(locale)
         params.merge!({location: location})
 
-        BurstStruct::Burst.new(JSON.parse(search_request(params).body))
+        Response::Search.new(JSON.parse(search_request(params).body))
       end
 
       # Search by a bounding box: specify a south west lat/long and a ne lat/long
@@ -90,7 +92,7 @@ module Yelp
         options.merge!(params)
         options.merge!(locale)
 
-        BurstStruct::Burst.new(JSON.parse(search_request(options).body))
+        Response::Search.new(JSON.parse(search_request(options).body))
       end
 
       # Search by coordinates: give it a latitude and longitude along with
@@ -136,7 +138,7 @@ module Yelp
         options.merge!(params)
         options.merge!(locale)
 
-        BurstStruct::Burst.new(JSON.parse(search_request(options).body))
+        Response::Search.new(JSON.parse(search_request(options).body))
       end
 
       private

@@ -1,5 +1,7 @@
 require 'json'
 
+require 'yelp/responses/phone_search'
+
 module Yelp
   module Endpoint
     class PhoneSearch
@@ -27,7 +29,8 @@ module Yelp
       def phone_search(phone, options={})
         params = {phone: phone}
         params.merge!(options)
-        BurstStruct::Burst.new(JSON.parse(phone_search_request(params).body))
+
+        Response::PhoneSearch.new(JSON.parse(phone_search_request(params).body))
       end
 
       private

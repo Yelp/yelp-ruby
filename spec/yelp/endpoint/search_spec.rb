@@ -16,7 +16,7 @@ describe Yelp::Endpoint::Search do
       end
     }
 
-    it { should be_a(BurstStruct::Burst) }
+    it { should be_a(Yelp::Response::Search) }
     it 'should get results' do
       expect(results.businesses.size).to be > 0
     end
