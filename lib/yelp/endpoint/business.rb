@@ -14,7 +14,7 @@ module Yelp
       # Make a request to the business endpoint on the API
       #
       # @param id [String] the business id
-      # @return [BurstStruct] the parsed response object from the API
+      # @return [Response::Business] the parsed response object from the API
       #
       # @example Get business
       #   business = client.business('yelp-san-francisco')
