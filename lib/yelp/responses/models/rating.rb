@@ -8,6 +8,10 @@ module Yelp
 
         def initialize(json)
           @rating = json['rating']
+
+          # The Yelp API has two different names for the rating images depending on the object
+          # it returns from. The rating model accomdates both those naming types and
+          # standardizes it for the user
           @image  = { regular: json['rating_image_url']       || json['rating_img_url'],
                       small:   json['rating_image_small_url'] || json['rating_img_url_small'],
                       large:   json['rating_image_large_url'] || json['rating_img_url_large'] }
