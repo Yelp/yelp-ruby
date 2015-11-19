@@ -6,6 +6,12 @@ module Yelp
     module Model
       class Review < Base
         attr_reader :excerpt, :id, :rating, :time_created, :user
+
+        def initialize(json)
+          super(json)
+
+          @rating = parse(json, Rating)
+        end
       end
     end
   end

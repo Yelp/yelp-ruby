@@ -2,6 +2,7 @@ require 'yelp/responses/base'
 require 'yelp/responses/models/deal'
 require 'yelp/responses/models/gift_certificate'
 require 'yelp/responses/models/location'
+require 'yelp/responses/models/rating'
 require 'yelp/responses/models/review'
 
 module Yelp
@@ -20,6 +21,7 @@ module Yelp
           @gift_certificates = parse(@gift_certificates, GiftCertificate)
           @location          = parse(@location, Location)
           @reviews           = parse(@reviews, Review)
+          @rating            = parse(json, Rating)
         end
       end
     end
