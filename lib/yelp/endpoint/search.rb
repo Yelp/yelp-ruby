@@ -23,7 +23,7 @@ module Yelp
       #   http://www.yelp.com/developers/documentation/v2/search_api#searchGP
       # @param locale [Hash] a hash that corresponds to locale on the API:
       #   http://www.yelp.com/developers/documentation/v2/search_api#lParam
-      # @return [BurstStruct::Burst] a parsed object of the response. For a complete
+      # @return [Response::Search] a parsed object of the response. For a complete
       #   list of possible response values visit:
       #   http://www.yelp.com/developers/documentation/v2/search_api#rValue
       #
@@ -59,7 +59,7 @@ module Yelp
       #   http://www.yelp.com/developers/documentation/v2/search_api#searchGP
       # @param locale [Hash] a hash that corresponds to locale on the API:
       #   http://www.yelp.com/developers/documentation/v2/search_api#lParam
-      # @return [BurstStruct::Burst] a parsed object of the response. For a complete
+      # @return [Response::Search] a parsed object of the response. For a complete
       #   list of possible response values visit:
       #   http://www.yelp.com/developers/documentation/v2/search_api#rValue
       #
@@ -105,7 +105,7 @@ module Yelp
       #   http://www.yelp.com/developers/documentation/v2/search_api#searchGP
       # @param locale [Hash] a hash that corresponds to locale on the API:
       #   http://www.yelp.com/developers/documentation/v2/search_api#lParam
-      # @return [BurstStruct::Burst] a parsed object of the response. For a complete
+      # @return [Response::Search] a parsed object of the response. For a complete
       #   list of possible response values visit:
       #   http://www.yelp.com/developers/documentation/v2/search_api#rValue
       #

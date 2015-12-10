@@ -14,7 +14,7 @@ module Yelp
       # Make a request to the business endpoint on the API
       #
       # @param phone_number [String] the phone number
-      # @return [BurstStruct::Burst] a parsed object of the response. For a complete
+      # @return [Response::PhoneSearch] a parsed object of the response. For a complete
       #   sample response visit:
       #   http://www.yelp.com/developers/documentation/v2/phone_search#sampleResponse
       #
