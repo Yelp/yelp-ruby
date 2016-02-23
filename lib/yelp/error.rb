@@ -84,6 +84,7 @@ module Yelp
 
     class InternalError           < Base; end
     class ExceededRequests        < Base; end
+    class ExceededReqs            < Base; end
     class MissingParameter        < Base; end
     class InvalidSignature        < Base; end
     class InvalidOAuthCredentials < Base; end
