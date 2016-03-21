@@ -17,6 +17,7 @@ describe Yelp::Endpoint::Business do
 
     it { should be_a(Yelp::Response::Business) }
     its('business.name') { should eql('Yelp') }
+    its('business.url') { should include('yelp.com') }
   end
 
   describe '#business locale' do
