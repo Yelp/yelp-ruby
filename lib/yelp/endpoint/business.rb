@@ -14,6 +14,7 @@ module Yelp
       # Make a request to the business endpoint on the API
       #
       # @param id [String] the business id
+      # @param locale [Hash] a hash of supported locale-related parameters
       # @return [Response::Business] the parsed response object from the API
       #
       # @example Get business
@@ -33,6 +34,7 @@ module Yelp
       # and raises the relevant one if there is.
       #
       # @param id [String, Integer] the business id
+      # @param locale [Hash] a hash of supported locale-related parameters
       # @return [Faraday::Response] the raw response back from the connection
       def business_request(id, locale = {})
         result = @client.connection.get PATH + id, locale
