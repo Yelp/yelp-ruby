@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.yelp.com/v2/business/yelp-san-francisco?lang=fr
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Authorization:
+      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="6eb6de8df6010e234ced9f23251a1504",
+        oauth_signature="Pad7yjs1LriaUU2FP6eB6t2R3eQ%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1458591358", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 21 Mar 2016 20:15:59 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7e727899e57a184b3dd579782a22dbda1458591358; expires=Tue, 21-Mar-17
+        20:15:58 GMT; path=/; domain=.yelp.com; HttpOnly
+      - bse=2b976b9f4722ec3eaee7649b1330e617; Domain=.yelp.com; Path=/; HttpOnly
+      - yuv=yPVXCeozEMoibD_fT0zxXiN4X46CVbvNrykpeM_iIPJ_IZQqdsXz9Owjx9qrT3hYmBwMHHNL1mf_BdNYAuO2aWFmLIObp0eB;
+        Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Sun, 16-Mar-2036 20:15:58
+        GMT
+      X-Node:
+      - api_com
+      - web7-r1-sfo2
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      Expires:
+      - Mon, 21 Mar 2016 20:15:58 GMT
+      Pragma:
+      - no-cache
+      Vary:
+      - Accept-Encoding,User-Agent
+      X-Mode:
+      - ro
+      X-Proxied:
+      - extlb8-r11-sfo2
+      Cf-Ray:
+      - 28741438b12f1e9b-SJC
+    body:
+      encoding: UTF-8
+      string: '{"is_claimed": true, "rating": 2.5, "mobile_url": "http://m.yelp.fr/biz/yelp-san-francisco?utm_campaign=yelp_api\u0026utm_medium=api_v2_business\u0026utm_source=<YELP_CONSUMER_KEY>",
+        "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+        "review_count": 8091, "name": "Yelp", "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+        "url": "http://www.yelp.fr/biz/yelp-san-francisco?utm_campaign=yelp_api\u0026utm_medium=api_v2_business\u0026utm_source=<YELP_CONSUMER_KEY>",
+        "categories": [["Couleur locale", "localflavor"], ["M\u00e9dia", "massmedia"]],
+        "reviews": [{"rating": 5, "excerpt": "I needed help with my business listing,  I
+        spoke to Joel Baerra and he was a big help.  There was a difficulty with my
+        business page.  Joel did his very...", "time_created": 1458252608, "rating_image_url":
+        "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "rating_image_small_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "user": {"image_url": "http://s3-media4.fl.yelpcdn.com/photo/zeM4J1h3AjeYFVyTeBRElQ/ms.jpg",
+        "id": "0dVrwVNTr-3KiC_-32O02g", "name": "Francis B."}, "rating_image_large_url":
+        "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "Q_YCvhSFLeW3uDn5bz0iwA"}], "phone": "+14159083801", "snippet_text":
+        "Yelp m\u00e9rite ais\u00e9ment 5 \u00e9toiles !\n\nCe site permet de faire
+        de belles d\u00e9couvertes et de donner son avis sur tout, les commentaires
+        donn\u00e9s par les autres...", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/nQK-6_vZMt5n88zsAS94ew/ms.jpg",
+        "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/2AnuU_tbyu9IoSI7LwJ8QA/ms.jpg",
+        "display_phone": "+1-415-908-3801", "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+        "id": "yelp-san-francisco", "is_closed": false, "location": {"cross_streets":
+        "Natoma St \u0026 Minna St", "city": "San Francisco", "display_address": ["140
+        New Montgomery St", "Financial District", "San Francisco, CA 94105", "USA"],
+        "geo_accuracy": 9.5, "neighborhoods": ["Financial District", "SoMa"], "postal_code":
+        "94105", "country_code": "US", "address": ["140 New Montgomery St"], "coordinate":
+        {"latitude": 37.7867703362929, "longitude": -122.399958372115}, "state_code":
+        "CA"}}'
+    http_version: 
+  recorded_at: Mon, 21 Mar 2016 20:15:59 GMT
+recorded_with: VCR 2.9.3

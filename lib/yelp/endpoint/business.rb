@@ -14,14 +14,15 @@ module Yelp
       # Make a request to the business endpoint on the API
       #
       # @param id [String] the business id
+      # @param locale [Hash] a hash of supported locale-related parameters
       # @return [Response::Business] the parsed response object from the API
       #
       # @example Get business
       #   business = client.business('yelp-san-francisco')
       #   business.name # => 'Yelp'
       #   buinesss.url  # => 'http://www.yelp.com/biz/yelp-san-francisco'
-      def business(id)
-        Response::Business.new(JSON.parse(business_request(id).body))
+      def business(id, locale = {})
+        Response::Business.new(JSON.parse(business_request(id, locale).body))
       end
 
       private
@@ -33,9 +34,10 @@ module Yelp
       # and raises the relevant one if there is.
       #
       # @param id [String, Integer] the business id
+      # @param locale [Hash] a hash of supported locale-related parameters
       # @return [Faraday::Response] the raw response back from the connection
-      def business_request(id)
-        result = @client.connection.get PATH + id
+      def business_request(id, locale = {})
+        result = @client.connection.get PATH + id, locale
         Error.check_for_error(result)
         result
       end
