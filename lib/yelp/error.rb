@@ -54,7 +54,7 @@ module Yelp
     class AlreadyConfigured < Base
       def initialize(msg = 'Gem cannot be reconfigured.  Initialize a new ' +
           'instance of Yelp::Client.', error=nil)
-      super
+        super
       end
     end
 
