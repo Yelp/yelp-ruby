@@ -47,6 +47,7 @@ module Yelp
 
     class Base < StandardError
       def initialize(msg,error=nil)
+        super(msg)
       end
     end
 
@@ -76,9 +77,15 @@ module Yelp
     end
 
     class InvalidParameter < Base
+      attr_reader :text, :field 
+
       def initialize(msg='One or more parameters were invalid', error=nil)
-        msg = msg + ': ' + error['field'] unless error.nil?
-        super
+        unless error.nil?
+          @text = error['text']
+          @field = error['field']
+          msg = msg + ': ' + @field
+        end
+        super(msg,error)
       end
     end
 
