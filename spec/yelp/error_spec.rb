@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Yelp::Error do
-  context '#from_request' do
+  context 'from_request' do
     let(:response_body) { "{\"error\": {\"text\": \"error message\", \"id\": \"INTERNAL_ERROR\"}}" }
     let(:good_response) { double('response', status: 200) }
     let(:bad_response)  { double('response', status: 400, body: response_body) }
