@@ -6,7 +6,7 @@ describe Yelp::Response::Base do
 
     subject(:base) { Yelp::Response::Base.new(json) }
 
-    it { should be_a(Yelp::Response::Base) }
+    it { is_expected.to be_a Yelp::Response::Base }
 
     it 'should create variables' do
       expect(base.instance_variable_get('@a')).to eql 10
@@ -17,6 +17,6 @@ describe Yelp::Response::Base do
   describe '#initialize nil' do
     subject(:base) { Yelp::Response::Base.new(nil) }
 
-    it { should be_a(Yelp::Response::Base) }
+    it { is_expected.to be_a Yelp::Response::Base }
   end
 end
