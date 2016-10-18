@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Yelp::Error do
   context 'from_request' do
-    let(:response_body) { "{\"error\": {\"text\": \"error message\", \"id\": \"INTERNAL_ERROR\"}}" }
+    let(:response_body) { '{"error": {"text": "error message", "id": "INTERNAL_ERROR"}}' }
     let(:good_response) { double('response', status: 200) }
     let(:bad_response)  { double('response', status: 400, body: response_body) }
 
@@ -20,7 +20,7 @@ describe Yelp::Error do
   end
 
   context 'invalid parameter' do 
-    let(:response_body) { "{\"error\": {\"text\": \"One or more parameters are invalid in request\", \"id\": \"INVALID_PARAMETER\", \"field\": \"oauth_token\"}}" }
+    let(:response_body) { '{"error": {"text": "One or more parameters are invalid in request", "id": "INVALID_PARAMETER", "field": "oauth_token"}}' }
     let(:bad_response)  { double('response', status: 400, body: response_body) }
 
     it 'should raise an invalid response error' do 
@@ -34,9 +34,9 @@ describe Yelp::Error do
         Yelp::Error.check_for_error(bad_response)
       rescue Yelp::Error::InvalidParameter => e 
         # verifies that StandardError message attribute is available
-        expect(e.message).to eq("One or more parameters are invalid in request: oauth_token")
+        expect(e.message).to eq('One or more parameters are invalid in request: oauth_token')
         # verifies that we can get access to the specific field that was invalid
-        expect(e.field).to eq("oauth_token")
+        expect(e.field).to eq('oauth_token')
       end        
     end
 
