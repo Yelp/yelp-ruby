@@ -44,7 +44,7 @@ describe Yelp::Client do
 
       it 'should set the configuration values' do
         valid_api_keys.each do |key, value|
-          expect(client.configuration.send(key)).to eql(value)
+          expect(client.configuration.send(key)).to eq(value)
         end
       end
 

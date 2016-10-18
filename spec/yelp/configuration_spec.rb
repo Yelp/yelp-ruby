@@ -10,13 +10,13 @@ describe Yelp::Configuration do
     subject { configuration }
 
     Yelp::Configuration::AUTH_KEYS.each do |auth_key|
-      its(auth_key) { should eql(api_keys[auth_key]) }
+      its(auth_key) { is_expected.to eq api_keys[auth_key] }
     end
   end
 
   describe '#auth_keys' do
     subject { configuration.auth_keys }
-    it { should eql(api_keys) }
+    it { is_expected.to eq api_keys }
   end
 
   describe "#valid?" do
