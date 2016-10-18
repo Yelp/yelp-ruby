@@ -12,11 +12,15 @@ describe Yelp::Response::Base do
       expect(base.instance_variable_get(:@a)).to eq 10
       expect(base.instance_variable_get(:@b)).to eq 20
     end
-  end
 
-  describe '#initialize nil' do
-    subject(:base) { Yelp::Response::Base.new(nil) }
+    context 'when json is nil' do
+      let(:json) { nil }
 
-    it { is_expected.to be_a Yelp::Response::Base }
+      it { is_expected.to be_a Yelp::Response::Base }
+
+      it 'should not have variables' do
+        expect(base.instance_variable_get(:@a)).to be nil
+      end
+    end
   end
 end
