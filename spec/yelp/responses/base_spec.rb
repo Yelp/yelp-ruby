@@ -4,7 +4,7 @@ describe Yelp::Response::Base do
   describe '#initialize' do
     let(:json) { {'a' => 10, 'b' => 20} }
 
-    subject(:base) { base = Yelp::Response::Base.new(json) }
+    subject(:base) { Yelp::Response::Base.new(json) }
 
     it { should be_a(Yelp::Response::Base) }
 
