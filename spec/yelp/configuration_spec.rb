@@ -19,24 +19,24 @@ describe Yelp::Configuration do
     it { is_expected.to eq api_keys }
   end
 
-  describe "#valid?" do
+  describe '#valid?' do
     subject { configuration.valid? }
 
-    context "when keys are valid" do
+    context 'when keys are valid' do
       it { is_expected.to be true }
     end
 
-    context "when keys are not set" do
+    context 'when keys are not set' do
       let(:api_keys) { Hash.new }
       it { is_expected.to be false }
     end
 
-    context "when a key is an empty string" do
+    context 'when a key is an empty string' do
       let(:api_keys) { valid_api_keys.merge(consumer_key: '') }
       it { is_expected.to be false }
     end
 
-    context "when a key is nil" do
+    context 'when a key is nil' do
       let(:api_keys) { valid_api_keys.merge(token: nil) }
       it { is_expected.to be false }
     end
