@@ -16,8 +16,8 @@ describe Yelp::Client do
     subject { client }
 
     context 'with valid configuration' do
-      its(:configuration) { should be_a(Yelp::Configuration) }
-      its(:configuration) { should be_frozen }
+      its(:configuration) { is_expected.to be_a Yelp::Configuration }
+      its(:configuration) { is_expected.to be_frozen }
 
       it 'should not be reconfigurable' do
         expect {
@@ -44,7 +44,7 @@ describe Yelp::Client do
 
       it 'should set the configuration values' do
         valid_api_keys.each do |key, value|
-          expect(client.configuration.send(key)).to eql(value)
+          expect(client.configuration.send(key)).to eq(value)
         end
       end
 
@@ -52,8 +52,8 @@ describe Yelp::Client do
         expect { configure_client_with_api_keys(valid_api_keys) }.to raise_error
       end
 
-      it { should be_a(Yelp::Configuration) }
-      it { should be_frozen }
+      it { is_expected.to be_a Yelp::Configuration }
+      it { is_expected.to be_frozen }
     end
 
     context 'with invalid configuration' do
