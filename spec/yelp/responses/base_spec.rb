@@ -9,8 +9,8 @@ describe Yelp::Response::Base do
     it { is_expected.to be_a Yelp::Response::Base }
 
     it 'should create variables' do
-      expect(base.instance_variable_get('@a')).to eq 10
-      expect(base.instance_variable_get('@b')).to eq 20
+      expect(base.instance_variable_get(:@a)).to eq 10
+      expect(base.instance_variable_get(:@b)).to eq 20
     end
   end
 
