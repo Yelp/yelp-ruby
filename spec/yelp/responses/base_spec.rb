@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Yelp::Response::Base do
   describe '#initialize' do
-    let(:json) { Hash['a' => 10, 'b' => 20] }
+    let(:json) { {'a' => 10, 'b' => 20} }
 
     subject(:base) { base = Yelp::Response::Base.new(json) }
 
