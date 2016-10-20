@@ -6,7 +6,7 @@ describe Yelp::Endpoint::Business do
   let(:api_keys) { real_api_keys }
   let(:business) { 'yelp-san-francisco' }
   let(:client) { Yelp::Client.new(api_keys) }
-  let(:locale) { Hash[lang: 'fr'] }
+  let(:locale) { {lang: 'fr'} }
 
   describe '#business' do
     subject {
