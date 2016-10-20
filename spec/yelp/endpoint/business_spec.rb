@@ -18,18 +18,18 @@ describe Yelp::Endpoint::Business do
     it { should be_a(Yelp::Response::Business) }
     its('business.name') { should eql('Yelp') }
     its('business.url') { should include('yelp.com') }
-  end
 
-  describe '#business locale' do
-    subject {
-      VCR.use_cassette('business_locale') do
-        client.business(business, locale)
-      end
-    }
+    context 'with locale' do
+      subject {
+        VCR.use_cassette('business_locale') do
+          client.business(business, locale)
+        end
+      }
 
-    it { should be_a(Yelp::Response::Business) }
-    its('business.name') { should eql('Yelp') }
-    its('business.url') { should include('yelp.fr') }
+      it { should be_a(Yelp::Response::Business) }
+      its('business.name') { should eql('Yelp') }
+      its('business.url') { should include('yelp.fr') }
+    end
   end
 
   describe 'errors' do
