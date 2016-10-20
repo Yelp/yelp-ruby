@@ -16,6 +16,7 @@ describe Yelp::Endpoint::Search do
     }
 
     it { is_expected.to be_a(Yelp::Response::Search) }
+
     it 'should get results' do
       expect(results.businesses.size).to be > 0
     end
@@ -57,6 +58,10 @@ describe Yelp::Endpoint::Search do
   end
 
   describe 'errors' do
+    it_behaves_like 'a request error' do
+      let(:request) { client.search(location) }
+    end
+
     context 'search' do
       it 'raises when #search_by_coordinates params are empty' do
         expect { client.search_by_coordinates({}, params) }.to raise_error(Yelp::Error::MissingLatLng)
@@ -67,8 +72,5 @@ describe Yelp::Endpoint::Search do
       end
     end
 
-    it_behaves_like 'a request error' do
-      let(:request) { client.search(location) }
-    end
   end
 end
