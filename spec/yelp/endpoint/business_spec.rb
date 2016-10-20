@@ -16,7 +16,7 @@ describe Yelp::Endpoint::Business do
     }
 
     it { is_expected.to be_a(Yelp::Response::Business) }
-    its('business.name') { is_expected.to eql('Yelp') }
+    its('business.name') { is_expected.to eq('Yelp') }
     its('business.url') { is_expected.to include('yelp.com') }
 
     context 'with locale' do
@@ -27,7 +27,7 @@ describe Yelp::Endpoint::Business do
       }
 
       it { is_expected.to be_a(Yelp::Response::Business) }
-      its('business.name') { is_expected.to eql('Yelp') }
+      its('business.name') { is_expected.to eq('Yelp') }
       its('business.url') { is_expected.to include('yelp.fr') }
     end
   end
