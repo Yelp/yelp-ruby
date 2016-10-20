@@ -21,7 +21,7 @@ describe Yelp::Endpoint::Search do
     end
   end
 
-  describe '#search_bounding_box' do
+  describe '#search_by_bounding_box' do
     let(:bounding_box) {
       {
         sw_latitude: 37.7577,
