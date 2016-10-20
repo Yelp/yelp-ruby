@@ -5,7 +5,7 @@ describe Yelp::Endpoint::PhoneSearch do
 
   let(:api_keys) { real_api_keys }
   let(:phone) { '+14159083801' }
-  let(:options) { { code: 'US', category: 'localflavor' } }
+  let(:options) { {code: 'US', category: 'localflavor'} }
   let(:client) { Yelp::Client.new(api_keys) }
 
   describe '#phone_search' do
@@ -16,6 +16,7 @@ describe Yelp::Endpoint::PhoneSearch do
     }
 
     it { should be_a(Yelp::Response::PhoneSearch) }
+
     it 'should get results' do
       expect(results.businesses.size).to be > 0
     end
