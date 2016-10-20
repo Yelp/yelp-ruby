@@ -5,8 +5,7 @@ describe Yelp::Endpoint::Search do
 
   let(:api_keys) { real_api_keys }
   let(:location) { 'San Francisco' }
-  let(:params) { Hash[term: 'restaurants',
-                      category_filter: 'discgolf'] }
+  let(:params) { {term: 'restaurants', category_filter: 'discgolf'} }
   let(:client) { Yelp::Client.new(api_keys) }
 
   describe '#search' do
@@ -23,10 +22,14 @@ describe Yelp::Endpoint::Search do
   end
 
   describe '#search_bounding_box' do
-    let(:bounding_box) { Hash[sw_latitude: 37.7577,
-                              sw_longitude: -122.4376,
-                              ne_latitude: 37.785381,
-                              ne_longitude: -122.391681] }
+    let(:bounding_box) {
+      {
+        sw_latitude: 37.7577,
+        sw_longitude: -122.4376,
+        ne_latitude: 37.785381,
+        ne_longitude: -122.391681,
+      }
+    }
 
     subject(:results) {
       VCR.use_cassette('search_bounding_box') do
@@ -40,8 +43,7 @@ describe Yelp::Endpoint::Search do
   end
 
   describe '#search_by_coordinates' do
-    let(:coordinates) { Hash[latitude: 37.7577,
-                             longitude: -122.4376] }
+    let(:coordinates) { {latitude: 37.7577, longitude: -122.4376} }
 
     subject(:results) {
       VCR.use_cassette('search_by_coordinates') do
