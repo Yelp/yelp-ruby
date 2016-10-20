@@ -15,7 +15,7 @@ describe Yelp::Endpoint::PhoneSearch do
       end
     }
 
-    it { should be_a(Yelp::Response::PhoneSearch) }
+    it { is_expected.to be_a(Yelp::Response::PhoneSearch) }
 
     it 'should get results' do
       expect(results.businesses.size).to be > 0
