@@ -40,5 +40,19 @@ describe Yelp::Error do
       end        
     end
 
+    context 'when the API returns the error description' do
+      let(:response_body) { '{"error": {"text": "One or more parameters are invalid in request", "id": "INVALID_PARAMETER", "field": "limit", "description": "Limit maximum is 20"}}' }
+
+      it 'should expose more details about the invalid parameter' do
+        begin
+          Yelp::Error.check_for_error(bad_response)
+        rescue Yelp::Error::InvalidParameter => e
+          # verifies that StandardError message attribute is available
+          expect(e.message).to eq('One or more parameters are invalid in request: limit. Description: Limit maximum is 20')
+          expect(e.field).to eq('limit')
+
+        end
+      end
+    end
   end
 end
