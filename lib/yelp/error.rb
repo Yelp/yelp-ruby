@@ -83,7 +83,8 @@ module Yelp
         unless error.nil?
           @text = error['text']
           @field = error['field']
-          msg = msg + ': ' + @field
+          description = error.has_key?('description') ? '. Description: ' + error['description'] : ''
+          msg = msg + ': ' + @field + description
         end
         super(msg,error)
       end
