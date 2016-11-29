@@ -1,3 +1,4 @@
+require 'erb'
 require 'json'
 
 require 'yelp/responses/business'
@@ -37,7 +38,7 @@ module Yelp
       # @param locale [Hash] a hash of supported locale-related parameters
       # @return [Faraday::Response] the raw response back from the connection
       def business_request(id, locale = {})
-        result = @client.connection.get PATH + id, locale
+        result = @client.connection.get PATH + ERB::Util.url_encode(id), locale
         Error.check_for_error(result)
         result
       end
