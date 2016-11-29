@@ -17,7 +17,7 @@ module Yelp
       # Take a search_request and return the formatted/structured
       # response from the API
       #
-      # @param location [String] a string location of the neighboorhood,
+      # @param location [String] a string location of the neighborhood,
       #   address, or city
       # @param params [Hash] a hash that corresponds to params on the API:
       #   http://www.yelp.com/developers/documentation/v2/search_api#searchGP
