@@ -30,14 +30,12 @@ describe Yelp::Error do
     end
 
     it 'should expose the field parameter' do 
-      begin
+      expect{
         Yelp::Error.check_for_error(bad_response)
-      rescue Yelp::Error::InvalidParameter => e 
-        # verifies that StandardError message attribute is available
-        expect(e.message).to eq('One or more parameters are invalid in request: oauth_token')
-        # verifies that we can get access to the specific field that was invalid
-        expect(e.field).to eq('oauth_token')
-      end        
+      }.to raise_error { |error|
+        error.message.should eq('One or more parameters are invalid in request: oauth_token')
+        error.field.should eq('oauth_token')
+      }
     end
 
     context 'when the API returns the error description' do
