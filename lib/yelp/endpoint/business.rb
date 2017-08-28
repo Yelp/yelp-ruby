@@ -6,7 +6,7 @@ require 'yelp/responses/business'
 module Yelp
   module Endpoint
     class Business
-      PATH = '/v2/business/'
+      PATH = '/v3/business/'
 
       def initialize(client)
         @client = client

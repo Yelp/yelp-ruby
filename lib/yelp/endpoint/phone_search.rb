@@ -5,7 +5,7 @@ require 'yelp/responses/phone_search'
 module Yelp
   module Endpoint
     class PhoneSearch
-      PATH = '/v2/phone_search/'
+      PATH = '/v3/phone_search/'
 
       def initialize(client)
         @client = client
