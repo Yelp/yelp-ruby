@@ -5,7 +5,7 @@ require 'yelp/responses/search'
 module Yelp
   module Endpoint
     class Search
-      PATH = '/v3/search'
+      PATH = '/v3/businesses/search'
 
       BOUNDING_BOX = [:sw_latitude, :sw_longitude, :ne_latitude, :ne_longitude]
       COORDINATES  = [:latitude, :longitude, :accuracy, :altitude, :altitude_accuracy]
@@ -166,6 +166,7 @@ module Yelp
       # @return [Faraday::Response] the raw response back from the connection
       def search_request(params)
         result = @client.connection.get PATH, params
+        puts result.body
         Error.check_for_error(result)
         result
       end

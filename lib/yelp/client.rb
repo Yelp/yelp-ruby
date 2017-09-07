@@ -10,6 +10,7 @@ require 'yelp/endpoint/search'
 module Yelp
   class Client
     API_HOST  = 'https://api.yelp.com'
+    TOKEN_PATH = '/oauth2/token'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business,
                         Yelp::Endpoint::PhoneSearch]
@@ -22,6 +23,7 @@ module Yelp
     # @return [Client] a new client initialized with the keys
     def initialize(options = nil)
       @configuration = nil
+      @token = nil
       define_request_methods
 
       unless options.nil?
@@ -64,15 +66,34 @@ module Yelp
     # API connection
     def connection
       return @connection if instance_variable_defined?(:@connection)
-
       check_api_keys
+      get_token
       @connection = Faraday.new(API_HOST) do |conn|
         # Use the Faraday OAuth middleware for OAuth 1.0 requests
-        conn.request :oauth, @configuration.auth_keys
+        conn.authorization :Bearer, "#{@token}"
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http
       end
+    end
+
+    def get_token
+      return @token if !@token.nil?
+      puts "here"
+      
+      
+      _p = {
+        client_id: @configuration.client_id,
+        client_secret: @configuration.client_secret,
+        grant_type: "client_credentials"
+      }
+      conn = Faraday.new("#{API_HOST}#{TOKEN_PATH}") do |faraday|
+        faraday.request :url_encoded
+        faraday.adapter :net_http
+      end
+        
+      res = conn.post('', _p).body
+      @token = JSON.parse(res)['access_token']
     end
 
     private
@@ -102,5 +123,7 @@ module Yelp
         instance.public_send(method_name, *args)
       end
     end
+      
+
   end
 end
