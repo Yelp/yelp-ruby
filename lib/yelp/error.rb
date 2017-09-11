@@ -24,8 +24,8 @@ module Yelp
       # @return [Yelp::Error::Base] exception corresponding to API error
       def error_from_response(response)
         body = JSON.parse(response.body)
-        klass = error_classes[body['error']['id']]
-        klass.new(body['error']['text'], body['error'])
+        klass = error_classes[body['error']['code']]
+        klass.new(body['error']['description'], body['error'])
       end
 
       # Maps from API Error id's to Yelp::Error exception classes.
@@ -101,5 +101,6 @@ module Yelp
     class AreaTooLarge            < Base; end
     class MultipleLocations       < Base; end
     class BusinessUnavailable     < Base; end
+    class NotFound                < Base; end
   end
 end

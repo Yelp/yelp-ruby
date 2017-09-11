@@ -79,10 +79,8 @@ module Yelp
 
     def get_token
       return @token if !@token.nil?
-      puts "here"
-      
-      
-      _p = {
+
+      params = {
         client_id: @configuration.client_id,
         client_secret: @configuration.client_secret,
         grant_type: "client_credentials"
@@ -92,7 +90,7 @@ module Yelp
         faraday.adapter :net_http
       end
         
-      res = conn.post('', _p).body
+      res = conn.post('', params).body
       @token = JSON.parse(res)['access_token']
     end
 
