@@ -6,6 +6,7 @@ require 'yelp/error'
 require 'yelp/endpoint/business'
 require 'yelp/endpoint/phone_search'
 require 'yelp/endpoint/search'
+require 'yelp/endpoint/reviews'
 
 module Yelp
   class Client
@@ -13,7 +14,8 @@ module Yelp
     TOKEN_PATH = '/oauth2/token'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business,
-                        Yelp::Endpoint::PhoneSearch]
+                        Yelp::Endpoint::PhoneSearch,
+                        Yelp::Endpoint::Reviews]
 
     attr_reader :configuration
 
