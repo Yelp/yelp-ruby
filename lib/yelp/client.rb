@@ -6,13 +6,16 @@ require 'yelp/error'
 require 'yelp/endpoint/business'
 require 'yelp/endpoint/phone_search'
 require 'yelp/endpoint/search'
+require 'yelp/endpoint/review'
 
 module Yelp
   class Client
     API_HOST  = 'https://api.yelp.com'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business,
-                        Yelp::Endpoint::PhoneSearch]
+                        Yelp::Endpoint::PhoneSearch,
+                        Yelp::Endpoint::Review
+                      ]
 
     attr_reader :configuration
 
@@ -68,7 +71,10 @@ module Yelp
       check_api_keys
       @connection = Faraday.new(API_HOST) do |conn|
         # Use the Faraday OAuth middleware for OAuth 1.0 requests
-        conn.request :oauth, @configuration.auth_keys
+        # conn.request :oauth, @configuration.auth_keys
+
+        # Set the authorization headers
+        conn.authorization :Bearer, @configuration.auth_keys[:api_key]
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http

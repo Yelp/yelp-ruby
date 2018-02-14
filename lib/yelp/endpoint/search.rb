@@ -5,7 +5,7 @@ require 'yelp/responses/search'
 module Yelp
   module Endpoint
     class Search
-      PATH = '/v2/search'
+      PATH = '/v3/businesses/search'
 
       BOUNDING_BOX = [:sw_latitude, :sw_longitude, :ne_latitude, :ne_longitude]
       COORDINATES  = [:latitude, :longitude, :accuracy, :altitude, :altitude_accuracy]
