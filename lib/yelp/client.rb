@@ -68,7 +68,10 @@ module Yelp
       check_api_keys
       @connection = Faraday.new(API_HOST) do |conn|
         # Use the Faraday OAuth middleware for OAuth 1.0 requests
-        conn.request :oauth, @configuration.auth_keys
+        # conn.request :oauth, @configuration.auth_keys
+
+        # Set the authorization headers
+        conn.authorization :Bearer, @configuration.auth_keys[:api_key]
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http
