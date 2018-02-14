@@ -24,6 +24,8 @@ Or install it yourself as:
 
 ### Basic usage
 
+** NOTE ** This is a fork that adapts the old yelp-ruby to work with the v3 Fusion API and adds the reviews endpoint.
+
 The gem uses a client model to query against the API. You create and configure a client with your API keys and make requests through that.
 
 ```
@@ -44,10 +46,8 @@ use the gem with Rails, the client should be configured in an initializer.
 require 'yelp'
 
 Yelp.client.configure do |config|
-  config.consumer_key = YOUR_CONSUMER_KEY
-  config.consumer_secret = YOUR_CONSUMER_SECRET
-  config.token = YOUR_TOKEN
-  config.token_secret = YOUR_TOKEN_SECRET
+  config.client_id = ENV['YELP_CLIENT_ID']
+  config.api_key = ENV['YELP_API_KEY']
 end
 
 Yelp.client.search('San Francisco', { term: 'food' })

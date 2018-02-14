@@ -6,13 +6,16 @@ require 'yelp/error'
 require 'yelp/endpoint/business'
 require 'yelp/endpoint/phone_search'
 require 'yelp/endpoint/search'
+require 'yelp/endpoint/review'
 
 module Yelp
   class Client
     API_HOST  = 'https://api.yelp.com'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business,
-                        Yelp::Endpoint::PhoneSearch]
+                        Yelp::Endpoint::PhoneSearch,
+                        Yelp::Endpoint::Review
+                      ]
 
     attr_reader :configuration
 
