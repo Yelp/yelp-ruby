@@ -11,7 +11,6 @@ require 'yelp/endpoint/reviews'
 module Yelp
   class Client
     API_HOST  = 'https://api.yelp.com'
-    #TOKEN_PATH = '/oauth2/token'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business,
                         Yelp::Endpoint::PhoneSearch,
