@@ -11,7 +11,7 @@ require 'yelp/endpoint/reviews'
 module Yelp
   class Client
     API_HOST  = 'https://api.yelp.com'
-    TOKEN_PATH = '/oauth2/token'
+    #TOKEN_PATH = '/oauth2/token'
     REQUEST_CLASSES = [ Yelp::Endpoint::Search,
                         Yelp::Endpoint::Business,
                         Yelp::Endpoint::PhoneSearch,
@@ -20,8 +20,7 @@ module Yelp
     attr_reader :configuration
 
     # Creates an instance of the Yelp client
-    # @param options [Hash, nil] a hash of the consumer key, consumer
-    #   secret, token, and token secret
+    # @param options [Hash, nil] a hash of the auth_token
     # @return [Client] a new client initialized with the keys
     def initialize(options = nil)
       @configuration = nil
@@ -39,10 +38,7 @@ module Yelp
     # @raise [MissingAPIKeys] if the configuration is invalid
     # @example Simple configuration
     #   Yelp.client.configure do |config|
-    #     config.consumer_key = 'abc'
-    #     config.consumer_secret = 'def'
-    #     config.token = 'ghi'
-    #     config.token_secret = 'jkl'
+    #     config.auth_token = 'abc'
     #   end
     def configure
       raise Error::AlreadyConfigured unless @configuration.nil?
@@ -69,31 +65,13 @@ module Yelp
     def connection
       return @connection if instance_variable_defined?(:@connection)
       check_api_keys
-      get_token
       @connection = Faraday.new(API_HOST) do |conn|
         # Use the Faraday OAuth middleware for OAuth 1.0 requests
-        conn.authorization :Bearer, "#{@token}"
+        conn.authorization :Bearer, "#{@configuration.auth_token}"
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http
       end
-    end
-
-    def get_token
-      return @token if !@token.nil?
-
-      params = {
-        client_id: @configuration.client_id,
-        client_secret: @configuration.client_secret,
-        grant_type: "client_credentials"
-      }
-      conn = Faraday.new("#{API_HOST}#{TOKEN_PATH}") do |faraday|
-        faraday.request :url_encoded
-        faraday.adapter :net_http
-      end
-        
-      res = conn.post('', params).body
-      @token = JSON.parse(res)['access_token']
     end
 
     private
