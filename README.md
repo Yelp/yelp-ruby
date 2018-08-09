@@ -42,10 +42,7 @@ use the gem with Rails, the client should be configured in an initializer.
 require 'yelp'
 
 Yelp.client.configure do |config|
-  config.consumer_key = YOUR_CONSUMER_KEY
-  config.consumer_secret = YOUR_CONSUMER_SECRET
-  config.token = YOUR_TOKEN
-  config.token_secret = YOUR_TOKEN_SECRET
+  config.auth_token = YOUR_AUTH_TOKEN
 end
 
 Yelp.client.search('San Francisco', { term: 'food' })
