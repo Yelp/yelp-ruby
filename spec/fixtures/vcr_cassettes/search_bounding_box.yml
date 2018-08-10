@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.yelp.com/v2/search?bounds=37.7577,-122.4376%7C37.785381,-122.391681
+    uri: https://api.yelp.com/v3/businesses/search?bounds=37.7577,-122.4376%7C37.785381,-122.391681
     body:
       encoding: US-ASCII
       string: ''
@@ -10,9 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       Authorization:
-      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="fc03af74bd7b0aeae924dd77e6d3172a",
-        oauth_signature="5RMIYjCpscO7cmi%2Fut4zXUo4uc8%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1445634932", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      - Bearer PNp8vU41GuxtsYTC-Pe8vlxKHpJQTPxY7V2duBSrONZn8LAVf_2A_B483e_NxJwPoDl5IGSnMPiBFKZ3drwfHJGn7F-x5r6aNoGPbWvN1ZNSQBsG2aFW5uYNRuWwWXYx
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:

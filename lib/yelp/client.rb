@@ -49,7 +49,8 @@ module Yelp
 
     # Checks that all the keys needed were given
     def check_api_keys
-      if configuration.nil? || !configuration.valid?
+      if @configuration.nil? || !@configuration.valid?
+
         @configuration = nil
         raise Error::MissingAPIKeys
       else
@@ -66,7 +67,7 @@ module Yelp
       check_api_keys
       @connection = Faraday.new(API_HOST) do |conn|
         # Use the Faraday OAuth middleware for OAuth 1.0 requests
-        conn.authorization :Bearer, "#{@configuration.auth_token}"
+        conn.authorization :Bearer, "#{@configuration.api_key}"
 
         # Using default http library, had to specify to get working
         conn.adapter :net_http

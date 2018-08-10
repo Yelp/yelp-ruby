@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.yelp.com/v2/business/yelp-san-francisco
+    uri: https://api.yelp.com/v3/businesses/yelp-san-francisco
     body:
       encoding: US-ASCII
       string: ''
@@ -10,9 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       Authorization:
-      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="bf04bd00e56b2a626a911991aac75201",
-        oauth_signature="a48uevnfXQaPvPlZMqCJHAxO3uI%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1445634930", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      - Bearer PNp8vU41GuxtsYTC-Pe8vlxKHpJQTPxY7V2duBSrONZn8LAVf_2A_B483e_NxJwPoDl5IGSnMPiBFKZ3drwfHJGn7F-x5r6aNoGPbWvN1ZNSQBsG2aFW5uYNRuWwWXYx
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:

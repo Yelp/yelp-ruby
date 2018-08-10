@@ -32,12 +32,12 @@ describe Yelp::Configuration do
     end
 
     context 'when a key is an empty string' do
-      let(:api_keys) { valid_api_keys.merge(consumer_key: '') }
+      let(:api_keys) { valid_api_keys.merge(api_key: '') }
       it { is_expected.to be false }
     end
 
     context 'when a key is nil' do
-      let(:api_keys) { valid_api_keys.merge(token: nil) }
+      let(:api_keys) { valid_api_keys.merge(api_key: nil) }
       it { is_expected.to be false }
     end
   end

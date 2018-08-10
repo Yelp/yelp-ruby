@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.yelp.com/v2/phone_search/?category=localflavor&code=US&phone=%2B14159083801
+    uri: https://api.yelp.com/v3/businesses/search/phone?category=localflavor&code=US&phone=%2B14159083801
     body:
       encoding: US-ASCII
       string: ''
@@ -10,9 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       Authorization:
-      - OAuth oauth_consumer_key="<YELP_CONSUMER_KEY>", oauth_nonce="5b8d9faacf0dc4c2f2cbb3ed904c9f55",
-        oauth_signature="0UlCkZ1QfOAwkgwigX70CgEbQws%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1445634931", oauth_token="<YELP_TOKEN>", oauth_version="1.0"
+      - Bearer PNp8vU41GuxtsYTC-Pe8vlxKHpJQTPxY7V2duBSrONZn8LAVf_2A_B483e_NxJwPoDl5IGSnMPiBFKZ3drwfHJGn7F-x5r6aNoGPbWvN1ZNSQBsG2aFW5uYNRuWwWXYx
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
