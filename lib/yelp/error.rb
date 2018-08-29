@@ -102,5 +102,6 @@ module Yelp
     class MultipleLocations       < Base; end
     class BusinessUnavailable     < Base; end
     class NotFound                < Base; end
+    class ValidationError         < Base; end
   end
 end
