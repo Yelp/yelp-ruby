@@ -134,7 +134,7 @@ module Yelp
         raise Error::MissingLatLng if coordinates[:latitude].nil? ||
             coordinates[:longitude].nil?
 
-        options = { ll: build_coordinates_string(coordinates) }
+        options = coordinates
         options.merge!(params)
         options.merge!(locale)
 
