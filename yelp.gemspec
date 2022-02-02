@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 1.17', '>= 1.17.0'
   spec.add_development_dependency 'yard', '~> 0.9.11'
 
-  spec.add_runtime_dependency 'faraday', '~> 0.8', '>= 0.8.0'
-  spec.add_runtime_dependency 'faraday_middleware', '~> 0.8', '>= 0.8.0'
+  spec.add_runtime_dependency 'faraday', '<= 1.0.0'
+  spec.add_runtime_dependency 'faraday_middleware'
   spec.add_runtime_dependency 'simple_oauth', '~> 0.3.1'
 end

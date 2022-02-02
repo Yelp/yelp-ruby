@@ -1,3 +1,3 @@
 module Yelp
-  VERSION = "2.1.4"
+  VERSION = "1.0.0"
 end
