@@ -29,16 +29,21 @@ describe Yelp::Error do
       }.to raise_error(Yelp::Error::InvalidParameter)
     end
 
-    it 'should expose the field parameter' do 
-      begin
+    it 'should expose the field parameter' do
+      expect {
         Yelp::Error.check_for_error(bad_response)
-      rescue Yelp::Error::InvalidParameter => e 
-        # verifies that StandardError message attribute is available
-        expect(e.message).to eq('One or more parameters are invalid in request: oauth_token')
-        # verifies that we can get access to the specific field that was invalid
-        expect(e.field).to eq('oauth_token')
-      end        
+      }.to raise_error ('One or more parameters are invalid in request: oauth_token')
+
     end
 
+    context 'when the API returns the error description' do
+      let(:response_body) { '{"error": {"text": "One or more parameters are invalid in request", "id": "INVALID_PARAMETER", "field": "limit", "description": "Limit maximum is 20"}}' }
+
+      it 'should expose more details about the invalid parameter' do
+        expect {
+          Yelp::Error.check_for_error(bad_response)
+        }.to raise_error ('One or more parameters are invalid in request: limit. Description: Limit maximum is 20')
+      end
+    end
   end
 end
